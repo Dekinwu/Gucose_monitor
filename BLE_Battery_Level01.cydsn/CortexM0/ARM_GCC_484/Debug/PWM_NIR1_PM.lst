@@ -1,0 +1,924 @@
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"PWM_NIR1_PM.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.bss
+  18              		.align	2
+  19              	PWM_NIR1_backup:
+  20 0000 00000000 		.space	4
+  21              		.section	.text.PWM_NIR1_SaveConfig,"ax",%progbits
+  22              		.align	2
+  23              		.global	PWM_NIR1_SaveConfig
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	PWM_NIR1_SaveConfig, %function
+  27              	PWM_NIR1_SaveConfig:
+  28              	.LFB2:
+  29              		.file 1 ".\\Generated_Source\\PSoC4\\PWM_NIR1_PM.c"
+   1:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * File Name: PWM_NIR1_PM.c
+   3:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Version 3.10
+   4:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+   5:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Description:
+   6:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  This file provides the power management source code to API for the
+   7:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  PWM.
+   8:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+   9:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Note:
+  10:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  11:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  18:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** #include "PWM_NIR1.h"
+  19:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  20:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** static PWM_NIR1_backupStruct PWM_NIR1_backup;
+  21:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  22:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  23:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** /*******************************************************************************
+  24:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Function Name: PWM_NIR1_SaveConfig
+  25:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** ********************************************************************************
+  26:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  27:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Summary:
+  28:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  Saves the current user configuration of the component.
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 2
+
+
+  29:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  30:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Parameters:
+  31:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+  32:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  33:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Return:
+  34:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+  35:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  36:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Global variables:
+  37:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  PWM_NIR1_backup:  Variables of this global structure are modified to
+  38:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  39:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  called.
+  40:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  41:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** void PWM_NIR1_SaveConfig(void) 
+  43:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** {
+  30              		.loc 1 43 0
+  31              		.cfi_startproc
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  44:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  45:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     #if(!PWM_NIR1_UsingFixedFunction)
+  46:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if(!PWM_NIR1_PWMModeIsCenterAligned)
+  47:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.PWMPeriod = PWM_NIR1_ReadPeriod();
+  38              		.loc 1 47 0
+  39 0004 FFF7FEFF 		bl	PWM_NIR1_ReadPeriod
+  40 0008 031C     		mov	r3, r0
+  41 000a 1A1C     		mov	r2, r3
+  42 000c 074B     		ldr	r3, .L2
+  43 000e 9A70     		strb	r2, [r3, #2]
+  48:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif /* (!PWM_NIR1_PWMModeIsCenterAligned) */
+  49:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         PWM_NIR1_backup.PWMUdb = PWM_NIR1_ReadCounter();
+  44              		.loc 1 49 0
+  45 0010 FFF7FEFF 		bl	PWM_NIR1_ReadCounter
+  46 0014 031C     		mov	r3, r0
+  47 0016 1A1C     		mov	r2, r3
+  48 0018 044B     		ldr	r3, .L2
+  49 001a 5A70     		strb	r2, [r3, #1]
+  50:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if (PWM_NIR1_UseStatus)
+  51:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.InterruptMaskValue = PWM_NIR1_STATUS_MASK;
+  52:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif /* (PWM_NIR1_UseStatus) */
+  53:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  54:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if(PWM_NIR1_DeadBandMode == PWM_NIR1__B_PWM__DBM_256_CLOCKS || \
+  55:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_DeadBandMode == PWM_NIR1__B_PWM__DBM_2_4_CLOCKS)
+  56:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.PWMdeadBandValue = PWM_NIR1_ReadDeadTime();
+  57:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  59:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if(PWM_NIR1_KillModeMinTime)
+  60:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****              PWM_NIR1_backup.PWMKillCounterPeriod = PWM_NIR1_ReadKillTime();
+  61:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif /* (PWM_NIR1_KillModeMinTime) */
+  62:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  63:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if(PWM_NIR1_UseControl)
+  64:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.PWMControlRegister = PWM_NIR1_ReadControlRegister();
+  50              		.loc 1 64 0
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 3
+
+
+  51 001c FFF7FEFF 		bl	PWM_NIR1_ReadControlRegister
+  52 0020 031C     		mov	r3, r0
+  53 0022 1A1C     		mov	r2, r3
+  54 0024 014B     		ldr	r3, .L2
+  55 0026 DA70     		strb	r2, [r3, #3]
+  65:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif /* (PWM_NIR1_UseControl) */
+  66:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     #endif  /* (!PWM_NIR1_UsingFixedFunction) */
+  67:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** }
+  56              		.loc 1 67 0
+  57 0028 BD46     		mov	sp, r7
+  58              		@ sp needed
+  59 002a 80BD     		pop	{r7, pc}
+  60              	.L3:
+  61              		.align	2
+  62              	.L2:
+  63 002c 00000000 		.word	PWM_NIR1_backup
+  64              		.cfi_endproc
+  65              	.LFE2:
+  66              		.size	PWM_NIR1_SaveConfig, .-PWM_NIR1_SaveConfig
+  67              		.section	.text.PWM_NIR1_RestoreConfig,"ax",%progbits
+  68              		.align	2
+  69              		.global	PWM_NIR1_RestoreConfig
+  70              		.code	16
+  71              		.thumb_func
+  72              		.type	PWM_NIR1_RestoreConfig, %function
+  73              	PWM_NIR1_RestoreConfig:
+  74              	.LFB3:
+  68:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  69:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  70:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** /*******************************************************************************
+  71:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Function Name: PWM_NIR1_RestoreConfig
+  72:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** ********************************************************************************
+  73:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  74:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Summary:
+  75:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  Restores the current user configuration of the component.
+  76:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  77:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Parameters:
+  78:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+  79:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  80:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Return:
+  81:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+  82:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  83:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Global variables:
+  84:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  PWM_NIR1_backup:  Variables of this global structure are used to
+  85:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  86:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+  87:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *******************************************************************************/
+  88:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** void PWM_NIR1_RestoreConfig(void) 
+  89:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** {
+  75              		.loc 1 89 0
+  76              		.cfi_startproc
+  77 0000 80B5     		push	{r7, lr}
+  78              		.cfi_def_cfa_offset 8
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 14, -4
+  81 0002 00AF     		add	r7, sp, #0
+  82              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 4
+
+
+  90:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #if(!PWM_NIR1_UsingFixedFunction)
+  91:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #if(!PWM_NIR1_PWMModeIsCenterAligned)
+  92:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_WritePeriod(PWM_NIR1_backup.PWMPeriod);
+  83              		.loc 1 92 0
+  84 0004 084B     		ldr	r3, .L5
+  85 0006 9B78     		ldrb	r3, [r3, #2]
+  86 0008 181C     		mov	r0, r3
+  87 000a FFF7FEFF 		bl	PWM_NIR1_WritePeriod
+  93:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #endif /* (!PWM_NIR1_PWMModeIsCenterAligned) */
+  94:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  95:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_WriteCounter(PWM_NIR1_backup.PWMUdb);
+  88              		.loc 1 95 0
+  89 000e 064B     		ldr	r3, .L5
+  90 0010 5B78     		ldrb	r3, [r3, #1]
+  91 0012 181C     		mov	r0, r3
+  92 0014 FFF7FEFF 		bl	PWM_NIR1_WriteCounter
+  96:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+  97:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #if (PWM_NIR1_UseStatus)
+  98:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_STATUS_MASK = PWM_NIR1_backup.InterruptMaskValue;
+  99:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #endif /* (PWM_NIR1_UseStatus) */
+ 100:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 101:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #if(PWM_NIR1_DeadBandMode == PWM_NIR1__B_PWM__DBM_256_CLOCKS || \
+ 102:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_DeadBandMode == PWM_NIR1__B_PWM__DBM_2_4_CLOCKS)
+ 103:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_WriteDeadTime(PWM_NIR1_backup.PWMdeadBandValue);
+ 104:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 105:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 106:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #if(PWM_NIR1_KillModeMinTime)
+ 107:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_WriteKillTime(PWM_NIR1_backup.PWMKillCounterPeriod);
+ 108:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #endif /* (PWM_NIR1_KillModeMinTime) */
+ 109:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 110:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #if(PWM_NIR1_UseControl)
+ 111:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****                 PWM_NIR1_WriteControlRegister(PWM_NIR1_backup.PWMControlRegister);
+  93              		.loc 1 111 0
+  94 0018 034B     		ldr	r3, .L5
+  95 001a DB78     		ldrb	r3, [r3, #3]
+  96 001c 181C     		mov	r0, r3
+  97 001e FFF7FEFF 		bl	PWM_NIR1_WriteControlRegister
+ 112:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             #endif /* (PWM_NIR1_UseControl) */
+ 113:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         #endif  /* (!PWM_NIR1_UsingFixedFunction) */
+ 114:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     }
+  98              		.loc 1 114 0
+  99 0022 BD46     		mov	sp, r7
+ 100              		@ sp needed
+ 101 0024 80BD     		pop	{r7, pc}
+ 102              	.L6:
+ 103 0026 C046     		.align	2
+ 104              	.L5:
+ 105 0028 00000000 		.word	PWM_NIR1_backup
+ 106              		.cfi_endproc
+ 107              	.LFE3:
+ 108              		.size	PWM_NIR1_RestoreConfig, .-PWM_NIR1_RestoreConfig
+ 109              		.section	.text.PWM_NIR1_Sleep,"ax",%progbits
+ 110              		.align	2
+ 111              		.global	PWM_NIR1_Sleep
+ 112              		.code	16
+ 113              		.thumb_func
+ 114              		.type	PWM_NIR1_Sleep, %function
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 5
+
+
+ 115              	PWM_NIR1_Sleep:
+ 116              	.LFB4:
+ 115:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 116:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 117:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** /*******************************************************************************
+ 118:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Function Name: PWM_NIR1_Sleep
+ 119:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** ********************************************************************************
+ 120:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 121:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Summary:
+ 122:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  Disables block's operation and saves the user configuration. Should be called
+ 123:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  just prior to entering sleep.
+ 124:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 125:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Parameters:
+ 126:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+ 127:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 128:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Return:
+ 129:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+ 130:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 131:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Global variables:
+ 132:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  PWM_NIR1_backup.PWMEnableState:  Is modified depending on the enable
+ 133:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  state of the block before entering sleep mode.
+ 134:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 135:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *******************************************************************************/
+ 136:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** void PWM_NIR1_Sleep(void) 
+ 137:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** {
+ 117              		.loc 1 137 0
+ 118              		.cfi_startproc
+ 119 0000 80B5     		push	{r7, lr}
+ 120              		.cfi_def_cfa_offset 8
+ 121              		.cfi_offset 7, -8
+ 122              		.cfi_offset 14, -4
+ 123 0002 00AF     		add	r7, sp, #0
+ 124              		.cfi_def_cfa_register 7
+ 138:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     #if(PWM_NIR1_UseControl)
+ 139:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         if(PWM_NIR1_CTRL_ENABLE == (PWM_NIR1_CONTROL & PWM_NIR1_CTRL_ENABLE))
+ 125              		.loc 1 139 0
+ 126 0004 094B     		ldr	r3, .L10
+ 127 0006 1B78     		ldrb	r3, [r3]
+ 128 0008 DBB2     		uxtb	r3, r3
+ 129 000a DBB2     		uxtb	r3, r3
+ 130 000c 5BB2     		sxtb	r3, r3
+ 131 000e 002B     		cmp	r3, #0
+ 132 0010 03DA     		bge	.L8
+ 140:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         {
+ 141:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             /*Component is enabled */
+ 142:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.PWMEnableState = 1u;
+ 133              		.loc 1 142 0
+ 134 0012 074B     		ldr	r3, .L10+4
+ 135 0014 0122     		mov	r2, #1
+ 136 0016 1A70     		strb	r2, [r3]
+ 137 0018 02E0     		b	.L9
+ 138              	.L8:
+ 143:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         }
+ 144:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         else
+ 145:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         {
+ 146:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             /* Component is disabled */
+ 147:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****             PWM_NIR1_backup.PWMEnableState = 0u;
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 6
+
+
+ 139              		.loc 1 147 0
+ 140 001a 054B     		ldr	r3, .L10+4
+ 141 001c 0022     		mov	r2, #0
+ 142 001e 1A70     		strb	r2, [r3]
+ 143              	.L9:
+ 148:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         }
+ 149:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     #endif /* (PWM_NIR1_UseControl) */
+ 150:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 151:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     /* Stop component */
+ 152:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     PWM_NIR1_Stop();
+ 144              		.loc 1 152 0
+ 145 0020 FFF7FEFF 		bl	PWM_NIR1_Stop
+ 153:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 154:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     /* Save registers configuration */
+ 155:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     PWM_NIR1_SaveConfig();
+ 146              		.loc 1 155 0
+ 147 0024 FFF7FEFF 		bl	PWM_NIR1_SaveConfig
+ 156:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** }
+ 148              		.loc 1 156 0
+ 149 0028 BD46     		mov	sp, r7
+ 150              		@ sp needed
+ 151 002a 80BD     		pop	{r7, pc}
+ 152              	.L11:
+ 153              		.align	2
+ 154              	.L10:
+ 155 002c 70000F40 		.word	1074724976
+ 156 0030 00000000 		.word	PWM_NIR1_backup
+ 157              		.cfi_endproc
+ 158              	.LFE4:
+ 159              		.size	PWM_NIR1_Sleep, .-PWM_NIR1_Sleep
+ 160              		.section	.text.PWM_NIR1_Wakeup,"ax",%progbits
+ 161              		.align	2
+ 162              		.global	PWM_NIR1_Wakeup
+ 163              		.code	16
+ 164              		.thumb_func
+ 165              		.type	PWM_NIR1_Wakeup, %function
+ 166              	PWM_NIR1_Wakeup:
+ 167              	.LFB5:
+ 157:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 158:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 159:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** /*******************************************************************************
+ 160:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Function Name: PWM_NIR1_Wakeup
+ 161:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** ********************************************************************************
+ 162:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 163:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Summary:
+ 164:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  Restores and enables the user configuration. Should be called just after
+ 165:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  awaking from sleep.
+ 166:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 167:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Parameters:
+ 168:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+ 169:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 170:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Return:
+ 171:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  None
+ 172:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 173:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** * Global variables:
+ 174:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  PWM_NIR1_backup.pwmEnable:  Is used to restore the enable state of
+ 175:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *  block on wakeup from sleep mode.
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 7
+
+
+ 176:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *
+ 177:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** *******************************************************************************/
+ 178:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** void PWM_NIR1_Wakeup(void) 
+ 179:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** {
+ 168              		.loc 1 179 0
+ 169              		.cfi_startproc
+ 170 0000 80B5     		push	{r7, lr}
+ 171              		.cfi_def_cfa_offset 8
+ 172              		.cfi_offset 7, -8
+ 173              		.cfi_offset 14, -4
+ 174 0002 00AF     		add	r7, sp, #0
+ 175              		.cfi_def_cfa_register 7
+ 180:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****      /* Restore registers values */
+ 181:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     PWM_NIR1_RestoreConfig();
+ 176              		.loc 1 181 0
+ 177 0004 FFF7FEFF 		bl	PWM_NIR1_RestoreConfig
+ 182:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 183:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     if(PWM_NIR1_backup.PWMEnableState != 0u)
+ 178              		.loc 1 183 0
+ 179 0008 034B     		ldr	r3, .L14
+ 180 000a 1B78     		ldrb	r3, [r3]
+ 181 000c 002B     		cmp	r3, #0
+ 182 000e 01D0     		beq	.L12
+ 184:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     {
+ 185:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         /* Enable component's operation */
+ 186:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****         PWM_NIR1_Enable();
+ 183              		.loc 1 186 0
+ 184 0010 FFF7FEFF 		bl	PWM_NIR1_Enable
+ 185              	.L12:
+ 187:.\Generated_Source\PSoC4/PWM_NIR1_PM.c ****     } /* Do nothing if component's block was disabled before */
+ 188:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** 
+ 189:.\Generated_Source\PSoC4/PWM_NIR1_PM.c **** }
+ 186              		.loc 1 189 0
+ 187 0014 BD46     		mov	sp, r7
+ 188              		@ sp needed
+ 189 0016 80BD     		pop	{r7, pc}
+ 190              	.L15:
+ 191              		.align	2
+ 192              	.L14:
+ 193 0018 00000000 		.word	PWM_NIR1_backup
+ 194              		.cfi_endproc
+ 195              	.LFE5:
+ 196              		.size	PWM_NIR1_Wakeup, .-PWM_NIR1_Wakeup
+ 197              		.text
+ 198              	.Letext0:
+ 199              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 200              		.file 3 ".\\Generated_Source\\PSoC4\\PWM_NIR1.h"
+ 201              		.section	.debug_info,"",%progbits
+ 202              	.Ldebug_info0:
+ 203 0000 39010000 		.4byte	0x139
+ 204 0004 0400     		.2byte	0x4
+ 205 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 206 000a 04       		.byte	0x4
+ 207 000b 01       		.uleb128 0x1
+ 208 000c BC000000 		.4byte	.LASF24
+ 209 0010 01       		.byte	0x1
+ 210 0011 38010000 		.4byte	.LASF25
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 8
+
+
+ 211 0015 B3010000 		.4byte	.LASF26
+ 212 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 213 001d 00000000 		.4byte	0
+ 214 0021 00000000 		.4byte	.Ldebug_line0
+ 215 0025 02       		.uleb128 0x2
+ 216 0026 01       		.byte	0x1
+ 217 0027 06       		.byte	0x6
+ 218 0028 11020000 		.4byte	.LASF0
+ 219 002c 02       		.uleb128 0x2
+ 220 002d 01       		.byte	0x1
+ 221 002e 08       		.byte	0x8
+ 222 002f 5F010000 		.4byte	.LASF1
+ 223 0033 02       		.uleb128 0x2
+ 224 0034 02       		.byte	0x2
+ 225 0035 05       		.byte	0x5
+ 226 0036 2C020000 		.4byte	.LASF2
+ 227 003a 02       		.uleb128 0x2
+ 228 003b 02       		.byte	0x2
+ 229 003c 07       		.byte	0x7
+ 230 003d 7F000000 		.4byte	.LASF3
+ 231 0041 02       		.uleb128 0x2
+ 232 0042 04       		.byte	0x4
+ 233 0043 05       		.byte	0x5
+ 234 0044 85010000 		.4byte	.LASF4
+ 235 0048 02       		.uleb128 0x2
+ 236 0049 04       		.byte	0x4
+ 237 004a 07       		.byte	0x7
+ 238 004b 56000000 		.4byte	.LASF5
+ 239 004f 02       		.uleb128 0x2
+ 240 0050 08       		.byte	0x8
+ 241 0051 05       		.byte	0x5
+ 242 0052 00000000 		.4byte	.LASF6
+ 243 0056 02       		.uleb128 0x2
+ 244 0057 08       		.byte	0x8
+ 245 0058 07       		.byte	0x7
+ 246 0059 68000000 		.4byte	.LASF7
+ 247 005d 03       		.uleb128 0x3
+ 248 005e 04       		.byte	0x4
+ 249 005f 05       		.byte	0x5
+ 250 0060 696E7400 		.ascii	"int\000"
+ 251 0064 02       		.uleb128 0x2
+ 252 0065 04       		.byte	0x4
+ 253 0066 07       		.byte	0x7
+ 254 0067 1E000000 		.4byte	.LASF8
+ 255 006b 04       		.uleb128 0x4
+ 256 006c 50000000 		.4byte	.LASF12
+ 257 0070 02       		.byte	0x2
+ 258 0071 A1       		.byte	0xa1
+ 259 0072 2C000000 		.4byte	0x2c
+ 260 0076 02       		.uleb128 0x2
+ 261 0077 04       		.byte	0x4
+ 262 0078 04       		.byte	0x4
+ 263 0079 92000000 		.4byte	.LASF9
+ 264 007d 02       		.uleb128 0x2
+ 265 007e 08       		.byte	0x8
+ 266 007f 04       		.byte	0x4
+ 267 0080 8E010000 		.4byte	.LASF10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 9
+
+
+ 268 0084 02       		.uleb128 0x2
+ 269 0085 01       		.byte	0x1
+ 270 0086 08       		.byte	0x8
+ 271 0087 6D010000 		.4byte	.LASF11
+ 272 008b 05       		.uleb128 0x5
+ 273 008c 36020000 		.4byte	.LASF13
+ 274 0090 02       		.byte	0x2
+ 275 0091 4B01     		.2byte	0x14b
+ 276 0093 97000000 		.4byte	0x97
+ 277 0097 06       		.uleb128 0x6
+ 278 0098 6B000000 		.4byte	0x6b
+ 279 009c 02       		.uleb128 0x2
+ 280 009d 04       		.byte	0x4
+ 281 009e 07       		.byte	0x7
+ 282 009f 45020000 		.4byte	.LASF14
+ 283 00a3 07       		.uleb128 0x7
+ 284 00a4 04       		.byte	0x4
+ 285 00a5 03       		.byte	0x3
+ 286 00a6 6B       		.byte	0x6b
+ 287 00a7 DC000000 		.4byte	0xdc
+ 288 00ab 08       		.uleb128 0x8
+ 289 00ac 2B000000 		.4byte	.LASF15
+ 290 00b0 03       		.byte	0x3
+ 291 00b1 6E       		.byte	0x6e
+ 292 00b2 6B000000 		.4byte	0x6b
+ 293 00b6 00       		.byte	0
+ 294 00b7 08       		.uleb128 0x8
+ 295 00b8 AC010000 		.4byte	.LASF16
+ 296 00bc 03       		.byte	0x3
+ 297 00bd 71       		.byte	0x71
+ 298 00be 6B000000 		.4byte	0x6b
+ 299 00c2 01       		.byte	0x1
+ 300 00c3 08       		.uleb128 0x8
+ 301 00c4 3B020000 		.4byte	.LASF17
+ 302 00c8 03       		.byte	0x3
+ 303 00c9 73       		.byte	0x73
+ 304 00ca 6B000000 		.4byte	0x6b
+ 305 00ce 02       		.byte	0x2
+ 306 00cf 08       		.uleb128 0x8
+ 307 00d0 72010000 		.4byte	.LASF18
+ 308 00d4 03       		.byte	0x3
+ 309 00d5 86       		.byte	0x86
+ 310 00d6 6B000000 		.4byte	0x6b
+ 311 00da 03       		.byte	0x3
+ 312 00db 00       		.byte	0
+ 313 00dc 04       		.uleb128 0x4
+ 314 00dd 3A000000 		.4byte	.LASF19
+ 315 00e1 03       		.byte	0x3
+ 316 00e2 8B       		.byte	0x8b
+ 317 00e3 A3000000 		.4byte	0xa3
+ 318 00e7 09       		.uleb128 0x9
+ 319 00e8 A8000000 		.4byte	.LASF20
+ 320 00ec 01       		.byte	0x1
+ 321 00ed 2A       		.byte	0x2a
+ 322 00ee 00000000 		.4byte	.LFB2
+ 323 00f2 30000000 		.4byte	.LFE2-.LFB2
+ 324 00f6 01       		.uleb128 0x1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 10
+
+
+ 325 00f7 9C       		.byte	0x9c
+ 326 00f8 09       		.uleb128 0x9
+ 327 00f9 95010000 		.4byte	.LASF21
+ 328 00fd 01       		.byte	0x1
+ 329 00fe 58       		.byte	0x58
+ 330 00ff 00000000 		.4byte	.LFB3
+ 331 0103 2C000000 		.4byte	.LFE3-.LFB3
+ 332 0107 01       		.uleb128 0x1
+ 333 0108 9C       		.byte	0x9c
+ 334 0109 09       		.uleb128 0x9
+ 335 010a 1D020000 		.4byte	.LASF22
+ 336 010e 01       		.byte	0x1
+ 337 010f 88       		.byte	0x88
+ 338 0110 00000000 		.4byte	.LFB4
+ 339 0114 34000000 		.4byte	.LFE4-.LFB4
+ 340 0118 01       		.uleb128 0x1
+ 341 0119 9C       		.byte	0x9c
+ 342 011a 09       		.uleb128 0x9
+ 343 011b 98000000 		.4byte	.LASF23
+ 344 011f 01       		.byte	0x1
+ 345 0120 B2       		.byte	0xb2
+ 346 0121 00000000 		.4byte	.LFB5
+ 347 0125 1C000000 		.4byte	.LFE5-.LFB5
+ 348 0129 01       		.uleb128 0x1
+ 349 012a 9C       		.byte	0x9c
+ 350 012b 0A       		.uleb128 0xa
+ 351 012c 0E000000 		.4byte	.LASF27
+ 352 0130 01       		.byte	0x1
+ 353 0131 14       		.byte	0x14
+ 354 0132 DC000000 		.4byte	0xdc
+ 355 0136 05       		.uleb128 0x5
+ 356 0137 03       		.byte	0x3
+ 357 0138 00000000 		.4byte	PWM_NIR1_backup
+ 358 013c 00       		.byte	0
+ 359              		.section	.debug_abbrev,"",%progbits
+ 360              	.Ldebug_abbrev0:
+ 361 0000 01       		.uleb128 0x1
+ 362 0001 11       		.uleb128 0x11
+ 363 0002 01       		.byte	0x1
+ 364 0003 25       		.uleb128 0x25
+ 365 0004 0E       		.uleb128 0xe
+ 366 0005 13       		.uleb128 0x13
+ 367 0006 0B       		.uleb128 0xb
+ 368 0007 03       		.uleb128 0x3
+ 369 0008 0E       		.uleb128 0xe
+ 370 0009 1B       		.uleb128 0x1b
+ 371 000a 0E       		.uleb128 0xe
+ 372 000b 55       		.uleb128 0x55
+ 373 000c 17       		.uleb128 0x17
+ 374 000d 11       		.uleb128 0x11
+ 375 000e 01       		.uleb128 0x1
+ 376 000f 10       		.uleb128 0x10
+ 377 0010 17       		.uleb128 0x17
+ 378 0011 00       		.byte	0
+ 379 0012 00       		.byte	0
+ 380 0013 02       		.uleb128 0x2
+ 381 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 11
+
+
+ 382 0015 00       		.byte	0
+ 383 0016 0B       		.uleb128 0xb
+ 384 0017 0B       		.uleb128 0xb
+ 385 0018 3E       		.uleb128 0x3e
+ 386 0019 0B       		.uleb128 0xb
+ 387 001a 03       		.uleb128 0x3
+ 388 001b 0E       		.uleb128 0xe
+ 389 001c 00       		.byte	0
+ 390 001d 00       		.byte	0
+ 391 001e 03       		.uleb128 0x3
+ 392 001f 24       		.uleb128 0x24
+ 393 0020 00       		.byte	0
+ 394 0021 0B       		.uleb128 0xb
+ 395 0022 0B       		.uleb128 0xb
+ 396 0023 3E       		.uleb128 0x3e
+ 397 0024 0B       		.uleb128 0xb
+ 398 0025 03       		.uleb128 0x3
+ 399 0026 08       		.uleb128 0x8
+ 400 0027 00       		.byte	0
+ 401 0028 00       		.byte	0
+ 402 0029 04       		.uleb128 0x4
+ 403 002a 16       		.uleb128 0x16
+ 404 002b 00       		.byte	0
+ 405 002c 03       		.uleb128 0x3
+ 406 002d 0E       		.uleb128 0xe
+ 407 002e 3A       		.uleb128 0x3a
+ 408 002f 0B       		.uleb128 0xb
+ 409 0030 3B       		.uleb128 0x3b
+ 410 0031 0B       		.uleb128 0xb
+ 411 0032 49       		.uleb128 0x49
+ 412 0033 13       		.uleb128 0x13
+ 413 0034 00       		.byte	0
+ 414 0035 00       		.byte	0
+ 415 0036 05       		.uleb128 0x5
+ 416 0037 16       		.uleb128 0x16
+ 417 0038 00       		.byte	0
+ 418 0039 03       		.uleb128 0x3
+ 419 003a 0E       		.uleb128 0xe
+ 420 003b 3A       		.uleb128 0x3a
+ 421 003c 0B       		.uleb128 0xb
+ 422 003d 3B       		.uleb128 0x3b
+ 423 003e 05       		.uleb128 0x5
+ 424 003f 49       		.uleb128 0x49
+ 425 0040 13       		.uleb128 0x13
+ 426 0041 00       		.byte	0
+ 427 0042 00       		.byte	0
+ 428 0043 06       		.uleb128 0x6
+ 429 0044 35       		.uleb128 0x35
+ 430 0045 00       		.byte	0
+ 431 0046 49       		.uleb128 0x49
+ 432 0047 13       		.uleb128 0x13
+ 433 0048 00       		.byte	0
+ 434 0049 00       		.byte	0
+ 435 004a 07       		.uleb128 0x7
+ 436 004b 13       		.uleb128 0x13
+ 437 004c 01       		.byte	0x1
+ 438 004d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 12
+
+
+ 439 004e 0B       		.uleb128 0xb
+ 440 004f 3A       		.uleb128 0x3a
+ 441 0050 0B       		.uleb128 0xb
+ 442 0051 3B       		.uleb128 0x3b
+ 443 0052 0B       		.uleb128 0xb
+ 444 0053 01       		.uleb128 0x1
+ 445 0054 13       		.uleb128 0x13
+ 446 0055 00       		.byte	0
+ 447 0056 00       		.byte	0
+ 448 0057 08       		.uleb128 0x8
+ 449 0058 0D       		.uleb128 0xd
+ 450 0059 00       		.byte	0
+ 451 005a 03       		.uleb128 0x3
+ 452 005b 0E       		.uleb128 0xe
+ 453 005c 3A       		.uleb128 0x3a
+ 454 005d 0B       		.uleb128 0xb
+ 455 005e 3B       		.uleb128 0x3b
+ 456 005f 0B       		.uleb128 0xb
+ 457 0060 49       		.uleb128 0x49
+ 458 0061 13       		.uleb128 0x13
+ 459 0062 38       		.uleb128 0x38
+ 460 0063 0B       		.uleb128 0xb
+ 461 0064 00       		.byte	0
+ 462 0065 00       		.byte	0
+ 463 0066 09       		.uleb128 0x9
+ 464 0067 2E       		.uleb128 0x2e
+ 465 0068 00       		.byte	0
+ 466 0069 3F       		.uleb128 0x3f
+ 467 006a 19       		.uleb128 0x19
+ 468 006b 03       		.uleb128 0x3
+ 469 006c 0E       		.uleb128 0xe
+ 470 006d 3A       		.uleb128 0x3a
+ 471 006e 0B       		.uleb128 0xb
+ 472 006f 3B       		.uleb128 0x3b
+ 473 0070 0B       		.uleb128 0xb
+ 474 0071 27       		.uleb128 0x27
+ 475 0072 19       		.uleb128 0x19
+ 476 0073 11       		.uleb128 0x11
+ 477 0074 01       		.uleb128 0x1
+ 478 0075 12       		.uleb128 0x12
+ 479 0076 06       		.uleb128 0x6
+ 480 0077 40       		.uleb128 0x40
+ 481 0078 18       		.uleb128 0x18
+ 482 0079 9642     		.uleb128 0x2116
+ 483 007b 19       		.uleb128 0x19
+ 484 007c 00       		.byte	0
+ 485 007d 00       		.byte	0
+ 486 007e 0A       		.uleb128 0xa
+ 487 007f 34       		.uleb128 0x34
+ 488 0080 00       		.byte	0
+ 489 0081 03       		.uleb128 0x3
+ 490 0082 0E       		.uleb128 0xe
+ 491 0083 3A       		.uleb128 0x3a
+ 492 0084 0B       		.uleb128 0xb
+ 493 0085 3B       		.uleb128 0x3b
+ 494 0086 0B       		.uleb128 0xb
+ 495 0087 49       		.uleb128 0x49
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 13
+
+
+ 496 0088 13       		.uleb128 0x13
+ 497 0089 02       		.uleb128 0x2
+ 498 008a 18       		.uleb128 0x18
+ 499 008b 00       		.byte	0
+ 500 008c 00       		.byte	0
+ 501 008d 00       		.byte	0
+ 502              		.section	.debug_aranges,"",%progbits
+ 503 0000 34000000 		.4byte	0x34
+ 504 0004 0200     		.2byte	0x2
+ 505 0006 00000000 		.4byte	.Ldebug_info0
+ 506 000a 04       		.byte	0x4
+ 507 000b 00       		.byte	0
+ 508 000c 0000     		.2byte	0
+ 509 000e 0000     		.2byte	0
+ 510 0010 00000000 		.4byte	.LFB2
+ 511 0014 30000000 		.4byte	.LFE2-.LFB2
+ 512 0018 00000000 		.4byte	.LFB3
+ 513 001c 2C000000 		.4byte	.LFE3-.LFB3
+ 514 0020 00000000 		.4byte	.LFB4
+ 515 0024 34000000 		.4byte	.LFE4-.LFB4
+ 516 0028 00000000 		.4byte	.LFB5
+ 517 002c 1C000000 		.4byte	.LFE5-.LFB5
+ 518 0030 00000000 		.4byte	0
+ 519 0034 00000000 		.4byte	0
+ 520              		.section	.debug_ranges,"",%progbits
+ 521              	.Ldebug_ranges0:
+ 522 0000 00000000 		.4byte	.LFB2
+ 523 0004 30000000 		.4byte	.LFE2
+ 524 0008 00000000 		.4byte	.LFB3
+ 525 000c 2C000000 		.4byte	.LFE3
+ 526 0010 00000000 		.4byte	.LFB4
+ 527 0014 34000000 		.4byte	.LFE4
+ 528 0018 00000000 		.4byte	.LFB5
+ 529 001c 1C000000 		.4byte	.LFE5
+ 530 0020 00000000 		.4byte	0
+ 531 0024 00000000 		.4byte	0
+ 532              		.section	.debug_line,"",%progbits
+ 533              	.Ldebug_line0:
+ 534 0000 B3000000 		.section	.debug_str,"MS",%progbits,1
+ 534      02005800 
+ 534      00000201 
+ 534      FB0E0D00 
+ 534      01010101 
+ 535              	.LASF6:
+ 536 0000 6C6F6E67 		.ascii	"long long int\000"
+ 536      206C6F6E 
+ 536      6720696E 
+ 536      7400
+ 537              	.LASF27:
+ 538 000e 50574D5F 		.ascii	"PWM_NIR1_backup\000"
+ 538      4E495231 
+ 538      5F626163 
+ 538      6B757000 
+ 539              	.LASF8:
+ 540 001e 756E7369 		.ascii	"unsigned int\000"
+ 540      676E6564 
+ 540      20696E74 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 14
+
+
+ 540      00
+ 541              	.LASF15:
+ 542 002b 50574D45 		.ascii	"PWMEnableState\000"
+ 542      6E61626C 
+ 542      65537461 
+ 542      746500
+ 543              	.LASF19:
+ 544 003a 50574D5F 		.ascii	"PWM_NIR1_backupStruct\000"
+ 544      4E495231 
+ 544      5F626163 
+ 544      6B757053 
+ 544      74727563 
+ 545              	.LASF12:
+ 546 0050 75696E74 		.ascii	"uint8\000"
+ 546      3800
+ 547              	.LASF5:
+ 548 0056 6C6F6E67 		.ascii	"long unsigned int\000"
+ 548      20756E73 
+ 548      69676E65 
+ 548      6420696E 
+ 548      7400
+ 549              	.LASF7:
+ 550 0068 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 550      206C6F6E 
+ 550      6720756E 
+ 550      7369676E 
+ 550      65642069 
+ 551              	.LASF3:
+ 552 007f 73686F72 		.ascii	"short unsigned int\000"
+ 552      7420756E 
+ 552      7369676E 
+ 552      65642069 
+ 552      6E7400
+ 553              	.LASF9:
+ 554 0092 666C6F61 		.ascii	"float\000"
+ 554      7400
+ 555              	.LASF23:
+ 556 0098 50574D5F 		.ascii	"PWM_NIR1_Wakeup\000"
+ 556      4E495231 
+ 556      5F57616B 
+ 556      65757000 
+ 557              	.LASF20:
+ 558 00a8 50574D5F 		.ascii	"PWM_NIR1_SaveConfig\000"
+ 558      4E495231 
+ 558      5F536176 
+ 558      65436F6E 
+ 558      66696700 
+ 559              	.LASF24:
+ 560 00bc 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 560      4320342E 
+ 560      382E3420 
+ 560      32303134 
+ 560      30353236 
+ 561 00ef 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 561      20726576 
+ 561      6973696F 
+ 561      6E203231 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 15
+
+
+ 561      31333538 
+ 562 0122 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 562      66756E63 
+ 562      74696F6E 
+ 562      2D736563 
+ 562      74696F6E 
+ 563              	.LASF25:
+ 564 0138 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\PWM_NIR1_PM.c\000"
+ 564      6E657261 
+ 564      7465645F 
+ 564      536F7572 
+ 564      63655C50 
+ 565              	.LASF1:
+ 566 015f 756E7369 		.ascii	"unsigned char\000"
+ 566      676E6564 
+ 566      20636861 
+ 566      7200
+ 567              	.LASF11:
+ 568 016d 63686172 		.ascii	"char\000"
+ 568      00
+ 569              	.LASF18:
+ 570 0172 50574D43 		.ascii	"PWMControlRegister\000"
+ 570      6F6E7472 
+ 570      6F6C5265 
+ 570      67697374 
+ 570      657200
+ 571              	.LASF4:
+ 572 0185 6C6F6E67 		.ascii	"long int\000"
+ 572      20696E74 
+ 572      00
+ 573              	.LASF10:
+ 574 018e 646F7562 		.ascii	"double\000"
+ 574      6C6500
+ 575              	.LASF21:
+ 576 0195 50574D5F 		.ascii	"PWM_NIR1_RestoreConfig\000"
+ 576      4E495231 
+ 576      5F526573 
+ 576      746F7265 
+ 576      436F6E66 
+ 577              	.LASF16:
+ 578 01ac 50574D55 		.ascii	"PWMUdb\000"
+ 578      646200
+ 579              	.LASF26:
+ 580 01b3 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
+ 580      73657273 
+ 580      5C777A68 
+ 580      5C446573 
+ 580      6B746F70 
+ 581 01e1 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
+ 581      455F4261 
+ 581      74746572 
+ 581      795F4C65 
+ 581      76656C30 
+ 582              	.LASF0:
+ 583 0211 7369676E 		.ascii	"signed char\000"
+ 583      65642063 
+ 583      68617200 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccz6XEYf.s 			page 16
+
+
+ 584              	.LASF22:
+ 585 021d 50574D5F 		.ascii	"PWM_NIR1_Sleep\000"
+ 585      4E495231 
+ 585      5F536C65 
+ 585      657000
+ 586              	.LASF2:
+ 587 022c 73686F72 		.ascii	"short int\000"
+ 587      7420696E 
+ 587      7400
+ 588              	.LASF13:
+ 589 0236 72656738 		.ascii	"reg8\000"
+ 589      00
+ 590              	.LASF17:
+ 591 023b 50574D50 		.ascii	"PWMPeriod\000"
+ 591      6572696F 
+ 591      6400
+ 592              	.LASF14:
+ 593 0245 73697A65 		.ascii	"sizetype\000"
+ 593      74797065 
+ 593      00
+ 594              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

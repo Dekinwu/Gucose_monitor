@@ -1,0 +1,36 @@
+dont_use_io iocell 0 6
+dont_use_io iocell 0 7
+dont_use_io iocell 6 0
+dont_use_io iocell 6 1
+set_location "\PWM_NIR1:PWMUDB:sP8:pwmdp:u0\" datapathcell 0 1 2 
+set_location "\PWM_IR_AND_RED:PWMUDB:sP8:pwmdp:u0\" datapathcell 1 1 2 
+set_location "\PWM_IR_AND_RED:PWMUDB:runmode_enable\" macrocell 1 1 0 1
+set_location "\PWM_NIR1:PWMUDB:runmode_enable\" macrocell 0 1 0 3
+set_location "Net_3730" macrocell 1 1 0 0
+set_location "Net_4592" macrocell 0 1 1 0
+set_location "Net_120" macrocell 1 0 0 0
+set_location "\PWM_GREEN:PWMUDB:sP8:pwmdp:u0\" datapathcell 1 0 2 
+set_location "\PWM_GREEN:PWMUDB:runmode_enable\" macrocell 1 0 0 1
+set_location "Net_4591" macrocell 0 1 1 1
+set_location "Net_2654" macrocell 1 1 0 2
+set_io "\UART_DEB:rx(0)\" iocell 1 4
+set_location "\Opamp:cy_psoc4_abuf\" p4abufcell -1 -1 2
+set_location "\PWM_IR_AND_RED:PWMUDB:genblk1:ctrlreg\" controlcell 1 1 6 
+set_location "\PWM_NIR1:PWMUDB:genblk1:ctrlreg\" controlcell 0 1 6 
+set_io "IR_DRIVE(0)" iocell 0 3
+set_io "\UART_DEB:tx(0)\" iocell 1 5
+set_location "\PWM_GREEN:PWMUDB:genblk1:ctrlreg\" controlcell 1 0 6 
+set_io "RED_DRIVE(0)" iocell 0 2
+set_location "\ADC_SAR:cy_psoc4_sar\" p4sarcell -1 -1 0
+set_io "GREEN_DRIVE(0)" iocell 1 6
+set_location "\ADC_SAR:IRQ\" interrupt -1 -1 15
+set_location "\UART_DEB:SCB\" m0s8scbcell -1 -1 0
+set_location "\UART_DEB:SCB_IRQ\" interrupt -1 -1 9
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "ADC_IN(0)" iocell 3 6
+set_io "GA_SENSORN(0)" iocell 1 1
+set_io "GA_SENSORP(0)" iocell 1 0
+set_io "GA_SENSOR_OUT(0)" iocell 1 2
+set_io "NIR_DRIVE2(0)" iocell 0 1
+set_io "NIR_DRIVE1(0)" iocell 0 0

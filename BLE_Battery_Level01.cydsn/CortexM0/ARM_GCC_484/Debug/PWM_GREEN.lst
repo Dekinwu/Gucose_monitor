@@ -1,0 +1,2356 @@
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"PWM_GREEN.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	PWM_GREEN_initVar
+  18              		.bss
+  19              		.type	PWM_GREEN_initVar, %object
+  20              		.size	PWM_GREEN_initVar, 1
+  21              	PWM_GREEN_initVar:
+  22 0000 00       		.space	1
+  23              		.section	.text.PWM_GREEN_Start,"ax",%progbits
+  24              		.align	2
+  25              		.global	PWM_GREEN_Start
+  26              		.code	16
+  27              		.thumb_func
+  28              		.type	PWM_GREEN_Start, %function
+  29              	PWM_GREEN_Start:
+  30              	.LFB2:
+  31              		.file 1 ".\\Generated_Source\\PSoC4\\PWM_GREEN.c"
+   1:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/PWM_GREEN.c **** * File Name: PWM_GREEN.c
+   3:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Version 3.10
+   4:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+   5:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Description:
+   6:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  The PWM User Module consist of an 8 or 16-bit counter with two 8 or 16-bit
+   7:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  comparitors. Each instance of this user module is capable of generating
+   8:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  two PWM outputs with the same period. The pulse width is selectable between
+   9:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  1 and 255/65535. The period is selectable between 2 and 255/65536 clocks.
+  10:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  The compare value output may be configured to be active when the present
+  11:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  counter is less than or less than/equal to the compare value.
+  12:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  A terminal count output is also provided. It generates a pulse one clock
+  13:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  width wide when the counter is equal to zero.
+  14:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  15:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Note:
+  16:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  17:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************
+  18:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:.\Generated_Source\PSoC4/PWM_GREEN.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:.\Generated_Source\PSoC4/PWM_GREEN.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:.\Generated_Source\PSoC4/PWM_GREEN.c **** * the software package with which this file was provided.
+  22:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************/
+  23:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  24:.\Generated_Source\PSoC4/PWM_GREEN.c **** #include "PWM_GREEN.h"
+  25:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  26:.\Generated_Source\PSoC4/PWM_GREEN.c **** /* Error message for removed <resource> through optimization */
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 2
+
+
+  27:.\Generated_Source\PSoC4/PWM_GREEN.c **** #ifdef PWM_GREEN_PWMUDB_genblk1_ctrlreg__REMOVED
+  28:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #error PWM_v3_10 detected with a constant 0 for the enable or \
+  29:.\Generated_Source\PSoC4/PWM_GREEN.c ****          constant 1 for reset. This will prevent the component from operating.
+  30:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* PWM_GREEN_PWMUDB_genblk1_ctrlreg__REMOVED */
+  31:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  32:.\Generated_Source\PSoC4/PWM_GREEN.c **** uint8 PWM_GREEN_initVar = 0u;
+  33:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  34:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  35:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+  36:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_Start
+  37:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+  38:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  39:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+  40:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  The start function initializes the pwm with the default values, the
+  41:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  enables the counter to begin counting.  It does not enable interrupts,
+  42:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  the EnableInt command should be called if interrupt generation is required.
+  43:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  44:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+  45:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+  46:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  47:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+  48:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+  49:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  50:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Global variables:
+  51:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  PWM_GREEN_initVar: Is modified when this function is called for the
+  52:.\Generated_Source\PSoC4/PWM_GREEN.c **** *   first time. Is used to ensure that initialization happens only once.
+  53:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  54:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+  55:.\Generated_Source\PSoC4/PWM_GREEN.c **** void PWM_GREEN_Start(void) 
+  56:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+  32              		.loc 1 56 0
+  33              		.cfi_startproc
+  34 0000 80B5     		push	{r7, lr}
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  57:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /* If not Initialized then initialize all required hardware and software */
+  58:.\Generated_Source\PSoC4/PWM_GREEN.c ****     if(PWM_GREEN_initVar == 0u)
+  40              		.loc 1 58 0
+  41 0004 064B     		ldr	r3, .L3
+  42 0006 1B78     		ldrb	r3, [r3]
+  43 0008 002B     		cmp	r3, #0
+  44 000a 04D1     		bne	.L2
+  59:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+  60:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_Init();
+  45              		.loc 1 60 0
+  46 000c FFF7FEFF 		bl	PWM_GREEN_Init
+  61:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_initVar = 1u;
+  47              		.loc 1 61 0
+  48 0010 034B     		ldr	r3, .L3
+  49 0012 0122     		mov	r2, #1
+  50 0014 1A70     		strb	r2, [r3]
+  51              	.L2:
+  62:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+  63:.\Generated_Source\PSoC4/PWM_GREEN.c ****     PWM_GREEN_Enable();
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 3
+
+
+  52              		.loc 1 63 0
+  53 0016 FFF7FEFF 		bl	PWM_GREEN_Enable
+  64:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  65:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+  54              		.loc 1 65 0
+  55 001a BD46     		mov	sp, r7
+  56              		@ sp needed
+  57 001c 80BD     		pop	{r7, pc}
+  58              	.L4:
+  59 001e C046     		.align	2
+  60              	.L3:
+  61 0020 00000000 		.word	PWM_GREEN_initVar
+  62              		.cfi_endproc
+  63              	.LFE2:
+  64              		.size	PWM_GREEN_Start, .-PWM_GREEN_Start
+  65              		.section	.text.PWM_GREEN_Init,"ax",%progbits
+  66              		.align	2
+  67              		.global	PWM_GREEN_Init
+  68              		.code	16
+  69              		.thumb_func
+  70              		.type	PWM_GREEN_Init, %function
+  71              	PWM_GREEN_Init:
+  72              	.LFB3:
+  66:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  67:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  68:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+  69:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_Init
+  70:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+  71:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  72:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+  73:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  Initialize component's parameters to the parameters set by user in the
+  74:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  customizer of the component placed onto schematic. Usually called in
+  75:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  PWM_GREEN_Start().
+  76:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  77:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+  78:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+  79:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  80:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+  81:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+  82:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+  83:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+  84:.\Generated_Source\PSoC4/PWM_GREEN.c **** void PWM_GREEN_Init(void) 
+  85:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+  73              		.loc 1 85 0
+  74              		.cfi_startproc
+  75 0000 80B5     		push	{r7, lr}
+  76              		.cfi_def_cfa_offset 8
+  77              		.cfi_offset 7, -8
+  78              		.cfi_offset 14, -4
+  79 0002 82B0     		sub	sp, sp, #8
+  80              		.cfi_def_cfa_offset 16
+  81 0004 00AF     		add	r7, sp, #0
+  82              		.cfi_def_cfa_register 7
+  86:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UsingFixedFunction || PWM_GREEN_UseControl)
+  87:.\Generated_Source\PSoC4/PWM_GREEN.c ****         uint8 ctrl;
+  88:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction || PWM_GREEN_UseControl) */
+  89:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 4
+
+
+  90:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if(!PWM_GREEN_UsingFixedFunction)
+  91:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UseStatus)
+  92:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Interrupt State Backup for Critical Region*/
+  93:.\Generated_Source\PSoC4/PWM_GREEN.c ****             uint8 PWM_GREEN_interruptState;
+  94:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UseStatus) */
+  95:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (!PWM_GREEN_UsingFixedFunction) */
+  96:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+  97:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UsingFixedFunction)
+  98:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* You are allowed to write the compare value (FF only) */
+  99:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL |= PWM_GREEN_CFG0_MODE;
+ 100:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_DeadBand2_4)
+ 101:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_CONTROL |= PWM_GREEN_CFG0_DB;
+ 102:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_DeadBand2_4) */
+ 103:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 104:.\Generated_Source\PSoC4/PWM_GREEN.c ****         ctrl = PWM_GREEN_CONTROL3 & ((uint8 )(~PWM_GREEN_CTRL_CMPMODE1_MASK));
+ 105:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL3 = ctrl | PWM_GREEN_DEFAULT_COMPARE1_MODE;
+ 106:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 107:.\Generated_Source\PSoC4/PWM_GREEN.c ****          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 108:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_RT1 &= ((uint8)(~PWM_GREEN_RT1_MASK));
+ 109:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_RT1 |= PWM_GREEN_SYNC;
+ 110:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 111:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /*Enable DSI Sync all all inputs of the PWM*/
+ 112:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_RT1 &= ((uint8)(~PWM_GREEN_SYNCDSI_MASK));
+ 113:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_RT1 |= PWM_GREEN_SYNCDSI_EN;
+ 114:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 115:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #elif (PWM_GREEN_UseControl)
+ 116:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Set the default compare mode defined in the parameter */
+ 117:.\Generated_Source\PSoC4/PWM_GREEN.c ****         ctrl = PWM_GREEN_CONTROL & ((uint8)(~PWM_GREEN_CTRL_CMPMODE2_MASK)) &
+  83              		.loc 1 117 0
+  84 0006 114B     		ldr	r3, .L6
+  85 0008 1B78     		ldrb	r3, [r3]
+  86 000a DAB2     		uxtb	r2, r3
+  87 000c FB1D     		add	r3, r7, #7
+  88 000e 3F21     		mov	r1, #63
+  89 0010 8A43     		bic	r2, r1
+  90 0012 1A70     		strb	r2, [r3]
+ 118:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 ((uint8)(~PWM_GREEN_CTRL_CMPMODE1_MASK));
+ 119:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL = ctrl | PWM_GREEN_DEFAULT_COMPARE2_MODE |
+  91              		.loc 1 119 0
+  92 0014 0D4B     		ldr	r3, .L6
+  93 0016 FA1D     		add	r2, r7, #7
+  94 0018 1278     		ldrb	r2, [r2]
+  95 001a 0921     		mov	r1, #9
+  96 001c 0A43     		orr	r2, r1
+  97 001e D2B2     		uxtb	r2, r2
+  98 0020 1A70     		strb	r2, [r3]
+ 120:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                    PWM_GREEN_DEFAULT_COMPARE1_MODE;
+ 121:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 122:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 123:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (!PWM_GREEN_UsingFixedFunction)
+ 124:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_Resolution == 8)
+ 125:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Set FIFO 0 to 1 byte register for period*/
+ 126:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_AUX_CONTROLDP0 |= (PWM_GREEN_AUX_CTRL_FIFO0_CLR);
+  99              		.loc 1 126 0
+ 100 0022 0B4B     		ldr	r3, .L6+4
+ 101 0024 0A4A     		ldr	r2, .L6+4
+ 102 0026 1278     		ldrb	r2, [r2]
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 5
+
+
+ 103 0028 D2B2     		uxtb	r2, r2
+ 104 002a 0121     		mov	r1, #1
+ 105 002c 0A43     		orr	r2, r1
+ 106 002e D2B2     		uxtb	r2, r2
+ 107 0030 1A70     		strb	r2, [r3]
+ 127:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else /* (PWM_GREEN_Resolution == 16)*/
+ 128:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Set FIFO 0 to 1 byte register for period */
+ 129:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_AUX_CONTROLDP0 |= (PWM_GREEN_AUX_CTRL_FIFO0_CLR);
+ 130:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_AUX_CONTROLDP1 |= (PWM_GREEN_AUX_CTRL_FIFO0_CLR);
+ 131:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_Resolution == 8) */
+ 132:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 133:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_WriteCounter(PWM_GREEN_INIT_PERIOD_VALUE);
+ 108              		.loc 1 133 0
+ 109 0032 FF20     		mov	r0, #255
+ 110 0034 FFF7FEFF 		bl	PWM_GREEN_WriteCounter
+ 134:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (!PWM_GREEN_UsingFixedFunction) */
+ 135:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 136:.\Generated_Source\PSoC4/PWM_GREEN.c ****     PWM_GREEN_WritePeriod(PWM_GREEN_INIT_PERIOD_VALUE);
+ 111              		.loc 1 136 0
+ 112 0038 FF20     		mov	r0, #255
+ 113 003a FFF7FEFF 		bl	PWM_GREEN_WritePeriod
+ 137:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 138:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_UseOneCompareMode)
+ 139:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_WriteCompare(PWM_GREEN_INIT_COMPARE_VALUE1);
+ 114              		.loc 1 139 0
+ 115 003e 7F20     		mov	r0, #127
+ 116 0040 FFF7FEFF 		bl	PWM_GREEN_WriteCompare
+ 140:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 141:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_WriteCompare1(PWM_GREEN_INIT_COMPARE_VALUE1);
+ 142:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_WriteCompare2(PWM_GREEN_INIT_COMPARE_VALUE2);
+ 143:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UseOneCompareMode) */
+ 144:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 145:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_KillModeMinTime)
+ 146:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_WriteKillTime(PWM_GREEN_MinimumKillTime);
+ 147:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_KillModeMinTime) */
+ 148:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 149:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_DeadBandUsed)
+ 150:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_WriteDeadTime(PWM_GREEN_INIT_DEAD_TIME);
+ 151:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_DeadBandUsed) */
+ 152:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 153:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UseStatus || PWM_GREEN_UsingFixedFunction)
+ 154:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_SetInterruptMode(PWM_GREEN_INIT_INTERRUPTS_MODE);
+ 155:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UseStatus || PWM_GREEN_UsingFixedFunction) */
+ 156:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 157:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UsingFixedFunction)
+ 158:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Globally Enable the Fixed Function Block chosen */
+ 159:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_GLOBAL_ENABLE |= PWM_GREEN_BLOCK_EN_MASK;
+ 160:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Set the Interrupt source to come from the status register */
+ 161:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL2 |= PWM_GREEN_CTRL2_IRQ_SEL;
+ 162:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #else
+ 163:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UseStatus)
+ 164:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 165:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 166:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Enter Critical Region*/
+ 167:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_interruptState = CyEnterCriticalSection();
+ 168:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 169:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_STATUS_AUX_CTRL |= PWM_GREEN_STATUS_ACTL_INT_EN_MASK;
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 6
+
+
+ 170:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 171:.\Generated_Source\PSoC4/PWM_GREEN.c ****              /* Exit Critical Region*/
+ 172:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CyExitCriticalSection(PWM_GREEN_interruptState);
+ 173:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 174:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Clear the FIFO to enable the PWM_GREEN_STATUS_FIFOFULL
+ 175:.\Generated_Source\PSoC4/PWM_GREEN.c ****                    bit to be set on FIFO full. */
+ 176:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_ClearFIFO();
+ 177:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UseStatus) */
+ 178:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 179:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+ 117              		.loc 1 179 0
+ 118 0044 BD46     		mov	sp, r7
+ 119 0046 02B0     		add	sp, sp, #8
+ 120              		@ sp needed
+ 121 0048 80BD     		pop	{r7, pc}
+ 122              	.L7:
+ 123 004a C046     		.align	2
+ 124              	.L6:
+ 125 004c 72000F40 		.word	1074724978
+ 126 0050 92000F40 		.word	1074725010
+ 127              		.cfi_endproc
+ 128              	.LFE3:
+ 129              		.size	PWM_GREEN_Init, .-PWM_GREEN_Init
+ 130              		.section	.text.PWM_GREEN_Enable,"ax",%progbits
+ 131              		.align	2
+ 132              		.global	PWM_GREEN_Enable
+ 133              		.code	16
+ 134              		.thumb_func
+ 135              		.type	PWM_GREEN_Enable, %function
+ 136              	PWM_GREEN_Enable:
+ 137              	.LFB4:
+ 180:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 181:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 182:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+ 183:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_Enable
+ 184:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+ 185:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 186:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+ 187:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  Enables the PWM block operation
+ 188:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 189:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+ 190:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 191:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 192:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+ 193:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 194:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 195:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Side Effects:
+ 196:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  This works only if software enable mode is chosen
+ 197:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 198:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+ 199:.\Generated_Source\PSoC4/PWM_GREEN.c **** void PWM_GREEN_Enable(void) 
+ 200:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+ 138              		.loc 1 200 0
+ 139              		.cfi_startproc
+ 140 0000 80B5     		push	{r7, lr}
+ 141              		.cfi_def_cfa_offset 8
+ 142              		.cfi_offset 7, -8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 7
+
+
+ 143              		.cfi_offset 14, -4
+ 144 0002 00AF     		add	r7, sp, #0
+ 145              		.cfi_def_cfa_register 7
+ 201:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 202:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UsingFixedFunction)
+ 203:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_GLOBAL_ENABLE |= PWM_GREEN_BLOCK_EN_MASK;
+ 204:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_GLOBAL_STBY_ENABLE |= PWM_GREEN_BLOCK_STBY_EN_MASK;
+ 205:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 206:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 207:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /* Enable the PWM from the control register  */
+ 208:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UseControl || PWM_GREEN_UsingFixedFunction)
+ 209:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL |= PWM_GREEN_CTRL_ENABLE;
+ 146              		.loc 1 209 0
+ 147 0004 054B     		ldr	r3, .L9
+ 148 0006 054A     		ldr	r2, .L9
+ 149 0008 1278     		ldrb	r2, [r2]
+ 150 000a D2B2     		uxtb	r2, r2
+ 151 000c 8021     		mov	r1, #128
+ 152 000e 4942     		neg	r1, r1
+ 153 0010 0A43     		orr	r2, r1
+ 154 0012 D2B2     		uxtb	r2, r2
+ 155 0014 1A70     		strb	r2, [r3]
+ 210:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UseControl || PWM_GREEN_UsingFixedFunction) */
+ 211:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+ 156              		.loc 1 211 0
+ 157 0016 BD46     		mov	sp, r7
+ 158              		@ sp needed
+ 159 0018 80BD     		pop	{r7, pc}
+ 160              	.L10:
+ 161 001a C046     		.align	2
+ 162              	.L9:
+ 163 001c 72000F40 		.word	1074724978
+ 164              		.cfi_endproc
+ 165              	.LFE4:
+ 166              		.size	PWM_GREEN_Enable, .-PWM_GREEN_Enable
+ 167              		.section	.text.PWM_GREEN_Stop,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	PWM_GREEN_Stop
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.type	PWM_GREEN_Stop, %function
+ 173              	PWM_GREEN_Stop:
+ 174              	.LFB5:
+ 212:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 213:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 214:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+ 215:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_Stop
+ 216:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+ 217:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 218:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+ 219:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  The stop function halts the PWM, but does not change any modes or disable
+ 220:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  interrupts.
+ 221:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 222:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+ 223:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 224:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 225:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 8
+
+
+ 226:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 227:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 228:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Side Effects:
+ 229:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  If the Enable mode is set to Hardware only then this function
+ 230:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  has no effect on the operation of the PWM
+ 231:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 232:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+ 233:.\Generated_Source\PSoC4/PWM_GREEN.c **** void PWM_GREEN_Stop(void) 
+ 234:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+ 175              		.loc 1 234 0
+ 176              		.cfi_startproc
+ 177 0000 80B5     		push	{r7, lr}
+ 178              		.cfi_def_cfa_offset 8
+ 179              		.cfi_offset 7, -8
+ 180              		.cfi_offset 14, -4
+ 181 0002 00AF     		add	r7, sp, #0
+ 182              		.cfi_def_cfa_register 7
+ 235:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UseControl || PWM_GREEN_UsingFixedFunction)
+ 236:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_CONTROL &= ((uint8)(~PWM_GREEN_CTRL_ENABLE));
+ 183              		.loc 1 236 0
+ 184 0004 044B     		ldr	r3, .L12
+ 185 0006 044A     		ldr	r2, .L12
+ 186 0008 1278     		ldrb	r2, [r2]
+ 187 000a D1B2     		uxtb	r1, r2
+ 188 000c 7F22     		mov	r2, #127
+ 189 000e 0A40     		and	r2, r1
+ 190 0010 D2B2     		uxtb	r2, r2
+ 191 0012 1A70     		strb	r2, [r3]
+ 237:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UseControl || PWM_GREEN_UsingFixedFunction) */
+ 238:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 239:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /* Globally disable the Fixed Function Block chosen */
+ 240:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UsingFixedFunction)
+ 241:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_GLOBAL_ENABLE &= ((uint8)(~PWM_GREEN_BLOCK_EN_MASK));
+ 242:.\Generated_Source\PSoC4/PWM_GREEN.c ****         PWM_GREEN_GLOBAL_STBY_ENABLE &= ((uint8)(~PWM_GREEN_BLOCK_STBY_EN_MASK));
+ 243:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 244:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+ 192              		.loc 1 244 0
+ 193 0014 BD46     		mov	sp, r7
+ 194              		@ sp needed
+ 195 0016 80BD     		pop	{r7, pc}
+ 196              	.L13:
+ 197              		.align	2
+ 198              	.L12:
+ 199 0018 72000F40 		.word	1074724978
+ 200              		.cfi_endproc
+ 201              	.LFE5:
+ 202              		.size	PWM_GREEN_Stop, .-PWM_GREEN_Stop
+ 203              		.section	.text.PWM_GREEN_WriteCounter,"ax",%progbits
+ 204              		.align	2
+ 205              		.global	PWM_GREEN_WriteCounter
+ 206              		.code	16
+ 207              		.thumb_func
+ 208              		.type	PWM_GREEN_WriteCounter, %function
+ 209              	PWM_GREEN_WriteCounter:
+ 210              	.LFB6:
+ 245:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 246:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_UseOneCompareMode)
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 9
+
+
+ 247:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_CompareMode1SW)
+ 248:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 249:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 250:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /*******************************************************************************
+ 251:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Function Name: PWM_GREEN_SetCompareMode
+ 252:.\Generated_Source\PSoC4/PWM_GREEN.c ****         ********************************************************************************
+ 253:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 254:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Summary:
+ 255:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  This function writes the Compare Mode for the pwm output when in Dither mode,
+ 256:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  Center Align Mode or One Output Mode.
+ 257:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 258:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Parameters:
+ 259:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 260:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *                defined in the H file as input arguments.
+ 261:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 262:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Return:
+ 263:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  None
+ 264:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 265:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *******************************************************************************/
+ 266:.\Generated_Source\PSoC4/PWM_GREEN.c ****         void PWM_GREEN_SetCompareMode(uint8 comparemode) 
+ 267:.\Generated_Source\PSoC4/PWM_GREEN.c ****         {
+ 268:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if(PWM_GREEN_UsingFixedFunction)
+ 269:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 270:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #if(0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT)
+ 271:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_GREEN_CTRL_CMPMODE
+ 272:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #else
+ 273:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemodemasked = comparemode;
+ 274:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #endif /* (0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT) */
+ 275:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 276:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL3 &= ((uint8)(~PWM_GREEN_CTRL_CMPMODE1_MASK)); /*Clear Existing Da
+ 277:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL3 |= comparemodemasked;
+ 278:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 279:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #elif (PWM_GREEN_UseControl)
+ 280:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 281:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #if(0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT)
+ 282:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemode1masked = ((uint8)((uint8)comparemode << PWM_GREEN_CTRL_CMPMOD
+ 283:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                                 PWM_GREEN_CTRL_CMPMODE1_MASK;
+ 284:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #else
+ 285:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemode1masked = comparemode & PWM_GREEN_CTRL_CMPMODE1_MASK;
+ 286:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #endif /* (0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT) */
+ 287:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 288:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #if(0 != PWM_GREEN_CTRL_CMPMODE2_SHIFT)
+ 289:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemode2masked = ((uint8)((uint8)comparemode << PWM_GREEN_CTRL_CMPMOD
+ 290:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                                PWM_GREEN_CTRL_CMPMODE2_MASK;
+ 291:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #else
+ 292:.\Generated_Source\PSoC4/PWM_GREEN.c ****                     uint8 comparemode2masked = comparemode & PWM_GREEN_CTRL_CMPMODE2_MASK;
+ 293:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 #endif /* (0 != PWM_GREEN_CTRL_CMPMODE2_SHIFT) */
+ 294:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 295:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 /*Clear existing mode */
+ 296:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL &= ((uint8)(~(PWM_GREEN_CTRL_CMPMODE1_MASK |
+ 297:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                             PWM_GREEN_CTRL_CMPMODE2_MASK)));
+ 298:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL |= (comparemode1masked | comparemode2masked);
+ 299:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 300:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #else
+ 301:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 uint8 temp = comparemode;
+ 302:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 303:.\Generated_Source\PSoC4/PWM_GREEN.c ****         }
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 10
+
+
+ 304:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* PWM_GREEN_CompareMode1SW */
+ 305:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 306:.\Generated_Source\PSoC4/PWM_GREEN.c **** #else /* UseOneCompareMode */
+ 307:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 308:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_CompareMode1SW)
+ 309:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 310:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 311:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /*******************************************************************************
+ 312:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Function Name: PWM_GREEN_SetCompareMode1
+ 313:.\Generated_Source\PSoC4/PWM_GREEN.c ****         ********************************************************************************
+ 314:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 315:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Summary:
+ 316:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  This function writes the Compare Mode for the pwm or pwm1 output
+ 317:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 318:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Parameters:
+ 319:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 320:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *                defined in the H file as input arguments.
+ 321:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 322:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Return:
+ 323:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  None
+ 324:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 325:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *******************************************************************************/
+ 326:.\Generated_Source\PSoC4/PWM_GREEN.c ****         void PWM_GREEN_SetCompareMode1(uint8 comparemode) 
+ 327:.\Generated_Source\PSoC4/PWM_GREEN.c ****         {
+ 328:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if(0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT)
+ 329:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_GREEN_CTRL_CMPMODE1_SH
+ 330:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                            PWM_GREEN_CTRL_CMPMODE1_MASK;
+ 331:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #else
+ 332:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 uint8 comparemodemasked = comparemode & PWM_GREEN_CTRL_CMPMODE1_MASK;
+ 333:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (0 != PWM_GREEN_CTRL_CMPMODE1_SHIFT) */
+ 334:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 335:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if (PWM_GREEN_UseControl)
+ 336:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL &= ((uint8)(~PWM_GREEN_CTRL_CMPMODE1_MASK)); /*Clear existing mod
+ 337:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_CONTROL |= comparemodemasked;
+ 338:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (PWM_GREEN_UseControl) */
+ 339:.\Generated_Source\PSoC4/PWM_GREEN.c ****         }
+ 340:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* PWM_GREEN_CompareMode1SW */
+ 341:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 342:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_CompareMode2SW)
+ 343:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 344:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 345:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 346:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_SetCompareMode2
+ 347:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 348:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 349:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 350:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function writes the Compare Mode for the pwm or pwm2 output
+ 351:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 352:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 353:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 354:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *                defined in the H file as input arguments.
+ 355:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 356:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 357:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 358:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 359:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 360:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_SetCompareMode2(uint8 comparemode) 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 11
+
+
+ 361:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 362:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 363:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(0 != PWM_GREEN_CTRL_CMPMODE2_SHIFT)
+ 364:.\Generated_Source\PSoC4/PWM_GREEN.c ****             uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_GREEN_CTRL_CMPMODE2_SHIFT)
+ 365:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                                  PWM_GREEN_CTRL_CMPMODE2_MASK;
+ 366:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 367:.\Generated_Source\PSoC4/PWM_GREEN.c ****             uint8 comparemodemasked = comparemode & PWM_GREEN_CTRL_CMPMODE2_MASK;
+ 368:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (0 != PWM_GREEN_CTRL_CMPMODE2_SHIFT) */
+ 369:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 370:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_UseControl)
+ 371:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_CONTROL &= ((uint8)(~PWM_GREEN_CTRL_CMPMODE2_MASK)); /*Clear existing mode */
+ 372:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_CONTROL |= comparemodemasked;
+ 373:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UseControl) */
+ 374:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 375:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /*PWM_GREEN_CompareMode2SW */
+ 376:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 377:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* UseOneCompareMode */
+ 378:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 379:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 380:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (!PWM_GREEN_UsingFixedFunction)
+ 381:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 382:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 383:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 384:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteCounter
+ 385:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 386:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 387:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 388:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Writes a new counter value directly to the counter register. This will be
+ 389:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  implemented for that currently running period and only that period. This API
+ 390:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  is valid only for UDB implementation and not available for fixed function
+ 391:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  PWM implementation.
+ 392:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 393:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 394:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  counter:  The period new period counter value.
+ 395:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 396:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 397:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 398:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 399:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Side Effects:
+ 400:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  The PWM Period will be reloaded when a counter value will be a zero
+ 401:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 402:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 403:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteCounter(uint8 counter) \
+ 404:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                        
+ 405:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 211              		.loc 1 405 0
+ 212              		.cfi_startproc
+ 213 0000 80B5     		push	{r7, lr}
+ 214              		.cfi_def_cfa_offset 8
+ 215              		.cfi_offset 7, -8
+ 216              		.cfi_offset 14, -4
+ 217 0002 82B0     		sub	sp, sp, #8
+ 218              		.cfi_def_cfa_offset 16
+ 219 0004 00AF     		add	r7, sp, #0
+ 220              		.cfi_def_cfa_register 7
+ 221 0006 021C     		mov	r2, r0
+ 222 0008 FB1D     		add	r3, r7, #7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 12
+
+
+ 223 000a 1A70     		strb	r2, [r3]
+ 406:.\Generated_Source\PSoC4/PWM_GREEN.c ****         CY_SET_REG8(PWM_GREEN_COUNTER_LSB_PTR, counter);
+ 224              		.loc 1 406 0
+ 225 000c 034B     		ldr	r3, .L15
+ 226 000e FA1D     		add	r2, r7, #7
+ 227 0010 1278     		ldrb	r2, [r2]
+ 228 0012 1A70     		strb	r2, [r3]
+ 407:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 229              		.loc 1 407 0
+ 230 0014 BD46     		mov	sp, r7
+ 231 0016 02B0     		add	sp, sp, #8
+ 232              		@ sp needed
+ 233 0018 80BD     		pop	{r7, pc}
+ 234              	.L16:
+ 235 001a C046     		.align	2
+ 236              	.L15:
+ 237 001c 02000F40 		.word	1074724866
+ 238              		.cfi_endproc
+ 239              	.LFE6:
+ 240              		.size	PWM_GREEN_WriteCounter, .-PWM_GREEN_WriteCounter
+ 241              		.section	.text.PWM_GREEN_ReadCounter,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	PWM_GREEN_ReadCounter
+ 244              		.code	16
+ 245              		.thumb_func
+ 246              		.type	PWM_GREEN_ReadCounter, %function
+ 247              	PWM_GREEN_ReadCounter:
+ 248              	.LFB7:
+ 408:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 409:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 410:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 411:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadCounter
+ 412:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 413:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 414:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 415:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function returns the current value of the counter.  It doesn't matter
+ 416:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  if the counter is enabled or running.
+ 417:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 418:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 419:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 420:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 421:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 422:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  The current value of the counter.
+ 423:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 424:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 425:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadCounter(void) 
+ 426:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 249              		.loc 1 426 0
+ 250              		.cfi_startproc
+ 251 0000 80B5     		push	{r7, lr}
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 7, -8
+ 254              		.cfi_offset 14, -4
+ 255 0002 00AF     		add	r7, sp, #0
+ 256              		.cfi_def_cfa_register 7
+ 427:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Force capture by reading Accumulator */
+ 428:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Must first do a software capture to be able to read the counter */
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 13
+
+
+ 429:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 430:.\Generated_Source\PSoC4/PWM_GREEN.c ****           (void)CY_GET_REG8(PWM_GREEN_COUNTERCAP_LSB_PTR_8BIT);
+ 257              		.loc 1 430 0
+ 258 0004 034B     		ldr	r3, .L19
+ 259 0006 1B78     		ldrb	r3, [r3]
+ 431:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 432:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* Read the data from the FIFO */
+ 433:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_CAPTURE_LSB_PTR));
+ 260              		.loc 1 433 0
+ 261 0008 034B     		ldr	r3, .L19+4
+ 262 000a 1B78     		ldrb	r3, [r3]
+ 263 000c DBB2     		uxtb	r3, r3
+ 434:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 264              		.loc 1 434 0
+ 265 000e 181C     		mov	r0, r3
+ 266 0010 BD46     		mov	sp, r7
+ 267              		@ sp needed
+ 268 0012 80BD     		pop	{r7, pc}
+ 269              	.L20:
+ 270              		.align	2
+ 271              	.L19:
+ 272 0014 12000F40 		.word	1074724882
+ 273 0018 52000F40 		.word	1074724946
+ 274              		.cfi_endproc
+ 275              	.LFE7:
+ 276              		.size	PWM_GREEN_ReadCounter, .-PWM_GREEN_ReadCounter
+ 277              		.section	.text.PWM_GREEN_WritePeriod,"ax",%progbits
+ 278              		.align	2
+ 279              		.global	PWM_GREEN_WritePeriod
+ 280              		.code	16
+ 281              		.thumb_func
+ 282              		.type	PWM_GREEN_WritePeriod, %function
+ 283              	PWM_GREEN_WritePeriod:
+ 284              	.LFB8:
+ 435:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 436:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if (PWM_GREEN_UseStatus)
+ 437:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 438:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 439:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /*******************************************************************************
+ 440:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Function Name: PWM_GREEN_ClearFIFO
+ 441:.\Generated_Source\PSoC4/PWM_GREEN.c ****         ********************************************************************************
+ 442:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 443:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Summary:
+ 444:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  This function clears all capture data from the capture FIFO
+ 445:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 446:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Parameters:
+ 447:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  None
+ 448:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 449:.\Generated_Source\PSoC4/PWM_GREEN.c ****         * Return:
+ 450:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *  None
+ 451:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *
+ 452:.\Generated_Source\PSoC4/PWM_GREEN.c ****         *******************************************************************************/
+ 453:.\Generated_Source\PSoC4/PWM_GREEN.c ****         void PWM_GREEN_ClearFIFO(void) 
+ 454:.\Generated_Source\PSoC4/PWM_GREEN.c ****         {
+ 455:.\Generated_Source\PSoC4/PWM_GREEN.c ****             while(0u != (PWM_GREEN_ReadStatusRegister() & PWM_GREEN_STATUS_FIFONEMPTY))
+ 456:.\Generated_Source\PSoC4/PWM_GREEN.c ****             {
+ 457:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 (void)PWM_GREEN_ReadCapture();
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 14
+
+
+ 458:.\Generated_Source\PSoC4/PWM_GREEN.c ****             }
+ 459:.\Generated_Source\PSoC4/PWM_GREEN.c ****         }
+ 460:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 461:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* PWM_GREEN_UseStatus */
+ 462:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 463:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* !PWM_GREEN_UsingFixedFunction */
+ 464:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 465:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 466:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+ 467:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_WritePeriod
+ 468:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+ 469:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 470:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+ 471:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  This function is used to change the period of the counter.  The new period
+ 472:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  will be loaded the next time terminal count is detected.
+ 473:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 474:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+ 475:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  period:  Period value. May be between 1 and (2^Resolution)-1.  A value of 0
+ 476:.\Generated_Source\PSoC4/PWM_GREEN.c **** *           will result in the counter remaining at zero.
+ 477:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 478:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+ 479:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 480:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 481:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+ 482:.\Generated_Source\PSoC4/PWM_GREEN.c **** void PWM_GREEN_WritePeriod(uint8 period) 
+ 483:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+ 285              		.loc 1 483 0
+ 286              		.cfi_startproc
+ 287 0000 80B5     		push	{r7, lr}
+ 288              		.cfi_def_cfa_offset 8
+ 289              		.cfi_offset 7, -8
+ 290              		.cfi_offset 14, -4
+ 291 0002 82B0     		sub	sp, sp, #8
+ 292              		.cfi_def_cfa_offset 16
+ 293 0004 00AF     		add	r7, sp, #0
+ 294              		.cfi_def_cfa_register 7
+ 295 0006 021C     		mov	r2, r0
+ 296 0008 FB1D     		add	r3, r7, #7
+ 297 000a 1A70     		strb	r2, [r3]
+ 484:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if(PWM_GREEN_UsingFixedFunction)
+ 485:.\Generated_Source\PSoC4/PWM_GREEN.c ****         CY_SET_REG16(PWM_GREEN_PERIOD_LSB_PTR, (uint16)period);
+ 486:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #else
+ 487:.\Generated_Source\PSoC4/PWM_GREEN.c ****         CY_SET_REG8(PWM_GREEN_PERIOD_LSB_PTR, period);
+ 298              		.loc 1 487 0
+ 299 000c 034B     		ldr	r3, .L22
+ 300 000e FA1D     		add	r2, r7, #7
+ 301 0010 1278     		ldrb	r2, [r2]
+ 302 0012 1A70     		strb	r2, [r3]
+ 488:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 489:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+ 303              		.loc 1 489 0
+ 304 0014 BD46     		mov	sp, r7
+ 305 0016 02B0     		add	sp, sp, #8
+ 306              		@ sp needed
+ 307 0018 80BD     		pop	{r7, pc}
+ 308              	.L23:
+ 309 001a C046     		.align	2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 15
+
+
+ 310              	.L22:
+ 311 001c 42000F40 		.word	1074724930
+ 312              		.cfi_endproc
+ 313              	.LFE8:
+ 314              		.size	PWM_GREEN_WritePeriod, .-PWM_GREEN_WritePeriod
+ 315              		.section	.text.PWM_GREEN_WriteCompare,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	PWM_GREEN_WriteCompare
+ 318              		.code	16
+ 319              		.thumb_func
+ 320              		.type	PWM_GREEN_WriteCompare, %function
+ 321              	PWM_GREEN_WriteCompare:
+ 322              	.LFB9:
+ 490:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 491:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_UseOneCompareMode)
+ 492:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 493:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 494:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 495:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteCompare
+ 496:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 497:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 498:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 499:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This funtion is used to change the compare1 value when the PWM is in Dither
+ 500:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  mode. The compare output will reflect the new value on the next UDB clock.
+ 501:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  The compare output will be driven high when the present counter value is
+ 502:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  compared to the compare value based on the compare mode defined in
+ 503:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Dither Mode.
+ 504:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 505:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 506:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  compare:  New compare value.
+ 507:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 508:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 509:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 510:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 511:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Side Effects:
+ 512:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function is only available if the PWM mode parameter is set to
+ 513:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Dither Mode, Center Aligned Mode or One Output Mode
+ 514:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 515:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 516:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteCompare(uint8 compare) \
+ 517:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                        
+ 518:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 323              		.loc 1 518 0
+ 324              		.cfi_startproc
+ 325 0000 80B5     		push	{r7, lr}
+ 326              		.cfi_def_cfa_offset 8
+ 327              		.cfi_offset 7, -8
+ 328              		.cfi_offset 14, -4
+ 329 0002 82B0     		sub	sp, sp, #8
+ 330              		.cfi_def_cfa_offset 16
+ 331 0004 00AF     		add	r7, sp, #0
+ 332              		.cfi_def_cfa_register 7
+ 333 0006 021C     		mov	r2, r0
+ 334 0008 FB1D     		add	r3, r7, #7
+ 335 000a 1A70     		strb	r2, [r3]
+ 519:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UsingFixedFunction)
+ 520:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG16(PWM_GREEN_COMPARE1_LSB_PTR, (uint16)compare);
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 16
+
+
+ 521:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 522:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG8(PWM_GREEN_COMPARE1_LSB_PTR, compare);
+ 336              		.loc 1 522 0
+ 337 000c 034B     		ldr	r3, .L25
+ 338 000e FA1D     		add	r2, r7, #7
+ 339 0010 1278     		ldrb	r2, [r2]
+ 340 0012 1A70     		strb	r2, [r3]
+ 523:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 524:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 525:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if (PWM_GREEN_PWMMode == PWM_GREEN__B_PWM__DITHER)
+ 526:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if(PWM_GREEN_UsingFixedFunction)
+ 527:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 CY_SET_REG16(PWM_GREEN_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+ 528:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #else
+ 529:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 CY_SET_REG8(PWM_GREEN_COMPARE2_LSB_PTR, (compare + 1u));
+ 530:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 531:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_PWMMode == PWM_GREEN__B_PWM__DITHER) */
+ 532:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 341              		.loc 1 532 0
+ 342 0014 BD46     		mov	sp, r7
+ 343 0016 02B0     		add	sp, sp, #8
+ 344              		@ sp needed
+ 345 0018 80BD     		pop	{r7, pc}
+ 346              	.L26:
+ 347 001a C046     		.align	2
+ 348              	.L25:
+ 349 001c 22000F40 		.word	1074724898
+ 350              		.cfi_endproc
+ 351              	.LFE9:
+ 352              		.size	PWM_GREEN_WriteCompare, .-PWM_GREEN_WriteCompare
+ 353              		.section	.text.PWM_GREEN_ReadControlRegister,"ax",%progbits
+ 354              		.align	2
+ 355              		.global	PWM_GREEN_ReadControlRegister
+ 356              		.code	16
+ 357              		.thumb_func
+ 358              		.type	PWM_GREEN_ReadControlRegister, %function
+ 359              	PWM_GREEN_ReadControlRegister:
+ 360              	.LFB10:
+ 533:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 534:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 535:.\Generated_Source\PSoC4/PWM_GREEN.c **** #else
+ 536:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 537:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 538:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 539:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteCompare1
+ 540:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 541:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 542:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 543:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This funtion is used to change the compare1 value.  The compare output will
+ 544:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  reflect the new value on the next UDB clock.  The compare output will be
+ 545:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  driven high when the present counter value is less than or less than or
+ 546:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  equal to the compare register, depending on the mode.
+ 547:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 548:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 549:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  compare:  New compare value.
+ 550:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 551:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 552:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 17
+
+
+ 553:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 554:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 555:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteCompare1(uint8 compare) \
+ 556:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                         
+ 557:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 558:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UsingFixedFunction)
+ 559:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG16(PWM_GREEN_COMPARE1_LSB_PTR, (uint16)compare);
+ 560:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 561:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG8(PWM_GREEN_COMPARE1_LSB_PTR, compare);
+ 562:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 563:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 564:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 565:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 566:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 567:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteCompare2
+ 568:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 569:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 570:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 571:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This funtion is used to change the compare value, for compare1 output.
+ 572:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  The compare output will reflect the new value on the next UDB clock.
+ 573:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  The compare output will be driven high when the present counter value is
+ 574:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  less than or less than or equal to the compare register, depending on the
+ 575:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  mode.
+ 576:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 577:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 578:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  compare:  New compare value.
+ 579:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 580:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 581:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 582:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 583:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 584:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteCompare2(uint8 compare) \
+ 585:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                         
+ 586:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 587:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UsingFixedFunction)
+ 588:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG16(PWM_GREEN_COMPARE2_LSB_PTR, compare);
+ 589:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 590:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG8(PWM_GREEN_COMPARE2_LSB_PTR, compare);
+ 591:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 592:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 593:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* UseOneCompareMode */
+ 594:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 595:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_DeadBandUsed)
+ 596:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 597:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 598:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 599:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteDeadTime
+ 600:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 601:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 602:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 603:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function writes the dead-band counts to the corresponding register
+ 604:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 605:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 606:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  deadtime:  Number of counts for dead time
+ 607:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 608:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 609:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 18
+
+
+ 610:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 611:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 612:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteDeadTime(uint8 deadtime) 
+ 613:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 614:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* If using the Dead Band 1-255 mode then just write the register */
+ 615:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(!PWM_GREEN_DeadBand2_4)
+ 616:.\Generated_Source\PSoC4/PWM_GREEN.c ****             CY_SET_REG8(PWM_GREEN_DEADBAND_COUNT_PTR, deadtime);
+ 617:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 618:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Otherwise the data has to be masked and offset */
+ 619:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Clear existing data */
+ 620:.\Generated_Source\PSoC4/PWM_GREEN.c ****             PWM_GREEN_DEADBAND_COUNT &= ((uint8)(~PWM_GREEN_DEADBAND_COUNT_MASK));
+ 621:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 622:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Set new dead time */
+ 623:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if(PWM_GREEN_DEADBAND_COUNT_SHIFT)
+ 624:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << PWM_GREEN_DEADBAND_COUNT_SH
+ 625:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                                     PWM_GREEN_DEADBAND_COUNT_MASK;
+ 626:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #else
+ 627:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 PWM_GREEN_DEADBAND_COUNT |= deadtime & PWM_GREEN_DEADBAND_COUNT_MASK;
+ 628:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (PWM_GREEN_DEADBAND_COUNT_SHIFT) */
+ 629:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 630:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (!PWM_GREEN_DeadBand2_4) */
+ 631:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 632:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 633:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 634:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 635:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadDeadTime
+ 636:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 637:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 638:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 639:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function reads the dead-band counts from the corresponding register
+ 640:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 641:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 642:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 643:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 644:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 645:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Dead Band Counts
+ 646:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 647:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 648:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadDeadTime(void) 
+ 649:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 650:.\Generated_Source\PSoC4/PWM_GREEN.c ****         /* If using the Dead Band 1-255 mode then just read the register */
+ 651:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(!PWM_GREEN_DeadBand2_4)
+ 652:.\Generated_Source\PSoC4/PWM_GREEN.c ****             return (CY_GET_REG8(PWM_GREEN_DEADBAND_COUNT_PTR));
+ 653:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 654:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 655:.\Generated_Source\PSoC4/PWM_GREEN.c ****             /* Otherwise the data has to be masked and offset */
+ 656:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #if(PWM_GREEN_DEADBAND_COUNT_SHIFT)
+ 657:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 return ((uint8)(((uint8)(PWM_GREEN_DEADBAND_COUNT & PWM_GREEN_DEADBAND_COUNT_MASK))
+ 658:.\Generated_Source\PSoC4/PWM_GREEN.c ****                                                                            PWM_GREEN_DEADBAND_COUNT
+ 659:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #else
+ 660:.\Generated_Source\PSoC4/PWM_GREEN.c ****                 return (PWM_GREEN_DEADBAND_COUNT & PWM_GREEN_DEADBAND_COUNT_MASK);
+ 661:.\Generated_Source\PSoC4/PWM_GREEN.c ****             #endif /* (PWM_GREEN_DEADBAND_COUNT_SHIFT) */
+ 662:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (!PWM_GREEN_DeadBand2_4) */
+ 663:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 664:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* DeadBandUsed */
+ 665:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 666:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_UseStatus || PWM_GREEN_UsingFixedFunction)
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 19
+
+
+ 667:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 668:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 669:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 670:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_SetInterruptMode
+ 671:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 672:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 673:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 674:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function configures the interrupts mask control of theinterrupt
+ 675:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  source status register.
+ 676:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 677:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 678:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8 interruptMode: Bit field containing the interrupt sources enabled
+ 679:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 680:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 681:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 682:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 683:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 684:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_SetInterruptMode(uint8 interruptMode) 
+ 685:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 686:.\Generated_Source\PSoC4/PWM_GREEN.c ****         CY_SET_REG8(PWM_GREEN_STATUS_MASK_PTR, interruptMode);
+ 687:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 688:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 689:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 690:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 691:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadStatusRegister
+ 692:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 693:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 694:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 695:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  This function returns the current state of the status register.
+ 696:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 697:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 698:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 699:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 700:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 701:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8 : Current status register value. The status register bits are:
+ 702:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [7:6] : Unused(0)
+ 703:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [5]   : Kill event output
+ 704:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [4]   : FIFO not empty
+ 705:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [3]   : FIFO full
+ 706:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [2]   : Terminal count
+ 707:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [1]   : Compare output 2
+ 708:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [0]   : Compare output 1
+ 709:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 710:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 711:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadStatusRegister(void) 
+ 712:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 713:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_STATUS_PTR));
+ 714:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 715:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 716:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* (PWM_GREEN_UseStatus || PWM_GREEN_UsingFixedFunction) */
+ 717:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 718:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 719:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_UseControl)
+ 720:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 721:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 722:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 723:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadControlRegister
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 20
+
+
+ 724:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 725:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 726:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 727:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Returns the current state of the control register. This API is available
+ 728:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  only if the control register is not removed.
+ 729:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 730:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 731:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 732:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 733:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 734:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8 : Current control register value
+ 735:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 736:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 737:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadControlRegister(void) 
+ 738:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 361              		.loc 1 738 0
+ 362              		.cfi_startproc
+ 363 0000 80B5     		push	{r7, lr}
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 7, -8
+ 366              		.cfi_offset 14, -4
+ 367 0002 82B0     		sub	sp, sp, #8
+ 368              		.cfi_def_cfa_offset 16
+ 369 0004 00AF     		add	r7, sp, #0
+ 370              		.cfi_def_cfa_register 7
+ 739:.\Generated_Source\PSoC4/PWM_GREEN.c ****         uint8 result;
+ 740:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 741:.\Generated_Source\PSoC4/PWM_GREEN.c ****         result = CY_GET_REG8(PWM_GREEN_CONTROL_PTR);
+ 371              		.loc 1 741 0
+ 372 0006 054A     		ldr	r2, .L29
+ 373 0008 FB1D     		add	r3, r7, #7
+ 374 000a 1278     		ldrb	r2, [r2]
+ 375 000c 1A70     		strb	r2, [r3]
+ 742:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (result);
+ 376              		.loc 1 742 0
+ 377 000e FB1D     		add	r3, r7, #7
+ 378 0010 1B78     		ldrb	r3, [r3]
+ 743:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 379              		.loc 1 743 0
+ 380 0012 181C     		mov	r0, r3
+ 381 0014 BD46     		mov	sp, r7
+ 382 0016 02B0     		add	sp, sp, #8
+ 383              		@ sp needed
+ 384 0018 80BD     		pop	{r7, pc}
+ 385              	.L30:
+ 386 001a C046     		.align	2
+ 387              	.L29:
+ 388 001c 72000F40 		.word	1074724978
+ 389              		.cfi_endproc
+ 390              	.LFE10:
+ 391              		.size	PWM_GREEN_ReadControlRegister, .-PWM_GREEN_ReadControlRegister
+ 392              		.section	.text.PWM_GREEN_WriteControlRegister,"ax",%progbits
+ 393              		.align	2
+ 394              		.global	PWM_GREEN_WriteControlRegister
+ 395              		.code	16
+ 396              		.thumb_func
+ 397              		.type	PWM_GREEN_WriteControlRegister, %function
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 21
+
+
+ 398              	PWM_GREEN_WriteControlRegister:
+ 399              	.LFB11:
+ 744:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 745:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 746:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 747:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_WriteControlRegister
+ 748:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 749:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 750:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 751:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Sets the bit field of the control register. This API is available only if
+ 752:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  the control register is not removed.
+ 753:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 754:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 755:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8 control: Control register bit field, The status register bits are:
+ 756:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [7]   : PWM Enable
+ 757:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [6]   : Reset
+ 758:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [5:3] : Compare Mode2
+ 759:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  [2:0] : Compare Mode2
+ 760:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 761:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 762:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 763:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 764:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 765:.\Generated_Source\PSoC4/PWM_GREEN.c ****     void PWM_GREEN_WriteControlRegister(uint8 control) 
+ 766:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 400              		.loc 1 766 0
+ 401              		.cfi_startproc
+ 402 0000 80B5     		push	{r7, lr}
+ 403              		.cfi_def_cfa_offset 8
+ 404              		.cfi_offset 7, -8
+ 405              		.cfi_offset 14, -4
+ 406 0002 82B0     		sub	sp, sp, #8
+ 407              		.cfi_def_cfa_offset 16
+ 408 0004 00AF     		add	r7, sp, #0
+ 409              		.cfi_def_cfa_register 7
+ 410 0006 021C     		mov	r2, r0
+ 411 0008 FB1D     		add	r3, r7, #7
+ 412 000a 1A70     		strb	r2, [r3]
+ 767:.\Generated_Source\PSoC4/PWM_GREEN.c ****         CY_SET_REG8(PWM_GREEN_CONTROL_PTR, control);
+ 413              		.loc 1 767 0
+ 414 000c 034B     		ldr	r3, .L32
+ 415 000e FA1D     		add	r2, r7, #7
+ 416 0010 1278     		ldrb	r2, [r2]
+ 417 0012 1A70     		strb	r2, [r3]
+ 768:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 418              		.loc 1 768 0
+ 419 0014 BD46     		mov	sp, r7
+ 420 0016 02B0     		add	sp, sp, #8
+ 421              		@ sp needed
+ 422 0018 80BD     		pop	{r7, pc}
+ 423              	.L33:
+ 424 001a C046     		.align	2
+ 425              	.L32:
+ 426 001c 72000F40 		.word	1074724978
+ 427              		.cfi_endproc
+ 428              	.LFE11:
+ 429              		.size	PWM_GREEN_WriteControlRegister, .-PWM_GREEN_WriteControlRegister
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 22
+
+
+ 430              		.section	.text.PWM_GREEN_ReadCapture,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	PWM_GREEN_ReadCapture
+ 433              		.code	16
+ 434              		.thumb_func
+ 435              		.type	PWM_GREEN_ReadCapture, %function
+ 436              	PWM_GREEN_ReadCapture:
+ 437              	.LFB12:
+ 769:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 770:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* (PWM_GREEN_UseControl) */
+ 771:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 772:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 773:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (!PWM_GREEN_UsingFixedFunction)
+ 774:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 775:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 776:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 777:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadCapture
+ 778:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 779:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 780:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 781:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Reads the capture value from the capture FIFO.
+ 782:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 783:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 784:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 785:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 786:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 787:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8/uint16: The current capture value
+ 788:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 789:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 790:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadCapture(void) 
+ 791:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 438              		.loc 1 791 0
+ 439              		.cfi_startproc
+ 440 0000 80B5     		push	{r7, lr}
+ 441              		.cfi_def_cfa_offset 8
+ 442              		.cfi_offset 7, -8
+ 443              		.cfi_offset 14, -4
+ 444 0002 00AF     		add	r7, sp, #0
+ 445              		.cfi_def_cfa_register 7
+ 792:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_CAPTURE_LSB_PTR));
+ 446              		.loc 1 792 0
+ 447 0004 024B     		ldr	r3, .L36
+ 448 0006 1B78     		ldrb	r3, [r3]
+ 449 0008 DBB2     		uxtb	r3, r3
+ 793:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 450              		.loc 1 793 0
+ 451 000a 181C     		mov	r0, r3
+ 452 000c BD46     		mov	sp, r7
+ 453              		@ sp needed
+ 454 000e 80BD     		pop	{r7, pc}
+ 455              	.L37:
+ 456              		.align	2
+ 457              	.L36:
+ 458 0010 52000F40 		.word	1074724946
+ 459              		.cfi_endproc
+ 460              	.LFE12:
+ 461              		.size	PWM_GREEN_ReadCapture, .-PWM_GREEN_ReadCapture
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 23
+
+
+ 462              		.section	.text.PWM_GREEN_ReadCompare,"ax",%progbits
+ 463              		.align	2
+ 464              		.global	PWM_GREEN_ReadCompare
+ 465              		.code	16
+ 466              		.thumb_func
+ 467              		.type	PWM_GREEN_ReadCompare, %function
+ 468              	PWM_GREEN_ReadCompare:
+ 469              	.LFB13:
+ 794:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 795:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* (!PWM_GREEN_UsingFixedFunction) */
+ 796:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 797:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 798:.\Generated_Source\PSoC4/PWM_GREEN.c **** #if (PWM_GREEN_UseOneCompareMode)
+ 799:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 800:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 801:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 802:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadCompare
+ 803:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 804:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 805:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 806:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Reads the compare value for the compare output when the PWM Mode parameter is
+ 807:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  set to Dither mode, Center Aligned mode, or One Output mode.
+ 808:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 809:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 810:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 811:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 812:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 813:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8/uint16: Current compare value
+ 814:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 815:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 816:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadCompare(void) 
+ 817:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 470              		.loc 1 817 0
+ 471              		.cfi_startproc
+ 472 0000 80B5     		push	{r7, lr}
+ 473              		.cfi_def_cfa_offset 8
+ 474              		.cfi_offset 7, -8
+ 475              		.cfi_offset 14, -4
+ 476 0002 00AF     		add	r7, sp, #0
+ 477              		.cfi_def_cfa_register 7
+ 818:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #if(PWM_GREEN_UsingFixedFunction)
+ 819:.\Generated_Source\PSoC4/PWM_GREEN.c ****             return ((uint8)CY_GET_REG16(PWM_GREEN_COMPARE1_LSB_PTR));
+ 820:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #else
+ 821:.\Generated_Source\PSoC4/PWM_GREEN.c ****             return (CY_GET_REG8(PWM_GREEN_COMPARE1_LSB_PTR));
+ 478              		.loc 1 821 0
+ 479 0004 024B     		ldr	r3, .L40
+ 480 0006 1B78     		ldrb	r3, [r3]
+ 481 0008 DBB2     		uxtb	r3, r3
+ 822:.\Generated_Source\PSoC4/PWM_GREEN.c ****         #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 823:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 482              		.loc 1 823 0
+ 483 000a 181C     		mov	r0, r3
+ 484 000c BD46     		mov	sp, r7
+ 485              		@ sp needed
+ 486 000e 80BD     		pop	{r7, pc}
+ 487              	.L41:
+ 488              		.align	2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 24
+
+
+ 489              	.L40:
+ 490 0010 22000F40 		.word	1074724898
+ 491              		.cfi_endproc
+ 492              	.LFE13:
+ 493              		.size	PWM_GREEN_ReadCompare, .-PWM_GREEN_ReadCompare
+ 494              		.section	.text.PWM_GREEN_ReadPeriod,"ax",%progbits
+ 495              		.align	2
+ 496              		.global	PWM_GREEN_ReadPeriod
+ 497              		.code	16
+ 498              		.thumb_func
+ 499              		.type	PWM_GREEN_ReadPeriod, %function
+ 500              	PWM_GREEN_ReadPeriod:
+ 501              	.LFB14:
+ 824:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 825:.\Generated_Source\PSoC4/PWM_GREEN.c **** #else
+ 826:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 827:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 828:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 829:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadCompare1
+ 830:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 831:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 832:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 833:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Reads the compare value for the compare1 output.
+ 834:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 835:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 836:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 837:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 838:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 839:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8/uint16: Current compare value.
+ 840:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 841:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 842:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadCompare1(void) 
+ 843:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 844:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_COMPARE1_LSB_PTR));
+ 845:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 846:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 847:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 848:.\Generated_Source\PSoC4/PWM_GREEN.c ****     /*******************************************************************************
+ 849:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Function Name: PWM_GREEN_ReadCompare2
+ 850:.\Generated_Source\PSoC4/PWM_GREEN.c ****     ********************************************************************************
+ 851:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 852:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Summary:
+ 853:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  Reads the compare value for the compare2 output.
+ 854:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 855:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Parameters:
+ 856:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  None
+ 857:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 858:.\Generated_Source\PSoC4/PWM_GREEN.c ****     * Return:
+ 859:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *  uint8/uint16: Current compare value.
+ 860:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *
+ 861:.\Generated_Source\PSoC4/PWM_GREEN.c ****     *******************************************************************************/
+ 862:.\Generated_Source\PSoC4/PWM_GREEN.c ****     uint8 PWM_GREEN_ReadCompare2(void) 
+ 863:.\Generated_Source\PSoC4/PWM_GREEN.c ****     {
+ 864:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_COMPARE2_LSB_PTR));
+ 865:.\Generated_Source\PSoC4/PWM_GREEN.c ****     }
+ 866:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 867:.\Generated_Source\PSoC4/PWM_GREEN.c **** #endif /* (PWM_GREEN_UseOneCompareMode) */
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 25
+
+
+ 868:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 869:.\Generated_Source\PSoC4/PWM_GREEN.c **** 
+ 870:.\Generated_Source\PSoC4/PWM_GREEN.c **** /*******************************************************************************
+ 871:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Function Name: PWM_GREEN_ReadPeriod
+ 872:.\Generated_Source\PSoC4/PWM_GREEN.c **** ********************************************************************************
+ 873:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 874:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Summary:
+ 875:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  Reads the period value used by the PWM hardware.
+ 876:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 877:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Parameters:
+ 878:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  None
+ 879:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 880:.\Generated_Source\PSoC4/PWM_GREEN.c **** * Return:
+ 881:.\Generated_Source\PSoC4/PWM_GREEN.c **** *  uint8/16: Period value
+ 882:.\Generated_Source\PSoC4/PWM_GREEN.c **** *
+ 883:.\Generated_Source\PSoC4/PWM_GREEN.c **** *******************************************************************************/
+ 884:.\Generated_Source\PSoC4/PWM_GREEN.c **** uint8 PWM_GREEN_ReadPeriod(void) 
+ 885:.\Generated_Source\PSoC4/PWM_GREEN.c **** {
+ 502              		.loc 1 885 0
+ 503              		.cfi_startproc
+ 504 0000 80B5     		push	{r7, lr}
+ 505              		.cfi_def_cfa_offset 8
+ 506              		.cfi_offset 7, -8
+ 507              		.cfi_offset 14, -4
+ 508 0002 00AF     		add	r7, sp, #0
+ 509              		.cfi_def_cfa_register 7
+ 886:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #if(PWM_GREEN_UsingFixedFunction)
+ 887:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return ((uint8)CY_GET_REG16(PWM_GREEN_PERIOD_LSB_PTR));
+ 888:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #else
+ 889:.\Generated_Source\PSoC4/PWM_GREEN.c ****         return (CY_GET_REG8(PWM_GREEN_PERIOD_LSB_PTR));
+ 510              		.loc 1 889 0
+ 511 0004 024B     		ldr	r3, .L44
+ 512 0006 1B78     		ldrb	r3, [r3]
+ 513 0008 DBB2     		uxtb	r3, r3
+ 890:.\Generated_Source\PSoC4/PWM_GREEN.c ****     #endif /* (PWM_GREEN_UsingFixedFunction) */
+ 891:.\Generated_Source\PSoC4/PWM_GREEN.c **** }
+ 514              		.loc 1 891 0
+ 515 000a 181C     		mov	r0, r3
+ 516 000c BD46     		mov	sp, r7
+ 517              		@ sp needed
+ 518 000e 80BD     		pop	{r7, pc}
+ 519              	.L45:
+ 520              		.align	2
+ 521              	.L44:
+ 522 0010 42000F40 		.word	1074724930
+ 523              		.cfi_endproc
+ 524              	.LFE14:
+ 525              		.size	PWM_GREEN_ReadPeriod, .-PWM_GREEN_ReadPeriod
+ 526              		.text
+ 527              	.Letext0:
+ 528              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 529              		.section	.debug_info,"",%progbits
+ 530              	.Ldebug_info0:
+ 531 0000 22020000 		.4byte	0x222
+ 532 0004 0400     		.2byte	0x4
+ 533 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 534 000a 04       		.byte	0x4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 26
+
+
+ 535 000b 01       		.uleb128 0x1
+ 536 000c 86000000 		.4byte	.LASF33
+ 537 0010 01       		.byte	0x1
+ 538 0011 5B000000 		.4byte	.LASF34
+ 539 0015 9F020000 		.4byte	.LASF35
+ 540 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 541 001d 00000000 		.4byte	0
+ 542 0021 00000000 		.4byte	.Ldebug_line0
+ 543 0025 02       		.uleb128 0x2
+ 544 0026 01       		.byte	0x1
+ 545 0027 06       		.byte	0x6
+ 546 0028 8B020000 		.4byte	.LASF0
+ 547 002c 02       		.uleb128 0x2
+ 548 002d 01       		.byte	0x1
+ 549 002e 08       		.byte	0x8
+ 550 002f 02010000 		.4byte	.LASF1
+ 551 0033 02       		.uleb128 0x2
+ 552 0034 02       		.byte	0x2
+ 553 0035 05       		.byte	0x5
+ 554 0036 69010000 		.4byte	.LASF2
+ 555 003a 02       		.uleb128 0x2
+ 556 003b 02       		.byte	0x2
+ 557 003c 07       		.byte	0x7
+ 558 003d 1D000000 		.4byte	.LASF3
+ 559 0041 02       		.uleb128 0x2
+ 560 0042 04       		.byte	0x4
+ 561 0043 05       		.byte	0x5
+ 562 0044 82020000 		.4byte	.LASF4
+ 563 0048 02       		.uleb128 0x2
+ 564 0049 04       		.byte	0x4
+ 565 004a 07       		.byte	0x7
+ 566 004b 15010000 		.4byte	.LASF5
+ 567 004f 02       		.uleb128 0x2
+ 568 0050 08       		.byte	0x8
+ 569 0051 05       		.byte	0x5
+ 570 0052 F2010000 		.4byte	.LASF6
+ 571 0056 02       		.uleb128 0x2
+ 572 0057 08       		.byte	0x8
+ 573 0058 07       		.byte	0x7
+ 574 0059 97010000 		.4byte	.LASF7
+ 575 005d 03       		.uleb128 0x3
+ 576 005e 04       		.byte	0x4
+ 577 005f 05       		.byte	0x5
+ 578 0060 696E7400 		.ascii	"int\000"
+ 579 0064 02       		.uleb128 0x2
+ 580 0065 04       		.byte	0x4
+ 581 0066 07       		.byte	0x7
+ 582 0067 8A010000 		.4byte	.LASF8
+ 583 006b 04       		.uleb128 0x4
+ 584 006c 3D010000 		.4byte	.LASF12
+ 585 0070 02       		.byte	0x2
+ 586 0071 A1       		.byte	0xa1
+ 587 0072 2C000000 		.4byte	0x2c
+ 588 0076 02       		.uleb128 0x2
+ 589 0077 04       		.byte	0x4
+ 590 0078 04       		.byte	0x4
+ 591 0079 80000000 		.4byte	.LASF9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 27
+
+
+ 592 007d 02       		.uleb128 0x2
+ 593 007e 08       		.byte	0x8
+ 594 007f 04       		.byte	0x4
+ 595 0080 53010000 		.4byte	.LASF10
+ 596 0084 02       		.uleb128 0x2
+ 597 0085 01       		.byte	0x1
+ 598 0086 08       		.byte	0x8
+ 599 0087 1E020000 		.4byte	.LASF11
+ 600 008b 05       		.uleb128 0x5
+ 601 008c 10010000 		.4byte	.LASF13
+ 602 0090 02       		.byte	0x2
+ 603 0091 4B01     		.2byte	0x14b
+ 604 0093 97000000 		.4byte	0x97
+ 605 0097 06       		.uleb128 0x6
+ 606 0098 6B000000 		.4byte	0x6b
+ 607 009c 02       		.uleb128 0x2
+ 608 009d 04       		.byte	0x4
+ 609 009e 07       		.byte	0x7
+ 610 009f E9010000 		.4byte	.LASF14
+ 611 00a3 07       		.uleb128 0x7
+ 612 00a4 CD010000 		.4byte	.LASF15
+ 613 00a8 01       		.byte	0x1
+ 614 00a9 37       		.byte	0x37
+ 615 00aa 00000000 		.4byte	.LFB2
+ 616 00ae 24000000 		.4byte	.LFE2-.LFB2
+ 617 00b2 01       		.uleb128 0x1
+ 618 00b3 9C       		.byte	0x9c
+ 619 00b4 08       		.uleb128 0x8
+ 620 00b5 5A010000 		.4byte	.LASF18
+ 621 00b9 01       		.byte	0x1
+ 622 00ba 54       		.byte	0x54
+ 623 00bb 00000000 		.4byte	.LFB3
+ 624 00bf 54000000 		.4byte	.LFE3-.LFB3
+ 625 00c3 01       		.uleb128 0x1
+ 626 00c4 9C       		.byte	0x9c
+ 627 00c5 D8000000 		.4byte	0xd8
+ 628 00c9 09       		.uleb128 0x9
+ 629 00ca E4010000 		.4byte	.LASF25
+ 630 00ce 01       		.byte	0x1
+ 631 00cf 57       		.byte	0x57
+ 632 00d0 6B000000 		.4byte	0x6b
+ 633 00d4 02       		.uleb128 0x2
+ 634 00d5 91       		.byte	0x91
+ 635 00d6 77       		.sleb128 -9
+ 636 00d7 00       		.byte	0
+ 637 00d8 0A       		.uleb128 0xa
+ 638 00d9 71020000 		.4byte	.LASF16
+ 639 00dd 01       		.byte	0x1
+ 640 00de C7       		.byte	0xc7
+ 641 00df 00000000 		.4byte	.LFB4
+ 642 00e3 20000000 		.4byte	.LFE4-.LFB4
+ 643 00e7 01       		.uleb128 0x1
+ 644 00e8 9C       		.byte	0x9c
+ 645 00e9 0A       		.uleb128 0xa
+ 646 00ea 23020000 		.4byte	.LASF17
+ 647 00ee 01       		.byte	0x1
+ 648 00ef E9       		.byte	0xe9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 28
+
+
+ 649 00f0 00000000 		.4byte	.LFB5
+ 650 00f4 1C000000 		.4byte	.LFE5-.LFB5
+ 651 00f8 01       		.uleb128 0x1
+ 652 00f9 9C       		.byte	0x9c
+ 653 00fa 0B       		.uleb128 0xb
+ 654 00fb 5A020000 		.4byte	.LASF19
+ 655 00ff 01       		.byte	0x1
+ 656 0100 9301     		.2byte	0x193
+ 657 0102 00000000 		.4byte	.LFB6
+ 658 0106 20000000 		.4byte	.LFE6-.LFB6
+ 659 010a 01       		.uleb128 0x1
+ 660 010b 9C       		.byte	0x9c
+ 661 010c 20010000 		.4byte	0x120
+ 662 0110 0C       		.uleb128 0xc
+ 663 0111 4B010000 		.4byte	.LASF21
+ 664 0115 01       		.byte	0x1
+ 665 0116 9301     		.2byte	0x193
+ 666 0118 6B000000 		.4byte	0x6b
+ 667 011c 02       		.uleb128 0x2
+ 668 011d 91       		.byte	0x91
+ 669 011e 77       		.sleb128 -9
+ 670 011f 00       		.byte	0
+ 671 0120 0D       		.uleb128 0xd
+ 672 0121 00000000 		.4byte	.LASF29
+ 673 0125 01       		.byte	0x1
+ 674 0126 A901     		.2byte	0x1a9
+ 675 0128 6B000000 		.4byte	0x6b
+ 676 012c 00000000 		.4byte	.LFB7
+ 677 0130 1C000000 		.4byte	.LFE7-.LFB7
+ 678 0134 01       		.uleb128 0x1
+ 679 0135 9C       		.byte	0x9c
+ 680 0136 0B       		.uleb128 0xb
+ 681 0137 27010000 		.4byte	.LASF20
+ 682 013b 01       		.byte	0x1
+ 683 013c E201     		.2byte	0x1e2
+ 684 013e 00000000 		.4byte	.LFB8
+ 685 0142 20000000 		.4byte	.LFE8-.LFB8
+ 686 0146 01       		.uleb128 0x1
+ 687 0147 9C       		.byte	0x9c
+ 688 0148 5C010000 		.4byte	0x15c
+ 689 014c 0C       		.uleb128 0xc
+ 690 014d 16000000 		.4byte	.LASF22
+ 691 0151 01       		.byte	0x1
+ 692 0152 E201     		.2byte	0x1e2
+ 693 0154 6B000000 		.4byte	0x6b
+ 694 0158 02       		.uleb128 0x2
+ 695 0159 91       		.byte	0x91
+ 696 015a 77       		.sleb128 -9
+ 697 015b 00       		.byte	0
+ 698 015c 0B       		.uleb128 0xb
+ 699 015d 73010000 		.4byte	.LASF23
+ 700 0161 01       		.byte	0x1
+ 701 0162 0402     		.2byte	0x204
+ 702 0164 00000000 		.4byte	.LFB9
+ 703 0168 20000000 		.4byte	.LFE9-.LFB9
+ 704 016c 01       		.uleb128 0x1
+ 705 016d 9C       		.byte	0x9c
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 29
+
+
+ 706 016e 82010000 		.4byte	0x182
+ 707 0172 0C       		.uleb128 0xc
+ 708 0173 97020000 		.4byte	.LASF24
+ 709 0177 01       		.byte	0x1
+ 710 0178 0402     		.2byte	0x204
+ 711 017a 6B000000 		.4byte	0x6b
+ 712 017e 02       		.uleb128 0x2
+ 713 017f 91       		.byte	0x91
+ 714 0180 77       		.sleb128 -9
+ 715 0181 00       		.byte	0
+ 716 0182 0E       		.uleb128 0xe
+ 717 0183 00020000 		.4byte	.LASF36
+ 718 0187 01       		.byte	0x1
+ 719 0188 E102     		.2byte	0x2e1
+ 720 018a 6B000000 		.4byte	0x6b
+ 721 018e 00000000 		.4byte	.LFB10
+ 722 0192 20000000 		.4byte	.LFE10-.LFB10
+ 723 0196 01       		.uleb128 0x1
+ 724 0197 9C       		.byte	0x9c
+ 725 0198 AC010000 		.4byte	0x1ac
+ 726 019c 0F       		.uleb128 0xf
+ 727 019d DD010000 		.4byte	.LASF26
+ 728 01a1 01       		.byte	0x1
+ 729 01a2 E302     		.2byte	0x2e3
+ 730 01a4 6B000000 		.4byte	0x6b
+ 731 01a8 02       		.uleb128 0x2
+ 732 01a9 91       		.byte	0x91
+ 733 01aa 77       		.sleb128 -9
+ 734 01ab 00       		.byte	0
+ 735 01ac 0B       		.uleb128 0xb
+ 736 01ad AE010000 		.4byte	.LASF27
+ 737 01b1 01       		.byte	0x1
+ 738 01b2 FD02     		.2byte	0x2fd
+ 739 01b4 00000000 		.4byte	.LFB11
+ 740 01b8 20000000 		.4byte	.LFE11-.LFB11
+ 741 01bc 01       		.uleb128 0x1
+ 742 01bd 9C       		.byte	0x9c
+ 743 01be D2010000 		.4byte	0x1d2
+ 744 01c2 0C       		.uleb128 0xc
+ 745 01c3 43010000 		.4byte	.LASF28
+ 746 01c7 01       		.byte	0x1
+ 747 01c8 FD02     		.2byte	0x2fd
+ 748 01ca 6B000000 		.4byte	0x6b
+ 749 01ce 02       		.uleb128 0x2
+ 750 01cf 91       		.byte	0x91
+ 751 01d0 77       		.sleb128 -9
+ 752 01d1 00       		.byte	0
+ 753 01d2 0D       		.uleb128 0xd
+ 754 01d3 45000000 		.4byte	.LASF30
+ 755 01d7 01       		.byte	0x1
+ 756 01d8 1603     		.2byte	0x316
+ 757 01da 6B000000 		.4byte	0x6b
+ 758 01de 00000000 		.4byte	.LFB12
+ 759 01e2 14000000 		.4byte	.LFE12-.LFB12
+ 760 01e6 01       		.uleb128 0x1
+ 761 01e7 9C       		.byte	0x9c
+ 762 01e8 0D       		.uleb128 0xd
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 30
+
+
+ 763 01e9 44020000 		.4byte	.LASF31
+ 764 01ed 01       		.byte	0x1
+ 765 01ee 3003     		.2byte	0x330
+ 766 01f0 6B000000 		.4byte	0x6b
+ 767 01f4 00000000 		.4byte	.LFB13
+ 768 01f8 14000000 		.4byte	.LFE13-.LFB13
+ 769 01fc 01       		.uleb128 0x1
+ 770 01fd 9C       		.byte	0x9c
+ 771 01fe 0D       		.uleb128 0xd
+ 772 01ff 30000000 		.4byte	.LASF32
+ 773 0203 01       		.byte	0x1
+ 774 0204 7403     		.2byte	0x374
+ 775 0206 6B000000 		.4byte	0x6b
+ 776 020a 00000000 		.4byte	.LFB14
+ 777 020e 14000000 		.4byte	.LFE14-.LFB14
+ 778 0212 01       		.uleb128 0x1
+ 779 0213 9C       		.byte	0x9c
+ 780 0214 10       		.uleb128 0x10
+ 781 0215 32020000 		.4byte	.LASF37
+ 782 0219 01       		.byte	0x1
+ 783 021a 20       		.byte	0x20
+ 784 021b 6B000000 		.4byte	0x6b
+ 785 021f 05       		.uleb128 0x5
+ 786 0220 03       		.byte	0x3
+ 787 0221 00000000 		.4byte	PWM_GREEN_initVar
+ 788 0225 00       		.byte	0
+ 789              		.section	.debug_abbrev,"",%progbits
+ 790              	.Ldebug_abbrev0:
+ 791 0000 01       		.uleb128 0x1
+ 792 0001 11       		.uleb128 0x11
+ 793 0002 01       		.byte	0x1
+ 794 0003 25       		.uleb128 0x25
+ 795 0004 0E       		.uleb128 0xe
+ 796 0005 13       		.uleb128 0x13
+ 797 0006 0B       		.uleb128 0xb
+ 798 0007 03       		.uleb128 0x3
+ 799 0008 0E       		.uleb128 0xe
+ 800 0009 1B       		.uleb128 0x1b
+ 801 000a 0E       		.uleb128 0xe
+ 802 000b 55       		.uleb128 0x55
+ 803 000c 17       		.uleb128 0x17
+ 804 000d 11       		.uleb128 0x11
+ 805 000e 01       		.uleb128 0x1
+ 806 000f 10       		.uleb128 0x10
+ 807 0010 17       		.uleb128 0x17
+ 808 0011 00       		.byte	0
+ 809 0012 00       		.byte	0
+ 810 0013 02       		.uleb128 0x2
+ 811 0014 24       		.uleb128 0x24
+ 812 0015 00       		.byte	0
+ 813 0016 0B       		.uleb128 0xb
+ 814 0017 0B       		.uleb128 0xb
+ 815 0018 3E       		.uleb128 0x3e
+ 816 0019 0B       		.uleb128 0xb
+ 817 001a 03       		.uleb128 0x3
+ 818 001b 0E       		.uleb128 0xe
+ 819 001c 00       		.byte	0
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 31
+
+
+ 820 001d 00       		.byte	0
+ 821 001e 03       		.uleb128 0x3
+ 822 001f 24       		.uleb128 0x24
+ 823 0020 00       		.byte	0
+ 824 0021 0B       		.uleb128 0xb
+ 825 0022 0B       		.uleb128 0xb
+ 826 0023 3E       		.uleb128 0x3e
+ 827 0024 0B       		.uleb128 0xb
+ 828 0025 03       		.uleb128 0x3
+ 829 0026 08       		.uleb128 0x8
+ 830 0027 00       		.byte	0
+ 831 0028 00       		.byte	0
+ 832 0029 04       		.uleb128 0x4
+ 833 002a 16       		.uleb128 0x16
+ 834 002b 00       		.byte	0
+ 835 002c 03       		.uleb128 0x3
+ 836 002d 0E       		.uleb128 0xe
+ 837 002e 3A       		.uleb128 0x3a
+ 838 002f 0B       		.uleb128 0xb
+ 839 0030 3B       		.uleb128 0x3b
+ 840 0031 0B       		.uleb128 0xb
+ 841 0032 49       		.uleb128 0x49
+ 842 0033 13       		.uleb128 0x13
+ 843 0034 00       		.byte	0
+ 844 0035 00       		.byte	0
+ 845 0036 05       		.uleb128 0x5
+ 846 0037 16       		.uleb128 0x16
+ 847 0038 00       		.byte	0
+ 848 0039 03       		.uleb128 0x3
+ 849 003a 0E       		.uleb128 0xe
+ 850 003b 3A       		.uleb128 0x3a
+ 851 003c 0B       		.uleb128 0xb
+ 852 003d 3B       		.uleb128 0x3b
+ 853 003e 05       		.uleb128 0x5
+ 854 003f 49       		.uleb128 0x49
+ 855 0040 13       		.uleb128 0x13
+ 856 0041 00       		.byte	0
+ 857 0042 00       		.byte	0
+ 858 0043 06       		.uleb128 0x6
+ 859 0044 35       		.uleb128 0x35
+ 860 0045 00       		.byte	0
+ 861 0046 49       		.uleb128 0x49
+ 862 0047 13       		.uleb128 0x13
+ 863 0048 00       		.byte	0
+ 864 0049 00       		.byte	0
+ 865 004a 07       		.uleb128 0x7
+ 866 004b 2E       		.uleb128 0x2e
+ 867 004c 00       		.byte	0
+ 868 004d 3F       		.uleb128 0x3f
+ 869 004e 19       		.uleb128 0x19
+ 870 004f 03       		.uleb128 0x3
+ 871 0050 0E       		.uleb128 0xe
+ 872 0051 3A       		.uleb128 0x3a
+ 873 0052 0B       		.uleb128 0xb
+ 874 0053 3B       		.uleb128 0x3b
+ 875 0054 0B       		.uleb128 0xb
+ 876 0055 27       		.uleb128 0x27
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 32
+
+
+ 877 0056 19       		.uleb128 0x19
+ 878 0057 11       		.uleb128 0x11
+ 879 0058 01       		.uleb128 0x1
+ 880 0059 12       		.uleb128 0x12
+ 881 005a 06       		.uleb128 0x6
+ 882 005b 40       		.uleb128 0x40
+ 883 005c 18       		.uleb128 0x18
+ 884 005d 9642     		.uleb128 0x2116
+ 885 005f 19       		.uleb128 0x19
+ 886 0060 00       		.byte	0
+ 887 0061 00       		.byte	0
+ 888 0062 08       		.uleb128 0x8
+ 889 0063 2E       		.uleb128 0x2e
+ 890 0064 01       		.byte	0x1
+ 891 0065 3F       		.uleb128 0x3f
+ 892 0066 19       		.uleb128 0x19
+ 893 0067 03       		.uleb128 0x3
+ 894 0068 0E       		.uleb128 0xe
+ 895 0069 3A       		.uleb128 0x3a
+ 896 006a 0B       		.uleb128 0xb
+ 897 006b 3B       		.uleb128 0x3b
+ 898 006c 0B       		.uleb128 0xb
+ 899 006d 27       		.uleb128 0x27
+ 900 006e 19       		.uleb128 0x19
+ 901 006f 11       		.uleb128 0x11
+ 902 0070 01       		.uleb128 0x1
+ 903 0071 12       		.uleb128 0x12
+ 904 0072 06       		.uleb128 0x6
+ 905 0073 40       		.uleb128 0x40
+ 906 0074 18       		.uleb128 0x18
+ 907 0075 9642     		.uleb128 0x2116
+ 908 0077 19       		.uleb128 0x19
+ 909 0078 01       		.uleb128 0x1
+ 910 0079 13       		.uleb128 0x13
+ 911 007a 00       		.byte	0
+ 912 007b 00       		.byte	0
+ 913 007c 09       		.uleb128 0x9
+ 914 007d 34       		.uleb128 0x34
+ 915 007e 00       		.byte	0
+ 916 007f 03       		.uleb128 0x3
+ 917 0080 0E       		.uleb128 0xe
+ 918 0081 3A       		.uleb128 0x3a
+ 919 0082 0B       		.uleb128 0xb
+ 920 0083 3B       		.uleb128 0x3b
+ 921 0084 0B       		.uleb128 0xb
+ 922 0085 49       		.uleb128 0x49
+ 923 0086 13       		.uleb128 0x13
+ 924 0087 02       		.uleb128 0x2
+ 925 0088 18       		.uleb128 0x18
+ 926 0089 00       		.byte	0
+ 927 008a 00       		.byte	0
+ 928 008b 0A       		.uleb128 0xa
+ 929 008c 2E       		.uleb128 0x2e
+ 930 008d 00       		.byte	0
+ 931 008e 3F       		.uleb128 0x3f
+ 932 008f 19       		.uleb128 0x19
+ 933 0090 03       		.uleb128 0x3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 33
+
+
+ 934 0091 0E       		.uleb128 0xe
+ 935 0092 3A       		.uleb128 0x3a
+ 936 0093 0B       		.uleb128 0xb
+ 937 0094 3B       		.uleb128 0x3b
+ 938 0095 0B       		.uleb128 0xb
+ 939 0096 27       		.uleb128 0x27
+ 940 0097 19       		.uleb128 0x19
+ 941 0098 11       		.uleb128 0x11
+ 942 0099 01       		.uleb128 0x1
+ 943 009a 12       		.uleb128 0x12
+ 944 009b 06       		.uleb128 0x6
+ 945 009c 40       		.uleb128 0x40
+ 946 009d 18       		.uleb128 0x18
+ 947 009e 9742     		.uleb128 0x2117
+ 948 00a0 19       		.uleb128 0x19
+ 949 00a1 00       		.byte	0
+ 950 00a2 00       		.byte	0
+ 951 00a3 0B       		.uleb128 0xb
+ 952 00a4 2E       		.uleb128 0x2e
+ 953 00a5 01       		.byte	0x1
+ 954 00a6 3F       		.uleb128 0x3f
+ 955 00a7 19       		.uleb128 0x19
+ 956 00a8 03       		.uleb128 0x3
+ 957 00a9 0E       		.uleb128 0xe
+ 958 00aa 3A       		.uleb128 0x3a
+ 959 00ab 0B       		.uleb128 0xb
+ 960 00ac 3B       		.uleb128 0x3b
+ 961 00ad 05       		.uleb128 0x5
+ 962 00ae 27       		.uleb128 0x27
+ 963 00af 19       		.uleb128 0x19
+ 964 00b0 11       		.uleb128 0x11
+ 965 00b1 01       		.uleb128 0x1
+ 966 00b2 12       		.uleb128 0x12
+ 967 00b3 06       		.uleb128 0x6
+ 968 00b4 40       		.uleb128 0x40
+ 969 00b5 18       		.uleb128 0x18
+ 970 00b6 9742     		.uleb128 0x2117
+ 971 00b8 19       		.uleb128 0x19
+ 972 00b9 01       		.uleb128 0x1
+ 973 00ba 13       		.uleb128 0x13
+ 974 00bb 00       		.byte	0
+ 975 00bc 00       		.byte	0
+ 976 00bd 0C       		.uleb128 0xc
+ 977 00be 05       		.uleb128 0x5
+ 978 00bf 00       		.byte	0
+ 979 00c0 03       		.uleb128 0x3
+ 980 00c1 0E       		.uleb128 0xe
+ 981 00c2 3A       		.uleb128 0x3a
+ 982 00c3 0B       		.uleb128 0xb
+ 983 00c4 3B       		.uleb128 0x3b
+ 984 00c5 05       		.uleb128 0x5
+ 985 00c6 49       		.uleb128 0x49
+ 986 00c7 13       		.uleb128 0x13
+ 987 00c8 02       		.uleb128 0x2
+ 988 00c9 18       		.uleb128 0x18
+ 989 00ca 00       		.byte	0
+ 990 00cb 00       		.byte	0
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 34
+
+
+ 991 00cc 0D       		.uleb128 0xd
+ 992 00cd 2E       		.uleb128 0x2e
+ 993 00ce 00       		.byte	0
+ 994 00cf 3F       		.uleb128 0x3f
+ 995 00d0 19       		.uleb128 0x19
+ 996 00d1 03       		.uleb128 0x3
+ 997 00d2 0E       		.uleb128 0xe
+ 998 00d3 3A       		.uleb128 0x3a
+ 999 00d4 0B       		.uleb128 0xb
+ 1000 00d5 3B       		.uleb128 0x3b
+ 1001 00d6 05       		.uleb128 0x5
+ 1002 00d7 27       		.uleb128 0x27
+ 1003 00d8 19       		.uleb128 0x19
+ 1004 00d9 49       		.uleb128 0x49
+ 1005 00da 13       		.uleb128 0x13
+ 1006 00db 11       		.uleb128 0x11
+ 1007 00dc 01       		.uleb128 0x1
+ 1008 00dd 12       		.uleb128 0x12
+ 1009 00de 06       		.uleb128 0x6
+ 1010 00df 40       		.uleb128 0x40
+ 1011 00e0 18       		.uleb128 0x18
+ 1012 00e1 9742     		.uleb128 0x2117
+ 1013 00e3 19       		.uleb128 0x19
+ 1014 00e4 00       		.byte	0
+ 1015 00e5 00       		.byte	0
+ 1016 00e6 0E       		.uleb128 0xe
+ 1017 00e7 2E       		.uleb128 0x2e
+ 1018 00e8 01       		.byte	0x1
+ 1019 00e9 3F       		.uleb128 0x3f
+ 1020 00ea 19       		.uleb128 0x19
+ 1021 00eb 03       		.uleb128 0x3
+ 1022 00ec 0E       		.uleb128 0xe
+ 1023 00ed 3A       		.uleb128 0x3a
+ 1024 00ee 0B       		.uleb128 0xb
+ 1025 00ef 3B       		.uleb128 0x3b
+ 1026 00f0 05       		.uleb128 0x5
+ 1027 00f1 27       		.uleb128 0x27
+ 1028 00f2 19       		.uleb128 0x19
+ 1029 00f3 49       		.uleb128 0x49
+ 1030 00f4 13       		.uleb128 0x13
+ 1031 00f5 11       		.uleb128 0x11
+ 1032 00f6 01       		.uleb128 0x1
+ 1033 00f7 12       		.uleb128 0x12
+ 1034 00f8 06       		.uleb128 0x6
+ 1035 00f9 40       		.uleb128 0x40
+ 1036 00fa 18       		.uleb128 0x18
+ 1037 00fb 9742     		.uleb128 0x2117
+ 1038 00fd 19       		.uleb128 0x19
+ 1039 00fe 01       		.uleb128 0x1
+ 1040 00ff 13       		.uleb128 0x13
+ 1041 0100 00       		.byte	0
+ 1042 0101 00       		.byte	0
+ 1043 0102 0F       		.uleb128 0xf
+ 1044 0103 34       		.uleb128 0x34
+ 1045 0104 00       		.byte	0
+ 1046 0105 03       		.uleb128 0x3
+ 1047 0106 0E       		.uleb128 0xe
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 35
+
+
+ 1048 0107 3A       		.uleb128 0x3a
+ 1049 0108 0B       		.uleb128 0xb
+ 1050 0109 3B       		.uleb128 0x3b
+ 1051 010a 05       		.uleb128 0x5
+ 1052 010b 49       		.uleb128 0x49
+ 1053 010c 13       		.uleb128 0x13
+ 1054 010d 02       		.uleb128 0x2
+ 1055 010e 18       		.uleb128 0x18
+ 1056 010f 00       		.byte	0
+ 1057 0110 00       		.byte	0
+ 1058 0111 10       		.uleb128 0x10
+ 1059 0112 34       		.uleb128 0x34
+ 1060 0113 00       		.byte	0
+ 1061 0114 03       		.uleb128 0x3
+ 1062 0115 0E       		.uleb128 0xe
+ 1063 0116 3A       		.uleb128 0x3a
+ 1064 0117 0B       		.uleb128 0xb
+ 1065 0118 3B       		.uleb128 0x3b
+ 1066 0119 0B       		.uleb128 0xb
+ 1067 011a 49       		.uleb128 0x49
+ 1068 011b 13       		.uleb128 0x13
+ 1069 011c 3F       		.uleb128 0x3f
+ 1070 011d 19       		.uleb128 0x19
+ 1071 011e 02       		.uleb128 0x2
+ 1072 011f 18       		.uleb128 0x18
+ 1073 0120 00       		.byte	0
+ 1074 0121 00       		.byte	0
+ 1075 0122 00       		.byte	0
+ 1076              		.section	.debug_aranges,"",%progbits
+ 1077 0000 7C000000 		.4byte	0x7c
+ 1078 0004 0200     		.2byte	0x2
+ 1079 0006 00000000 		.4byte	.Ldebug_info0
+ 1080 000a 04       		.byte	0x4
+ 1081 000b 00       		.byte	0
+ 1082 000c 0000     		.2byte	0
+ 1083 000e 0000     		.2byte	0
+ 1084 0010 00000000 		.4byte	.LFB2
+ 1085 0014 24000000 		.4byte	.LFE2-.LFB2
+ 1086 0018 00000000 		.4byte	.LFB3
+ 1087 001c 54000000 		.4byte	.LFE3-.LFB3
+ 1088 0020 00000000 		.4byte	.LFB4
+ 1089 0024 20000000 		.4byte	.LFE4-.LFB4
+ 1090 0028 00000000 		.4byte	.LFB5
+ 1091 002c 1C000000 		.4byte	.LFE5-.LFB5
+ 1092 0030 00000000 		.4byte	.LFB6
+ 1093 0034 20000000 		.4byte	.LFE6-.LFB6
+ 1094 0038 00000000 		.4byte	.LFB7
+ 1095 003c 1C000000 		.4byte	.LFE7-.LFB7
+ 1096 0040 00000000 		.4byte	.LFB8
+ 1097 0044 20000000 		.4byte	.LFE8-.LFB8
+ 1098 0048 00000000 		.4byte	.LFB9
+ 1099 004c 20000000 		.4byte	.LFE9-.LFB9
+ 1100 0050 00000000 		.4byte	.LFB10
+ 1101 0054 20000000 		.4byte	.LFE10-.LFB10
+ 1102 0058 00000000 		.4byte	.LFB11
+ 1103 005c 20000000 		.4byte	.LFE11-.LFB11
+ 1104 0060 00000000 		.4byte	.LFB12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 36
+
+
+ 1105 0064 14000000 		.4byte	.LFE12-.LFB12
+ 1106 0068 00000000 		.4byte	.LFB13
+ 1107 006c 14000000 		.4byte	.LFE13-.LFB13
+ 1108 0070 00000000 		.4byte	.LFB14
+ 1109 0074 14000000 		.4byte	.LFE14-.LFB14
+ 1110 0078 00000000 		.4byte	0
+ 1111 007c 00000000 		.4byte	0
+ 1112              		.section	.debug_ranges,"",%progbits
+ 1113              	.Ldebug_ranges0:
+ 1114 0000 00000000 		.4byte	.LFB2
+ 1115 0004 24000000 		.4byte	.LFE2
+ 1116 0008 00000000 		.4byte	.LFB3
+ 1117 000c 54000000 		.4byte	.LFE3
+ 1118 0010 00000000 		.4byte	.LFB4
+ 1119 0014 20000000 		.4byte	.LFE4
+ 1120 0018 00000000 		.4byte	.LFB5
+ 1121 001c 1C000000 		.4byte	.LFE5
+ 1122 0020 00000000 		.4byte	.LFB6
+ 1123 0024 20000000 		.4byte	.LFE6
+ 1124 0028 00000000 		.4byte	.LFB7
+ 1125 002c 1C000000 		.4byte	.LFE7
+ 1126 0030 00000000 		.4byte	.LFB8
+ 1127 0034 20000000 		.4byte	.LFE8
+ 1128 0038 00000000 		.4byte	.LFB9
+ 1129 003c 20000000 		.4byte	.LFE9
+ 1130 0040 00000000 		.4byte	.LFB10
+ 1131 0044 20000000 		.4byte	.LFE10
+ 1132 0048 00000000 		.4byte	.LFB11
+ 1133 004c 20000000 		.4byte	.LFE11
+ 1134 0050 00000000 		.4byte	.LFB12
+ 1135 0054 14000000 		.4byte	.LFE12
+ 1136 0058 00000000 		.4byte	.LFB13
+ 1137 005c 14000000 		.4byte	.LFE13
+ 1138 0060 00000000 		.4byte	.LFB14
+ 1139 0064 14000000 		.4byte	.LFE14
+ 1140 0068 00000000 		.4byte	0
+ 1141 006c 00000000 		.4byte	0
+ 1142              		.section	.debug_line,"",%progbits
+ 1143              	.Ldebug_line0:
+ 1144 0000 49010000 		.section	.debug_str,"MS",%progbits,1
+ 1144      02004800 
+ 1144      00000201 
+ 1144      FB0E0D00 
+ 1144      01010101 
+ 1145              	.LASF29:
+ 1146 0000 50574D5F 		.ascii	"PWM_GREEN_ReadCounter\000"
+ 1146      47524545 
+ 1146      4E5F5265 
+ 1146      6164436F 
+ 1146      756E7465 
+ 1147              	.LASF22:
+ 1148 0016 70657269 		.ascii	"period\000"
+ 1148      6F6400
+ 1149              	.LASF3:
+ 1150 001d 73686F72 		.ascii	"short unsigned int\000"
+ 1150      7420756E 
+ 1150      7369676E 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 37
+
+
+ 1150      65642069 
+ 1150      6E7400
+ 1151              	.LASF32:
+ 1152 0030 50574D5F 		.ascii	"PWM_GREEN_ReadPeriod\000"
+ 1152      47524545 
+ 1152      4E5F5265 
+ 1152      61645065 
+ 1152      72696F64 
+ 1153              	.LASF30:
+ 1154 0045 50574D5F 		.ascii	"PWM_GREEN_ReadCapture\000"
+ 1154      47524545 
+ 1154      4E5F5265 
+ 1154      61644361 
+ 1154      70747572 
+ 1155              	.LASF34:
+ 1156 005b 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\PWM_GREEN.c\000"
+ 1156      6E657261 
+ 1156      7465645F 
+ 1156      536F7572 
+ 1156      63655C50 
+ 1157              	.LASF9:
+ 1158 0080 666C6F61 		.ascii	"float\000"
+ 1158      7400
+ 1159              	.LASF33:
+ 1160 0086 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 1160      4320342E 
+ 1160      382E3420 
+ 1160      32303134 
+ 1160      30353236 
+ 1161 00b9 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 1161      20726576 
+ 1161      6973696F 
+ 1161      6E203231 
+ 1161      31333538 
+ 1162 00ec 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 1162      66756E63 
+ 1162      74696F6E 
+ 1162      2D736563 
+ 1162      74696F6E 
+ 1163              	.LASF1:
+ 1164 0102 756E7369 		.ascii	"unsigned char\000"
+ 1164      676E6564 
+ 1164      20636861 
+ 1164      7200
+ 1165              	.LASF13:
+ 1166 0110 72656738 		.ascii	"reg8\000"
+ 1166      00
+ 1167              	.LASF5:
+ 1168 0115 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1168      20756E73 
+ 1168      69676E65 
+ 1168      6420696E 
+ 1168      7400
+ 1169              	.LASF20:
+ 1170 0127 50574D5F 		.ascii	"PWM_GREEN_WritePeriod\000"
+ 1170      47524545 
+ 1170      4E5F5772 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 38
+
+
+ 1170      69746550 
+ 1170      6572696F 
+ 1171              	.LASF12:
+ 1172 013d 75696E74 		.ascii	"uint8\000"
+ 1172      3800
+ 1173              	.LASF28:
+ 1174 0143 636F6E74 		.ascii	"control\000"
+ 1174      726F6C00 
+ 1175              	.LASF21:
+ 1176 014b 636F756E 		.ascii	"counter\000"
+ 1176      74657200 
+ 1177              	.LASF10:
+ 1178 0153 646F7562 		.ascii	"double\000"
+ 1178      6C6500
+ 1179              	.LASF18:
+ 1180 015a 50574D5F 		.ascii	"PWM_GREEN_Init\000"
+ 1180      47524545 
+ 1180      4E5F496E 
+ 1180      697400
+ 1181              	.LASF2:
+ 1182 0169 73686F72 		.ascii	"short int\000"
+ 1182      7420696E 
+ 1182      7400
+ 1183              	.LASF23:
+ 1184 0173 50574D5F 		.ascii	"PWM_GREEN_WriteCompare\000"
+ 1184      47524545 
+ 1184      4E5F5772 
+ 1184      69746543 
+ 1184      6F6D7061 
+ 1185              	.LASF8:
+ 1186 018a 756E7369 		.ascii	"unsigned int\000"
+ 1186      676E6564 
+ 1186      20696E74 
+ 1186      00
+ 1187              	.LASF7:
+ 1188 0197 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1188      206C6F6E 
+ 1188      6720756E 
+ 1188      7369676E 
+ 1188      65642069 
+ 1189              	.LASF27:
+ 1190 01ae 50574D5F 		.ascii	"PWM_GREEN_WriteControlRegister\000"
+ 1190      47524545 
+ 1190      4E5F5772 
+ 1190      69746543 
+ 1190      6F6E7472 
+ 1191              	.LASF15:
+ 1192 01cd 50574D5F 		.ascii	"PWM_GREEN_Start\000"
+ 1192      47524545 
+ 1192      4E5F5374 
+ 1192      61727400 
+ 1193              	.LASF26:
+ 1194 01dd 72657375 		.ascii	"result\000"
+ 1194      6C7400
+ 1195              	.LASF25:
+ 1196 01e4 6374726C 		.ascii	"ctrl\000"
+ 1196      00
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 39
+
+
+ 1197              	.LASF14:
+ 1198 01e9 73697A65 		.ascii	"sizetype\000"
+ 1198      74797065 
+ 1198      00
+ 1199              	.LASF6:
+ 1200 01f2 6C6F6E67 		.ascii	"long long int\000"
+ 1200      206C6F6E 
+ 1200      6720696E 
+ 1200      7400
+ 1201              	.LASF36:
+ 1202 0200 50574D5F 		.ascii	"PWM_GREEN_ReadControlRegister\000"
+ 1202      47524545 
+ 1202      4E5F5265 
+ 1202      6164436F 
+ 1202      6E74726F 
+ 1203              	.LASF11:
+ 1204 021e 63686172 		.ascii	"char\000"
+ 1204      00
+ 1205              	.LASF17:
+ 1206 0223 50574D5F 		.ascii	"PWM_GREEN_Stop\000"
+ 1206      47524545 
+ 1206      4E5F5374 
+ 1206      6F7000
+ 1207              	.LASF37:
+ 1208 0232 50574D5F 		.ascii	"PWM_GREEN_initVar\000"
+ 1208      47524545 
+ 1208      4E5F696E 
+ 1208      69745661 
+ 1208      7200
+ 1209              	.LASF31:
+ 1210 0244 50574D5F 		.ascii	"PWM_GREEN_ReadCompare\000"
+ 1210      47524545 
+ 1210      4E5F5265 
+ 1210      6164436F 
+ 1210      6D706172 
+ 1211              	.LASF19:
+ 1212 025a 50574D5F 		.ascii	"PWM_GREEN_WriteCounter\000"
+ 1212      47524545 
+ 1212      4E5F5772 
+ 1212      69746543 
+ 1212      6F756E74 
+ 1213              	.LASF16:
+ 1214 0271 50574D5F 		.ascii	"PWM_GREEN_Enable\000"
+ 1214      47524545 
+ 1214      4E5F456E 
+ 1214      61626C65 
+ 1214      00
+ 1215              	.LASF4:
+ 1216 0282 6C6F6E67 		.ascii	"long int\000"
+ 1216      20696E74 
+ 1216      00
+ 1217              	.LASF0:
+ 1218 028b 7369676E 		.ascii	"signed char\000"
+ 1218      65642063 
+ 1218      68617200 
+ 1219              	.LASF24:
+ 1220 0297 636F6D70 		.ascii	"compare\000"
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccbPi7hd.s 			page 40
+
+
+ 1220      61726500 
+ 1221              	.LASF35:
+ 1222 029f 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
+ 1222      73657273 
+ 1222      5C777A68 
+ 1222      5C446573 
+ 1222      6B746F70 
+ 1223 02cd 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
+ 1223      455F4261 
+ 1223      74746572 
+ 1223      795F4C65 
+ 1223      76656C30 
+ 1224              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

@@ -1,0 +1,25 @@
+# BLE_Battery_Level01
+# 2015-01-28 12:31:19Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
+set_io "ADC_IN(0)" iocell 3 6
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "GA_SENSORN(0)" iocell 1 1
+set_io "GA_SENSORP(0)" iocell 1 0
+set_io "GA_SENSOR_OUT(0)" iocell 1 2
+set_io "GREEN_DRIVE(0)" iocell 1 6
+set_io "IR_DRIVE(0)" iocell 0 3
+set_io "NIR_DRIVE1(0)" iocell 0 0
+set_io "NIR_DRIVE2(0)" iocell 0 1
+set_io "RED_DRIVE(0)" iocell 0 2
+set_location "\ADC_SAR:cy_psoc4_sar\" p4sarcell -1 -1 0
+set_location "\Opamp:cy_psoc4_abuf\" p4abufcell -1 -1 2
+set_io "\UART_DEB:rx(0)\" iocell 1 4
+set_io "\UART_DEB:tx(0)\" iocell 1 5
