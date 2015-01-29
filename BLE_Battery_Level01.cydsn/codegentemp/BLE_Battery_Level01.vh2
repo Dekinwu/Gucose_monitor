@@ -2,7 +2,7 @@
 --	Conversion of BLE_Battery_Level01.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jan 28 20:31:16 2015
+--	Thu Jan 29 11:22:23 2015
 --
 
 USE cypress.cypress.all;

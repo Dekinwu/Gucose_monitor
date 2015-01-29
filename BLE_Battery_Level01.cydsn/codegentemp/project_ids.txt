@@ -1,5 +1,5 @@
-C:\Users\wzh\Desktop\glucose-monitoring\example\BLE_Battery_Level01\BLE_Battery_Level01.cydsn\BLE_Battery_Level01.cyprj|cbf2dfb4-2cfb-473c-be2f-4602ebc5baee
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|08473956-2735-4d03-b5f7-935aeb3863b2
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c4e2e03b-70e4-4bc5-a922-158d436a1e8f
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e2533194-72be-4c38-823d-559407ad33dd
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9c70007a-8b7d-45cb-86f6-a0b25ab6aaab
+C:\Users\wzh\Desktop\Gucose_monitor\Gucose_monitor\BLE_Battery_Level01.cydsn\BLE_Battery_Level01.cyprj|4ea4e7de-feec-4e2f-b11a-bd8e8f5afbdc
+d:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e9f71fc5-aca4-4207-b541-3399b17506dc
+d:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|70862aca-4d3f-4440-8b00-efa728f07585
+d:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|123cdf4a-4b4a-4ce3-8e4b-555ad7044a57
+d:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e0fe7526-9208-46f5-8c6c-64226daadde0

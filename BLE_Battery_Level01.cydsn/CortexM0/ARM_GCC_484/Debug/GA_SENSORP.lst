@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
   30:.\Generated_Source\PSoC4/GA_SENSORP.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/GA_SENSORP.c **** *
   32:.\Generated_Source\PSoC4/GA_SENSORP.c **** * Summary:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/GA_SENSORP.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
   66 003c 1A60     		str	r2, [r3]
   47:.\Generated_Source\PSoC4/GA_SENSORP.c **** }
   67              		.loc 1 47 0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 3
 
 
   68 003e BD46     		mov	sp, r7
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
   95 0004 00AF     		add	r7, sp, #0
   96              		.cfi_def_cfa_register 7
   97 0006 021C     		mov	r2, r0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 4
 
 
   98 0008 FB1D     		add	r3, r7, #7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
   95:.\Generated_Source\PSoC4/GA_SENSORP.c **** *  
   96:.\Generated_Source\PSoC4/GA_SENSORP.c **** *******************************************************************************/
   97:.\Generated_Source\PSoC4/GA_SENSORP.c **** uint8 GA_SENSORP_Read(void) 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 5
 
 
   98:.\Generated_Source\PSoC4/GA_SENSORP.c **** {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  117:.\Generated_Source\PSoC4/GA_SENSORP.c **** uint8 GA_SENSORP_ReadDataReg(void) 
  118:.\Generated_Source\PSoC4/GA_SENSORP.c **** {
  167              		.loc 1 118 0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 6
 
 
  168              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  139:.\Generated_Source\PSoC4/GA_SENSORP.c ****     *  
  140:.\Generated_Source\PSoC4/GA_SENSORP.c ****     *******************************************************************************/
  141:.\Generated_Source\PSoC4/GA_SENSORP.c ****     uint8 GA_SENSORP_ClearInterrupt(void) 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 7
 
 
  142:.\Generated_Source\PSoC4/GA_SENSORP.c ****     {
@@ -418,17 +418,17 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  251 000c 8E000000 		.4byte	.LASF24
  252 0010 01       		.byte	0x1
  253 0011 26010000 		.4byte	.LASF25
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 8
 
 
- 254 0015 C3010000 		.4byte	.LASF26
+ 254 0015 86010000 		.4byte	.LASF26
  255 0019 00000000 		.4byte	.Ldebug_ranges0+0
  256 001d 00000000 		.4byte	0
  257 0021 00000000 		.4byte	.Ldebug_line0
  258 0025 02       		.uleb128 0x2
  259 0026 01       		.byte	0x1
  260 0027 06       		.byte	0x6
- 261 0028 B7010000 		.4byte	.LASF0
+ 261 0028 04020000 		.4byte	.LASF0
  262 002c 02       		.uleb128 0x2
  263 002d 01       		.byte	0x1
  264 002e 08       		.byte	0x8
@@ -436,7 +436,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  266 0033 02       		.uleb128 0x2
  267 0034 02       		.byte	0x2
  268 0035 05       		.byte	0x5
- 269 0036 86010000 		.4byte	.LASF2
+ 269 0036 D3010000 		.4byte	.LASF2
  270 003a 02       		.uleb128 0x2
  271 003b 02       		.byte	0x2
  272 003c 07       		.byte	0x7
@@ -444,7 +444,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  274 0041 02       		.uleb128 0x2
  275 0042 04       		.byte	0x4
  276 0043 05       		.byte	0x5
- 277 0044 AE010000 		.4byte	.LASF4
+ 277 0044 FB010000 		.4byte	.LASF4
  278 0048 02       		.uleb128 0x2
  279 0049 04       		.byte	0x4
  280 004a 07       		.byte	0x7
@@ -466,7 +466,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  296 0066 07       		.byte	0x7
  297 0067 81000000 		.4byte	.LASF8
  298 006b 04       		.uleb128 0x4
- 299 006c A8010000 		.4byte	.LASF9
+ 299 006c F5010000 		.4byte	.LASF9
  300 0070 02       		.byte	0x2
  301 0071 A1       		.byte	0xa1
  302 0072 2C000000 		.4byte	0x2c
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  308 0081 02       		.uleb128 0x2
  309 0082 04       		.byte	0x4
  310 0083 04       		.byte	0x4
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 9
 
 
  311 0084 1D000000 		.4byte	.LASF11
@@ -524,7 +524,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  351 00d7 77       		.sleb128 -9
  352 00d8 00       		.byte	0
  353 00d9 07       		.uleb128 0x7
- 354 00da 90010000 		.4byte	.LASF16
+ 354 00da DD010000 		.4byte	.LASF16
  355 00de 01       		.byte	0x1
  356 00df 49       		.byte	0x49
  357 00e0 00000000 		.4byte	.LFB1
@@ -538,14 +538,14 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  365 00f4 49       		.byte	0x49
  366 00f5 6B000000 		.4byte	0x6b
  367 00f9 02       		.uleb128 0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 10
 
 
  368 00fa 91       		.byte	0x91
  369 00fb 77       		.sleb128 -9
  370 00fc 00       		.byte	0
  371 00fd 0A       		.uleb128 0xa
- 372 00fe 21020000 		.4byte	.LASF19
+ 372 00fe 10020000 		.4byte	.LASF19
  373 0102 01       		.byte	0x1
  374 0103 61       		.byte	0x61
  375 0104 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  422 000c 17       		.uleb128 0x17
  423 000d 11       		.uleb128 0x11
  424 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 11
 
 
  425 000f 10       		.uleb128 0x10
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  479 0045 00       		.byte	0
  480 0046 49       		.uleb128 0x49
  481 0047 13       		.uleb128 0x13
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 12
 
 
  482 0048 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  536 007f 18       		.uleb128 0x18
  537 0080 00       		.byte	0
  538 0081 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 13
 
 
  539 0082 0A       		.uleb128 0xa
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  593 0006 00000000 		.4byte	.Ldebug_info0
  594 000a 04       		.byte	0x4
  595 000b 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 14
 
 
  596 000c 0000     		.2byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  636      7369676E 
  636      65642069 
  637              	.LASF1:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 15
 
 
  638 003a 756E7369 		.ascii	"unsigned char\000"
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  658      61746152 
  659              	.LASF25:
  660 0126 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\GA_SENSORP.c\000"
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 16
 
 
  660      6E657261 
@@ -924,41 +924,41 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 1
  668      52505F43 
  668      6C656172 
  668      496E7465 
- 669              	.LASF2:
- 670 0186 73686F72 		.ascii	"short int\000"
- 670      7420696E 
- 670      7400
- 671              	.LASF16:
- 672 0190 47415F53 		.ascii	"GA_SENSORP_SetDriveMode\000"
- 672      454E534F 
- 672      52505F53 
- 672      65744472 
- 672      6976654D 
- 673              	.LASF9:
- 674 01a8 75696E74 		.ascii	"uint8\000"
- 674      3800
- 675              	.LASF4:
- 676 01ae 6C6F6E67 		.ascii	"long int\000"
- 676      20696E74 
- 676      00
- 677              	.LASF0:
- 678 01b7 7369676E 		.ascii	"signed char\000"
- 678      65642063 
- 678      68617200 
- 679              	.LASF26:
- 680 01c3 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 680      73657273 
- 680      5C777A68 
- 680      5C446573 
- 680      6B746F70 
- 681 01f1 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 681      455F4261 
- 681      74746572 
- 681      795F4C65 
- 681      76656C30 
+ 669              	.LASF26:
+ 670 0186 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 670      73657273 
+ 670      5C777A68 
+ 670      5C446573 
+ 670      6B746F70 
+ 671 01b4 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 671      5C424C45 
+ 671      5F426174 
+ 671      74657279 
+ 671      5F4C6576 
+ 672              	.LASF2:
+ 673 01d3 73686F72 		.ascii	"short int\000"
+ 673      7420696E 
+ 673      7400
+ 674              	.LASF16:
+ 675 01dd 47415F53 		.ascii	"GA_SENSORP_SetDriveMode\000"
+ 675      454E534F 
+ 675      52505F53 
+ 675      65744472 
+ 675      6976654D 
+ 676              	.LASF9:
+ 677 01f5 75696E74 		.ascii	"uint8\000"
+ 677      3800
+ 678              	.LASF4:
+ 679 01fb 6C6F6E67 		.ascii	"long int\000"
+ 679      20696E74 
+ 679      00
+ 680              	.LASF0:
+ 681 0204 7369676E 		.ascii	"signed char\000"
+ 681      65642063 
+ 681      68617200 
  682              	.LASF19:
- 683 0221 47415F53 		.ascii	"GA_SENSORP_Read\000"
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cchnqkte.s 			page 17
+ 683 0210 47415F53 		.ascii	"GA_SENSORP_Read\000"
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccavmha6.s 			page 17
 
 
  683      454E534F 

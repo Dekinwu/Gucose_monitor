@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
   30:.\Generated_Source\PSoC4/UART_DEB_tx.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *
   32:.\Generated_Source\PSoC4/UART_DEB_tx.c **** * Summary:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
   66 003c 0F32     		add	r2, r2, #15
   67 003e 1278     		ldrb	r2, [r2]
   68 0040 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 3
 
 
   47:.\Generated_Source\PSoC4/UART_DEB_tx.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
   95 0002 82B0     		sub	sp, sp, #8
   96              		.cfi_def_cfa_offset 16
   97 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 4
 
 
   98              		.cfi_def_cfa_register 7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
   93:.\Generated_Source\PSoC4/UART_DEB_tx.c **** * Note:
   94:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *  Macro UART_DEB_tx_ReadPS calls this function. 
   95:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *  
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 5
 
 
   96:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *******************************************************************************/
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  115:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *  
  116:.\Generated_Source\PSoC4/UART_DEB_tx.c **** *******************************************************************************/
  117:.\Generated_Source\PSoC4/UART_DEB_tx.c **** uint8 UART_DEB_tx_ReadDataReg(void) 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 6
 
 
  118:.\Generated_Source\PSoC4/UART_DEB_tx.c **** {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  137:.\Generated_Source\PSoC4/UART_DEB_tx.c ****     * Return: 
  138:.\Generated_Source\PSoC4/UART_DEB_tx.c ****     *  Returns the value of the interrupt status register
  139:.\Generated_Source\PSoC4/UART_DEB_tx.c ****     *  
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 7
 
 
  140:.\Generated_Source\PSoC4/UART_DEB_tx.c ****     *******************************************************************************/
@@ -418,21 +418,21 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  251 0004 0400     		.2byte	0x4
  252 0006 00000000 		.4byte	.Ldebug_abbrev0
  253 000a 04       		.byte	0x4
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 8
 
 
  254 000b 01       		.uleb128 0x1
  255 000c D0000000 		.4byte	.LASF24
  256 0010 01       		.byte	0x1
  257 0011 5F010000 		.4byte	.LASF25
- 258 0015 D9010000 		.4byte	.LASF26
+ 258 0015 8B010000 		.4byte	.LASF26
  259 0019 00000000 		.4byte	.Ldebug_ranges0+0
  260 001d 00000000 		.4byte	0
  261 0021 00000000 		.4byte	.Ldebug_line0
  262 0025 02       		.uleb128 0x2
  263 0026 01       		.byte	0x1
  264 0027 06       		.byte	0x6
- 265 0028 BC010000 		.4byte	.LASF0
+ 265 0028 09020000 		.4byte	.LASF0
  266 002c 02       		.uleb128 0x2
  267 002d 01       		.byte	0x1
  268 002e 08       		.byte	0x8
@@ -440,7 +440,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  270 0033 02       		.uleb128 0x2
  271 0034 02       		.byte	0x2
  272 0035 05       		.byte	0x5
- 273 0036 8B010000 		.4byte	.LASF2
+ 273 0036 D8010000 		.4byte	.LASF2
  274 003a 02       		.uleb128 0x2
  275 003b 02       		.byte	0x2
  276 003c 07       		.byte	0x7
@@ -448,7 +448,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  278 0041 02       		.uleb128 0x2
  279 0042 04       		.byte	0x4
  280 0043 05       		.byte	0x5
- 281 0044 B3010000 		.4byte	.LASF4
+ 281 0044 00020000 		.4byte	.LASF4
  282 0048 02       		.uleb128 0x2
  283 0049 04       		.byte	0x4
  284 004a 07       		.byte	0x7
@@ -470,7 +470,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  300 0066 07       		.byte	0x7
  301 0067 C3000000 		.4byte	.LASF8
  302 006b 04       		.uleb128 0x4
- 303 006c AD010000 		.4byte	.LASF9
+ 303 006c FA010000 		.4byte	.LASF9
  304 0070 02       		.byte	0x2
  305 0071 A1       		.byte	0xa1
  306 0072 2C000000 		.4byte	0x2c
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  308 0077 BC000000 		.4byte	.LASF10
  309 007b 02       		.byte	0x2
  310 007c A3       		.byte	0xa3
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 9
 
 
  311 007d 48000000 		.4byte	0x48
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  365 00ea FD000000 		.4byte	0xfd
  366 00ee 08       		.uleb128 0x8
  367 00ef 4C010000 		.4byte	.LASF18
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 10
 
 
  368 00f3 01       		.byte	0x1
@@ -549,7 +549,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  373 00fb 77       		.sleb128 -9
  374 00fc 00       		.byte	0
  375 00fd 0A       		.uleb128 0xa
- 376 00fe C8010000 		.4byte	.LASF19
+ 376 00fe 15020000 		.4byte	.LASF19
  377 0102 01       		.byte	0x1
  378 0103 61       		.byte	0x61
  379 0104 6B000000 		.4byte	0x6b
@@ -558,7 +558,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  382 0110 01       		.uleb128 0x1
  383 0111 9C       		.byte	0x9c
  384 0112 0A       		.uleb128 0xa
- 385 0113 95010000 		.4byte	.LASF20
+ 385 0113 E2010000 		.4byte	.LASF20
  386 0117 01       		.byte	0x1
  387 0118 75       		.byte	0x75
  388 0119 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  422 0008 0E       		.uleb128 0xe
  423 0009 1B       		.uleb128 0x1b
  424 000a 0E       		.uleb128 0xe
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 11
 
 
  425 000b 55       		.uleb128 0x55
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  479 0041 00       		.byte	0
  480 0042 00       		.byte	0
  481 0043 06       		.uleb128 0x6
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 12
 
 
  482 0044 35       		.uleb128 0x35
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  536 007b 0B       		.uleb128 0xb
  537 007c 49       		.uleb128 0x49
  538 007d 13       		.uleb128 0x13
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 13
 
 
  539 007e 02       		.uleb128 0x2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  593 00b6 00       		.byte	0
  594              		.section	.debug_aranges,"",%progbits
  595 0000 3C000000 		.4byte	0x3c
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 14
 
 
  596 0004 0200     		.2byte	0x2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  638 002c 76616C75 		.ascii	"value\000"
  638      6500
  639              	.LASF11:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 15
 
 
  640 0032 666C6F61 		.ascii	"float\000"
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  662      382E3420 
  662      32303134 
  662      30353236 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 16
 
 
  663 0103 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
@@ -928,45 +928,45 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 1
  671              	.LASF13:
  672 0186 63686172 		.ascii	"char\000"
  672      00
- 673              	.LASF2:
- 674 018b 73686F72 		.ascii	"short int\000"
- 674      7420696E 
- 674      7400
- 675              	.LASF20:
- 676 0195 55415254 		.ascii	"UART_DEB_tx_ReadDataReg\000"
- 676      5F444542 
- 676      5F74785F 
- 676      52656164 
- 676      44617461 
- 677              	.LASF9:
- 678 01ad 75696E74 		.ascii	"uint8\000"
- 678      3800
- 679              	.LASF4:
- 680 01b3 6C6F6E67 		.ascii	"long int\000"
- 680      20696E74 
- 680      00
- 681              	.LASF0:
- 682 01bc 7369676E 		.ascii	"signed char\000"
- 682      65642063 
- 682      68617200 
- 683              	.LASF19:
- 684 01c8 55415254 		.ascii	"UART_DEB_tx_Read\000"
- 684      5F444542 
- 684      5F74785F 
- 684      52656164 
- 684      00
- 685              	.LASF26:
- 686 01d9 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 686      73657273 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUYZIrr.s 			page 17
+ 673              	.LASF26:
+ 674 018b 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 674      73657273 
+ 674      5C777A68 
+ 674      5C446573 
+ 674      6B746F70 
+ 675 01b9 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 675      5C424C45 
+ 675      5F426174 
+ 675      74657279 
+ 675      5F4C6576 
+ 676              	.LASF2:
+ 677 01d8 73686F72 		.ascii	"short int\000"
+ 677      7420696E 
+ 677      7400
+ 678              	.LASF20:
+ 679 01e2 55415254 		.ascii	"UART_DEB_tx_ReadDataReg\000"
+ 679      5F444542 
+ 679      5F74785F 
+ 679      52656164 
+ 679      44617461 
+ 680              	.LASF9:
+ 681 01fa 75696E74 		.ascii	"uint8\000"
+ 681      3800
+ 682              	.LASF4:
+ 683 0200 6C6F6E67 		.ascii	"long int\000"
+ 683      20696E74 
+ 683      00
+ 684              	.LASF0:
+ 685 0209 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccDiqXiK.s 			page 17
 
 
- 686      5C777A68 
- 686      5C446573 
- 686      6B746F70 
- 687 0207 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 687      455F4261 
- 687      74746572 
- 687      795F4C65 
- 687      76656C30 
+ 685      65642063 
+ 685      68617200 
+ 686              	.LASF19:
+ 687 0215 55415254 		.ascii	"UART_DEB_tx_Read\000"
+ 687      5F444542 
+ 687      5F74785F 
+ 687      52656164 
+ 687      00
  688              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

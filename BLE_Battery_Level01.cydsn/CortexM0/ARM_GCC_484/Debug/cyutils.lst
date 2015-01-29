@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
   30:.\Generated_Source\PSoC4/cyutils.c ****     * Return:
   31:.\Generated_Source\PSoC4/cyutils.c ****     *  None
   32:.\Generated_Source\PSoC4/cyutils.c ****     *
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/cyutils.c ****     * Reentrant:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
   66              	.LFE0:
   67              		.size	CySetReg24, .-CySetReg24
   68              		.section	.text.CyGetReg24,"ax",%progbits
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 3
 
 
   69              		.align	2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
   94 0012 BB60     		str	r3, [r7, #8]
   76:.\Generated_Source\PSoC4/cyutils.c ****             value |= ((uint32) tmpAddr[1u] << 8u );
   95              		.loc 1 76 0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 4
 
 
   96 0014 FB68     		ldr	r3, [r7, #12]
@@ -226,25 +226,25 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  134 000c B7000000 		.4byte	.LASF17
  135 0010 01       		.byte	0x1
  136 0011 79000000 		.4byte	.LASF18
- 137 0015 6B010000 		.4byte	.LASF19
+ 137 0015 46010000 		.4byte	.LASF19
  138 0019 00000000 		.4byte	.Ldebug_ranges0+0
  139 001d 00000000 		.4byte	0
  140 0021 00000000 		.4byte	.Ldebug_line0
  141 0025 02       		.uleb128 0x2
  142 0026 01       		.byte	0x1
  143 0027 06       		.byte	0x6
- 144 0028 5F010000 		.4byte	.LASF0
+ 144 0028 AC010000 		.4byte	.LASF0
  145 002c 02       		.uleb128 0x2
  146 002d 01       		.byte	0x1
  147 002e 08       		.byte	0x8
  148 002f 3E000000 		.4byte	.LASF1
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 5
 
 
  149 0033 02       		.uleb128 0x2
  150 0034 02       		.byte	0x2
  151 0035 05       		.byte	0x5
- 152 0036 46010000 		.4byte	.LASF2
+ 152 0036 93010000 		.4byte	.LASF2
  153 003a 02       		.uleb128 0x2
  154 003b 02       		.byte	0x2
  155 003c 07       		.byte	0x7
@@ -252,7 +252,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  157 0041 02       		.uleb128 0x2
  158 0042 04       		.byte	0x4
  159 0043 05       		.byte	0x5
- 160 0044 56010000 		.4byte	.LASF4
+ 160 0044 A3010000 		.4byte	.LASF4
  161 0048 02       		.uleb128 0x2
  162 0049 04       		.byte	0x4
  163 004a 07       		.byte	0x7
@@ -274,7 +274,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  179 0066 07       		.byte	0x7
  180 0067 AA000000 		.4byte	.LASF8
  181 006b 04       		.uleb128 0x4
- 182 006c 50010000 		.4byte	.LASF9
+ 182 006c 9D010000 		.4byte	.LASF9
  183 0070 02       		.byte	0x2
  184 0071 A1       		.byte	0xa1
  185 0072 2C000000 		.4byte	0x2c
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  203 0096 05       		.uleb128 0x5
  204 0097 6B000000 		.4byte	0x6b
  205 009b 05       		.uleb128 0x5
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 6
 
 
  206 009c 76000000 		.4byte	0x76
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  260 010b 44       		.byte	0x44
  261 010c 30010000 		.4byte	0x130
  262 0110 02       		.uleb128 0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 7
 
 
  263 0111 91       		.byte	0x91
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  317 0016 0B       		.uleb128 0xb
  318 0017 0B       		.uleb128 0xb
  319 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 8
 
 
  320 0019 0B       		.uleb128 0xb
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  374 004f 18       		.uleb128 0x18
  375 0050 9742     		.uleb128 0x2117
  376 0052 19       		.uleb128 0x19
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 9
 
 
  377 0053 01       		.uleb128 0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  431 0089 27       		.uleb128 0x27
  432 008a 19       		.uleb128 0x19
  433 008b 49       		.uleb128 0x49
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 10
 
 
  434 008c 13       		.uleb128 0x13
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  483 0006 43794765 		.ascii	"CyGetReg24\000"
  483      74526567 
  483      323400
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 11
 
 
  484              	.LASF20:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  509 00b7 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
  509      4320342E 
  509      382E3420 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccSl3aOV.s 			page 12
 
 
  509      32303134 
@@ -681,30 +681,30 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccesXPx8.s 			page 1
  514              	.LASF13:
  515 0141 63686172 		.ascii	"char\000"
  515      00
- 516              	.LASF2:
- 517 0146 73686F72 		.ascii	"short int\000"
- 517      7420696E 
- 517      7400
- 518              	.LASF9:
- 519 0150 75696E74 		.ascii	"uint8\000"
- 519      3800
- 520              	.LASF4:
- 521 0156 6C6F6E67 		.ascii	"long int\000"
- 521      20696E74 
- 521      00
- 522              	.LASF0:
- 523 015f 7369676E 		.ascii	"signed char\000"
- 523      65642063 
- 523      68617200 
- 524              	.LASF19:
- 525 016b 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 525      73657273 
- 525      5C777A68 
- 525      5C446573 
- 525      6B746F70 
- 526 0199 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 526      455F4261 
- 526      74746572 
- 526      795F4C65 
- 526      76656C30 
+ 516              	.LASF19:
+ 517 0146 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 517      73657273 
+ 517      5C777A68 
+ 517      5C446573 
+ 517      6B746F70 
+ 518 0174 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 518      5C424C45 
+ 518      5F426174 
+ 518      74657279 
+ 518      5F4C6576 
+ 519              	.LASF2:
+ 520 0193 73686F72 		.ascii	"short int\000"
+ 520      7420696E 
+ 520      7400
+ 521              	.LASF9:
+ 522 019d 75696E74 		.ascii	"uint8\000"
+ 522      3800
+ 523              	.LASF4:
+ 524 01a3 6C6F6E67 		.ascii	"long int\000"
+ 524      20696E74 
+ 524      00
+ 525              	.LASF0:
+ 526 01ac 7369676E 		.ascii	"signed char\000"
+ 526      65642063 
+ 526      68617200 
  527              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

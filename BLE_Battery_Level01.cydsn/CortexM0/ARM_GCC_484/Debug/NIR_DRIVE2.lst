@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
   30:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *
   32:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** * Summary:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
   66 003c 0F32     		add	r2, r2, #15
   67 003e 1278     		ldrb	r2, [r2]
   68 0040 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 3
 
 
   47:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
   95 0002 82B0     		sub	sp, sp, #8
   96              		.cfi_def_cfa_offset 16
   97 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 4
 
 
   98              		.cfi_def_cfa_register 7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
   92:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  
   93:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** * Note:
   94:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  Macro NIR_DRIVE2_ReadPS calls this function. 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 5
 
 
   95:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  114:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  Returns the current value assigned to the Digital Port's data output register
  115:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *  
  116:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** *******************************************************************************/
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 6
 
 
  117:.\Generated_Source\PSoC4/NIR_DRIVE2.c **** uint8 NIR_DRIVE2_ReadDataReg(void) 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  136:.\Generated_Source\PSoC4/NIR_DRIVE2.c ****     *
  137:.\Generated_Source\PSoC4/NIR_DRIVE2.c ****     * Return: 
  138:.\Generated_Source\PSoC4/NIR_DRIVE2.c ****     *  Returns the value of the interrupt status register
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 7
 
 
  139:.\Generated_Source\PSoC4/NIR_DRIVE2.c ****     *  
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  251 0000 48010000 		.4byte	0x148
  252 0004 0400     		.2byte	0x4
  253 0006 00000000 		.4byte	.Ldebug_abbrev0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 8
 
 
  254 000a 04       		.byte	0x4
@@ -426,14 +426,14 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  256 000c B3000000 		.4byte	.LASF24
  257 0010 01       		.byte	0x1
  258 0011 42010000 		.4byte	.LASF25
- 259 0015 D3010000 		.4byte	.LASF26
+ 259 0015 6D010000 		.4byte	.LASF26
  260 0019 00000000 		.4byte	.Ldebug_ranges0+0
  261 001d 00000000 		.4byte	0
  262 0021 00000000 		.4byte	.Ldebug_line0
  263 0025 02       		.uleb128 0x2
  264 0026 01       		.byte	0x1
  265 0027 06       		.byte	0x6
- 266 0028 AD010000 		.4byte	.LASF0
+ 266 0028 FA010000 		.4byte	.LASF0
  267 002c 02       		.uleb128 0x2
  268 002d 01       		.byte	0x1
  269 002e 08       		.byte	0x8
@@ -441,7 +441,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  271 0033 02       		.uleb128 0x2
  272 0034 02       		.byte	0x2
  273 0035 05       		.byte	0x5
- 274 0036 6D010000 		.4byte	.LASF2
+ 274 0036 BA010000 		.4byte	.LASF2
  275 003a 02       		.uleb128 0x2
  276 003b 02       		.byte	0x2
  277 003c 07       		.byte	0x7
@@ -449,7 +449,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  279 0041 02       		.uleb128 0x2
  280 0042 04       		.byte	0x4
  281 0043 05       		.byte	0x5
- 282 0044 A4010000 		.4byte	.LASF4
+ 282 0044 F1010000 		.4byte	.LASF4
  283 0048 02       		.uleb128 0x2
  284 0049 04       		.byte	0x4
  285 004a 07       		.byte	0x7
@@ -471,14 +471,14 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  301 0066 07       		.byte	0x7
  302 0067 A6000000 		.4byte	.LASF8
  303 006b 04       		.uleb128 0x4
- 304 006c 87010000 		.4byte	.LASF9
+ 304 006c D4010000 		.4byte	.LASF9
  305 0070 02       		.byte	0x2
  306 0071 A1       		.byte	0xa1
  307 0072 2C000000 		.4byte	0x2c
  308 0076 04       		.uleb128 0x4
  309 0077 9F000000 		.4byte	.LASF10
  310 007b 02       		.byte	0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 9
 
 
  311 007c A3       		.byte	0xa3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  365 00e9 9C       		.byte	0x9c
  366 00ea FD000000 		.4byte	0xfd
  367 00ee 08       		.uleb128 0x8
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 10
 
 
  368 00ef 2F010000 		.4byte	.LASF18
@@ -550,7 +550,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  374 00fb 77       		.sleb128 -9
  375 00fc 00       		.byte	0
  376 00fd 0A       		.uleb128 0xa
- 377 00fe 77010000 		.4byte	.LASF19
+ 377 00fe C4010000 		.4byte	.LASF19
  378 0102 01       		.byte	0x1
  379 0103 61       		.byte	0x61
  380 0104 6B000000 		.4byte	0x6b
@@ -559,7 +559,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  383 0110 01       		.uleb128 0x1
  384 0111 9C       		.byte	0x9c
  385 0112 0A       		.uleb128 0xa
- 386 0113 8D010000 		.4byte	.LASF20
+ 386 0113 DA010000 		.4byte	.LASF20
  387 0117 01       		.byte	0x1
  388 0118 75       		.byte	0x75
  389 0119 6B000000 		.4byte	0x6b
@@ -568,7 +568,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  392 0125 01       		.uleb128 0x1
  393 0126 9C       		.byte	0x9c
  394 0127 0B       		.uleb128 0xb
- 395 0128 B9010000 		.4byte	.LASF21
+ 395 0128 06020000 		.4byte	.LASF21
  396 012c 01       		.byte	0x1
  397 012d 8D       		.byte	0x8d
  398 012e 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  422 0007 03       		.uleb128 0x3
  423 0008 0E       		.uleb128 0xe
  424 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 11
 
 
  425 000a 0E       		.uleb128 0xe
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  479 0040 13       		.uleb128 0x13
  480 0041 00       		.byte	0
  481 0042 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 12
 
 
  482 0043 06       		.uleb128 0x6
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  536 007a 3B       		.uleb128 0x3b
  537 007b 0B       		.uleb128 0xb
  538 007c 49       		.uleb128 0x49
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 13
 
 
  539 007d 13       		.uleb128 0x13
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  593 00b5 00       		.byte	0
  594 00b6 00       		.byte	0
  595              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 14
 
 
  596 0000 3C000000 		.4byte	0x3c
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  640              	.LASF7:
  641 001f 6C6F6E67 		.ascii	"long long unsigned int\000"
  641      206C6F6E 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 15
 
 
  641      6720756E 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  662      6973696F 
  662      6E203231 
  662      31333538 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 16
 
 
  663 0119 30202D66 		.ascii	"0 -ffunction-sections\000"
@@ -923,50 +923,50 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 1
  670              	.LASF13:
  671 0168 63686172 		.ascii	"char\000"
  671      00
- 672              	.LASF2:
- 673 016d 73686F72 		.ascii	"short int\000"
- 673      7420696E 
- 673      7400
- 674              	.LASF19:
- 675 0177 4E49525F 		.ascii	"NIR_DRIVE2_Read\000"
- 675      44524956 
- 675      45325F52 
- 675      65616400 
- 676              	.LASF9:
- 677 0187 75696E74 		.ascii	"uint8\000"
- 677      3800
- 678              	.LASF20:
- 679 018d 4E49525F 		.ascii	"NIR_DRIVE2_ReadDataReg\000"
- 679      44524956 
- 679      45325F52 
- 679      65616444 
- 679      61746152 
- 680              	.LASF4:
- 681 01a4 6C6F6E67 		.ascii	"long int\000"
- 681      20696E74 
- 681      00
- 682              	.LASF0:
- 683 01ad 7369676E 		.ascii	"signed char\000"
- 683      65642063 
- 683      68617200 
- 684              	.LASF21:
- 685 01b9 4E49525F 		.ascii	"NIR_DRIVE2_ClearInterrupt\000"
- 685      44524956 
- 685      45325F43 
- 685      6C656172 
- 685      496E7465 
- 686              	.LASF26:
- 687 01d3 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 687      73657273 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccUsz84Q.s 			page 17
+ 672              	.LASF26:
+ 673 016d 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 673      73657273 
+ 673      5C777A68 
+ 673      5C446573 
+ 673      6B746F70 
+ 674 019b 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 674      5C424C45 
+ 674      5F426174 
+ 674      74657279 
+ 674      5F4C6576 
+ 675              	.LASF2:
+ 676 01ba 73686F72 		.ascii	"short int\000"
+ 676      7420696E 
+ 676      7400
+ 677              	.LASF19:
+ 678 01c4 4E49525F 		.ascii	"NIR_DRIVE2_Read\000"
+ 678      44524956 
+ 678      45325F52 
+ 678      65616400 
+ 679              	.LASF9:
+ 680 01d4 75696E74 		.ascii	"uint8\000"
+ 680      3800
+ 681              	.LASF20:
+ 682 01da 4E49525F 		.ascii	"NIR_DRIVE2_ReadDataReg\000"
+ 682      44524956 
+ 682      45325F52 
+ 682      65616444 
+ 682      61746152 
+ 683              	.LASF4:
+ 684 01f1 6C6F6E67 		.ascii	"long int\000"
+ 684      20696E74 
+ 684      00
+ 685              	.LASF0:
+ 686 01fa 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\cc8i7LDo.s 			page 17
 
 
- 687      5C777A68 
- 687      5C446573 
- 687      6B746F70 
- 688 0201 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 688      455F4261 
- 688      74746572 
- 688      795F4C65 
- 688      76656C30 
+ 686      65642063 
+ 686      68617200 
+ 687              	.LASF21:
+ 688 0206 4E49525F 		.ascii	"NIR_DRIVE2_ClearInterrupt\000"
+ 688      44524956 
+ 688      45325F43 
+ 688      6C656172 
+ 688      496E7465 
  689              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

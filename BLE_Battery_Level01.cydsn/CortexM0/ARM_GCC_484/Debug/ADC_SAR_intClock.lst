@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
   30:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** *
   31:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** * Parameters:
   32:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** *  alignClkDiv:  The divider to which phase alignment is performed when the
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** *    clock is started.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
   60              		.align	2
   61              	.L3:
   62 0024 00000140 		.word	1073807360
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 3
 
 
   63 0028 41000080 		.word	-2147483583
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
   94:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** *******************************************************************************/
   95:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** void ADC_SAR_intClock_Stop(void)
   96:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** {
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 4
 
 
   75              		.loc 1 96 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  110              		.code	16
  111              		.thumb_func
  112              		.type	ADC_SAR_intClock_SetFractionalDividerRegister, %function
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 5
 
 
  113              	ADC_SAR_intClock_SetFractionalDividerRegister:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  146:.\Generated_Source\PSoC4/ADC_SAR_intClock.c ****         ((uint32)((uint32)clkDivider <<  ADC_SAR_intClock_DIV_INT_SHIFT) & ADC_SAR_intClock_DIV_INT
  137              		.loc 1 146 0
  138 001c BB1D     		add	r3, r7, #6
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 6
 
 
  139 001e 1B88     		ldrh	r3, [r3]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  161:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** /*******************************************************************************
  162:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** * Function Name: ADC_SAR_intClock_GetDividerRegister
  163:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** ********************************************************************************
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 7
 
 
  164:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  182:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** 
  183:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** /*******************************************************************************
  184:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** * Function Name: ADC_SAR_intClock_GetFractionalDividerRegister
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 8
 
 
  185:.\Generated_Source\PSoC4/ADC_SAR_intClock.c **** ********************************************************************************
@@ -475,17 +475,17 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  240 000c 43010000 		.4byte	.LASF25
  241 0010 01       		.byte	0x1
  242 0011 2D000000 		.4byte	.LASF26
- 243 0015 3B020000 		.4byte	.LASF27
+ 243 0015 16020000 		.4byte	.LASF27
  244 0019 00000000 		.4byte	.Ldebug_ranges0+0
  245 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 9
 
 
  246 0021 00000000 		.4byte	.Ldebug_line0
  247 0025 02       		.uleb128 0x2
  248 0026 01       		.byte	0x1
  249 0027 06       		.byte	0x6
- 250 0028 2F020000 		.4byte	.LASF0
+ 250 0028 7C020000 		.4byte	.LASF0
  251 002c 02       		.uleb128 0x2
  252 002d 01       		.byte	0x1
  253 002e 08       		.byte	0x8
@@ -493,7 +493,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  255 0033 02       		.uleb128 0x2
  256 0034 02       		.byte	0x2
  257 0035 05       		.byte	0x5
- 258 0036 16020000 		.4byte	.LASF2
+ 258 0036 63020000 		.4byte	.LASF2
  259 003a 02       		.uleb128 0x2
  260 003b 02       		.byte	0x2
  261 003c 07       		.byte	0x7
@@ -501,7 +501,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  263 0041 02       		.uleb128 0x2
  264 0042 04       		.byte	0x4
  265 0043 05       		.byte	0x5
- 266 0044 26020000 		.4byte	.LASF4
+ 266 0044 73020000 		.4byte	.LASF4
  267 0048 02       		.uleb128 0x2
  268 0049 04       		.byte	0x4
  269 004a 07       		.byte	0x7
@@ -523,7 +523,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  285 0066 07       		.byte	0x7
  286 0067 08010000 		.4byte	.LASF8
  287 006b 04       		.uleb128 0x4
- 288 006c 20020000 		.4byte	.LASF9
+ 288 006c 6D020000 		.4byte	.LASF9
  289 0070 02       		.byte	0x2
  290 0071 A1       		.byte	0xa1
  291 0072 2C000000 		.4byte	0x2c
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  300 0087 A3       		.byte	0xa3
  301 0088 48000000 		.4byte	0x48
  302 008c 02       		.uleb128 0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 10
 
 
  303 008d 04       		.byte	0x4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  357 00fd A3000000 		.4byte	.LASF19
  358 0101 01       		.byte	0x1
  359 0102 86       		.byte	0x86
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 11
 
 
  360 0103 76000000 		.4byte	0x76
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  414 0004 0E       		.uleb128 0xe
  415 0005 13       		.uleb128 0x13
  416 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 12
 
 
  417 0007 03       		.uleb128 0x3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  471 003d 3B       		.uleb128 0x3b
  472 003e 05       		.uleb128 0x5
  473 003f 49       		.uleb128 0x49
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 13
 
 
  474 0040 13       		.uleb128 0x13
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  528 0077 19       		.uleb128 0x19
  529 0078 03       		.uleb128 0x3
  530 0079 0E       		.uleb128 0xe
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 14
 
 
  531 007a 3A       		.uleb128 0x3a
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  585 00b2 00       		.byte	0
  586 00b3 00       		.byte	0
  587 00b4 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 15
 
 
  588              		.section	.debug_aranges,"",%progbits
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  632      6C6F636B 
  632      5F537461 
  633              	.LASF26:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 16
 
 
  634 002d 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\ADC_SAR_intClock.c\000"
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  658 00e4 4144435F 		.ascii	"ADC_SAR_intClock_GetDividerRegister\000"
  658      5341525F 
  658      696E7443 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 17
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 17
 
 
  658      6C6F636B 
@@ -1010,33 +1010,33 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 1
  673              	.LASF14:
  674 0211 63686172 		.ascii	"char\000"
  674      00
- 675              	.LASF2:
- 676 0216 73686F72 		.ascii	"short int\000"
- 676      7420696E 
- 676      7400
- 677              	.LASF9:
- 678 0220 75696E74 		.ascii	"uint8\000"
- 678      3800
- 679              	.LASF4:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccKBTeyk.s 			page 18
+ 675              	.LASF27:
+ 676 0216 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 676      73657273 
+ 676      5C777A68 
+ 676      5C446573 
+ 676      6B746F70 
+ 677 0244 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 677      5C424C45 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccHsNTvy.s 			page 18
 
 
- 680 0226 6C6F6E67 		.ascii	"long int\000"
- 680      20696E74 
- 680      00
- 681              	.LASF0:
- 682 022f 7369676E 		.ascii	"signed char\000"
- 682      65642063 
- 682      68617200 
- 683              	.LASF27:
- 684 023b 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 684      73657273 
- 684      5C777A68 
- 684      5C446573 
- 684      6B746F70 
- 685 0269 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 685      455F4261 
- 685      74746572 
- 685      795F4C65 
- 685      76656C30 
+ 677      5F426174 
+ 677      74657279 
+ 677      5F4C6576 
+ 678              	.LASF2:
+ 679 0263 73686F72 		.ascii	"short int\000"
+ 679      7420696E 
+ 679      7400
+ 680              	.LASF9:
+ 681 026d 75696E74 		.ascii	"uint8\000"
+ 681      3800
+ 682              	.LASF4:
+ 683 0273 6C6F6E67 		.ascii	"long int\000"
+ 683      20696E74 
+ 683      00
+ 684              	.LASF0:
+ 685 027c 7369676E 		.ascii	"signed char\000"
+ 685      65642063 
+ 685      68617200 
  686              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

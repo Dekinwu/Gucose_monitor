@@ -37,7 +37,7 @@ typedef struct
          uint8 sta;
          uint8 ledtype;
          uint8 pwm_duty;
-         uint8 duty;
+        // uint8 duty;
          uint8 crc;
          uint8 flag;
     }config_cmd,*pconfig_cmd;

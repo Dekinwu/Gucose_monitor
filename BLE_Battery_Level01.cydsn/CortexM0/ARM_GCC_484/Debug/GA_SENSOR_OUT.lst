@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
   30:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *
   32:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** * Summary:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
   66 003c 0F32     		add	r2, r2, #15
   67 003e 1278     		ldrb	r2, [r2]
   68 0040 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 3
 
 
   47:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
   95 0002 82B0     		sub	sp, sp, #8
   96              		.cfi_def_cfa_offset 16
   97 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 4
 
 
   98              		.cfi_def_cfa_register 7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
   93:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** * Note:
   94:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *  Macro GA_SENSOR_OUT_ReadPS calls this function. 
   95:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *  
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 5
 
 
   96:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *******************************************************************************/
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  115:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *  
  116:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** *******************************************************************************/
  117:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** uint8 GA_SENSOR_OUT_ReadDataReg(void) 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 6
 
 
  118:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c **** {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  137:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c ****     * Return: 
  138:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c ****     *  Returns the value of the interrupt status register
  139:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c ****     *  
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 7
 
 
  140:.\Generated_Source\PSoC4/GA_SENSOR_OUT.c ****     *******************************************************************************/
@@ -418,21 +418,21 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  251 0004 0400     		.2byte	0x4
  252 0006 00000000 		.4byte	.Ldebug_abbrev0
  253 000a 04       		.byte	0x4
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 8
 
 
  254 000b 01       		.uleb128 0x1
  255 000c C8000000 		.4byte	.LASF24
  256 0010 01       		.byte	0x1
- 257 0011 69010000 		.4byte	.LASF25
- 258 0015 D1010000 		.4byte	.LASF26
+ 257 0011 B6010000 		.4byte	.LASF25
+ 258 0015 69010000 		.4byte	.LASF26
  259 0019 00000000 		.4byte	.Ldebug_ranges0+0
  260 001d 00000000 		.4byte	0
  261 0021 00000000 		.4byte	.Ldebug_line0
  262 0025 02       		.uleb128 0x2
  263 0026 01       		.byte	0x1
  264 0027 06       		.byte	0x6
- 265 0028 AB010000 		.4byte	.LASF0
+ 265 0028 F8010000 		.4byte	.LASF0
  266 002c 02       		.uleb128 0x2
  267 002d 01       		.byte	0x1
  268 002e 08       		.byte	0x8
@@ -440,7 +440,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  270 0033 02       		.uleb128 0x2
  271 0034 02       		.byte	0x2
  272 0035 05       		.byte	0x5
- 273 0036 92010000 		.4byte	.LASF2
+ 273 0036 DF010000 		.4byte	.LASF2
  274 003a 02       		.uleb128 0x2
  275 003b 02       		.byte	0x2
  276 003c 07       		.byte	0x7
@@ -448,7 +448,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  278 0041 02       		.uleb128 0x2
  279 0042 04       		.byte	0x4
  280 0043 05       		.byte	0x5
- 281 0044 A2010000 		.4byte	.LASF4
+ 281 0044 EF010000 		.4byte	.LASF4
  282 0048 02       		.uleb128 0x2
  283 0049 04       		.byte	0x4
  284 004a 07       		.byte	0x7
@@ -470,7 +470,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  300 0066 07       		.byte	0x7
  301 0067 BB000000 		.4byte	.LASF8
  302 006b 04       		.uleb128 0x4
- 303 006c 9C010000 		.4byte	.LASF9
+ 303 006c E9010000 		.4byte	.LASF9
  304 0070 02       		.byte	0x2
  305 0071 A1       		.byte	0xa1
  306 0072 2C000000 		.4byte	0x2c
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  308 0077 97000000 		.4byte	.LASF10
  309 007b 02       		.byte	0x2
  310 007c A3       		.byte	0xa3
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 9
 
 
  311 007d 48000000 		.4byte	0x48
@@ -502,7 +502,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  329 00a2 06       		.uleb128 0x6
  330 00a3 76000000 		.4byte	0x76
  331 00a7 07       		.uleb128 0x7
- 332 00a8 2F020000 		.4byte	.LASF15
+ 332 00a8 1E020000 		.4byte	.LASF15
  333 00ac 01       		.byte	0x1
  334 00ad 2A       		.byte	0x2a
  335 00ae 00000000 		.4byte	.LFB0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  365 00ea FD000000 		.4byte	0xfd
  366 00ee 08       		.uleb128 0x8
  367 00ef 44010000 		.4byte	.LASF18
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 10
 
 
  368 00f3 01       		.byte	0x1
@@ -558,7 +558,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  382 0110 01       		.uleb128 0x1
  383 0111 9C       		.byte	0x9c
  384 0112 0A       		.uleb128 0xa
- 385 0113 B7010000 		.4byte	.LASF20
+ 385 0113 04020000 		.4byte	.LASF20
  386 0117 01       		.byte	0x1
  387 0118 75       		.byte	0x75
  388 0119 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  422 0008 0E       		.uleb128 0xe
  423 0009 1B       		.uleb128 0x1b
  424 000a 0E       		.uleb128 0xe
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 11
 
 
  425 000b 55       		.uleb128 0x55
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  479 0041 00       		.byte	0
  480 0042 00       		.byte	0
  481 0043 06       		.uleb128 0x6
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 12
 
 
  482 0044 35       		.uleb128 0x35
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  536 007b 0B       		.uleb128 0xb
  537 007c 49       		.uleb128 0x49
  538 007d 13       		.uleb128 0x13
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 13
 
 
  539 007e 02       		.uleb128 0x2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  593 00b6 00       		.byte	0
  594              		.section	.debug_aranges,"",%progbits
  595 0000 3C000000 		.4byte	0x3c
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 14
 
 
  596 0004 0200     		.2byte	0x2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  639              	.LASF7:
  640 0025 6C6F6E67 		.ascii	"long long unsigned int\000"
  640      206C6F6E 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 15
 
 
  640      6720756E 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  661      6973696F 
  661      6E203231 
  661      31333538 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 16
 
 
  662 012e 30202D66 		.ascii	"0 -ffunction-sections\000"
@@ -922,49 +922,49 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 1
  669              	.LASF13:
  670 0164 63686172 		.ascii	"char\000"
  670      00
- 671              	.LASF25:
- 672 0169 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\GA_SENSOR_OUT.c\000"
- 672      6E657261 
- 672      7465645F 
- 672      536F7572 
- 672      63655C50 
- 673              	.LASF2:
- 674 0192 73686F72 		.ascii	"short int\000"
- 674      7420696E 
- 674      7400
- 675              	.LASF9:
- 676 019c 75696E74 		.ascii	"uint8\000"
- 676      3800
- 677              	.LASF4:
- 678 01a2 6C6F6E67 		.ascii	"long int\000"
- 678      20696E74 
- 678      00
- 679              	.LASF0:
- 680 01ab 7369676E 		.ascii	"signed char\000"
- 680      65642063 
- 680      68617200 
- 681              	.LASF20:
- 682 01b7 47415F53 		.ascii	"GA_SENSOR_OUT_ReadDataReg\000"
- 682      454E534F 
- 682      525F4F55 
- 682      545F5265 
- 682      61644461 
- 683              	.LASF26:
- 684 01d1 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 684      73657273 
- 684      5C777A68 
- 684      5C446573 
- 684      6B746F70 
- 685 01ff 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 685      455F4261 
- 685      74746572 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccXv6EKa.s 			page 17
+ 671              	.LASF26:
+ 672 0169 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 672      73657273 
+ 672      5C777A68 
+ 672      5C446573 
+ 672      6B746F70 
+ 673 0197 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 673      5C424C45 
+ 673      5F426174 
+ 673      74657279 
+ 673      5F4C6576 
+ 674              	.LASF25:
+ 675 01b6 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\GA_SENSOR_OUT.c\000"
+ 675      6E657261 
+ 675      7465645F 
+ 675      536F7572 
+ 675      63655C50 
+ 676              	.LASF2:
+ 677 01df 73686F72 		.ascii	"short int\000"
+ 677      7420696E 
+ 677      7400
+ 678              	.LASF9:
+ 679 01e9 75696E74 		.ascii	"uint8\000"
+ 679      3800
+ 680              	.LASF4:
+ 681 01ef 6C6F6E67 		.ascii	"long int\000"
+ 681      20696E74 
+ 681      00
+ 682              	.LASF0:
+ 683 01f8 7369676E 		.ascii	"signed char\000"
+ 683      65642063 
+ 683      68617200 
+ 684              	.LASF20:
+ 685 0204 47415F53 		.ascii	"GA_SENSOR_OUT_ReadDataReg\000"
+ 685      454E534F 
+ 685      525F4F55 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccG6b7FT.s 			page 17
 
 
- 685      795F4C65 
- 685      76656C30 
+ 685      545F5265 
+ 685      61644461 
  686              	.LASF15:
- 687 022f 47415F53 		.ascii	"GA_SENSOR_OUT_Write\000"
+ 687 021e 47415F53 		.ascii	"GA_SENSOR_OUT_Write\000"
  687      454E534F 
  687      525F4F55 
  687      545F5772 

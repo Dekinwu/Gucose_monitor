@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -17,623 +17,1052 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.comm	g_rx,1,1
-  18              		.comm	g_int_flag,1,1
-  19              		.section	.text.Uart_Rx_Interrput,"ax",%progbits
-  20              		.align	2
-  21              		.global	Uart_Rx_Interrput
-  22              		.code	16
-  23              		.thumb_func
-  24              		.type	Uart_Rx_Interrput, %function
-  25              	Uart_Rx_Interrput:
-  26              	.LFB35:
-  27              		.file 1 ".\\main.c"
-   1:.\main.c      **** /*******************************************************************************
-   2:.\main.c      **** * File Name: main.c
+  17              		.comm	g_config_cmd,5,4
+  18              		.section	.text.UartRX_Interrupt,"ax",%progbits
+  19              		.align	2
+  20              		.global	UartRX_Interrupt
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	UartRX_Interrupt, %function
+  24              	UartRX_Interrupt:
+  25              	.LFB35:
+  26              		.file 1 ".\\main.c"
+   1:.\main.c      ****  /*******************************************************************************
+   2:.\main.c      **** * File: main.c
    3:.\main.c      **** *
-   4:.\main.c      **** * Version: 1.0
+   4:.\main.c      **** * Version : 1.1
    5:.\main.c      **** *
-   6:.\main.c      **** * Description:
-   7:.\main.c      **** *  BLE example project that measures the battery voltage using PSoC 4 BLE's 
-   8:.\main.c      **** *  internal ADC and notifies the BLE central device on any change in battery 
-   9:.\main.c      **** *  voltage.
-  10:.\main.c      **** *
-  11:.\main.c      **** * Note:
-  12:.\main.c      **** *
-  13:.\main.c      **** * Hardware Dependency:
-  14:.\main.c      **** *  CY8CKIT-042 BLE
-  15:.\main.c      **** * 
-  16:.\main.c      **** ********************************************************************************
-  17:.\main.c      **** * Copyright 2014, Cypress Semiconductor Corporation.  All rights reserved.
-  18:.\main.c      **** * You may use this file only in accordance with the license, terms, conditions,
-  19:.\main.c      **** * disclaimers, and limitations in the end user license agreement accompanying
-  20:.\main.c      **** * the software package with which this file was provided.
-  21:.\main.c      **** *******************************************************************************/
-  22:.\main.c      **** 
-  23:.\main.c      **** #include "common.h"
+   6:.\main.c      **** * Description: 
+   7:.\main.c      **** *   This is source code for the PSoC4 Opamp example project. 
+   8:.\main.c      **** *
+   9:.\main.c      **** ********************************************************************************
+  10:.\main.c      **** * Copyright 2013-2014, Cypress Semiconductor Corporation. All rights reserved.
+  11:.\main.c      **** * This software is owned by Cypress Semiconductor Corporation and is protected
+  12:.\main.c      **** * by and subject to worldwide patent and copyright laws and treaties.
+  13:.\main.c      **** * Therefore, you may use this software only as provided in the license agreement
+  14:.\main.c      **** * accompanying the software package from which you obtained this software.
+  15:.\main.c      **** * CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  16:.\main.c      **** * WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
+  17:.\main.c      **** * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  18:.\main.c      **** *******************************************************************************/
+  19:.\main.c      **** 
+  20:.\main.c      **** #include <device.h>
+  21:.\main.c      **** #include <stdio.h>
+  22:.\main.c      **** #include "config_cmd.h"
+  23:.\main.c      **** 
   24:.\main.c      **** 
-  25:.\main.c      **** uint8 g_rx,g_int_flag;
-  26:.\main.c      **** 
-  27:.\main.c      **** void Uart_Rx_Interrput(void)
-  28:.\main.c      **** {
-  28              		.loc 1 28 0
-  29              		.cfi_startproc
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 2
+  25:.\main.c      **** void UartRX_Interrupt(void)
+  26:.\main.c      **** {
+  27              		.loc 1 26 0
+  28              		.cfi_startproc
+  29 0000 80B5     		push	{r7, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 2
 
 
-  30 0000 80B5     		push	{r7, lr}
-  31              		.cfi_def_cfa_offset 8
-  32              		.cfi_offset 7, -8
-  33              		.cfi_offset 14, -4
-  34 0002 00AF     		add	r7, sp, #0
-  35              		.cfi_def_cfa_register 7
-  29:.\main.c      ****      g_rx=(uint8)UART_DEB_SpiUartReadRxData();
-  36              		.loc 1 29 0
-  37 0004 FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
-  38 0008 031C     		mov	r3, r0
-  39 000a DAB2     		uxtb	r2, r3
-  40 000c 054B     		ldr	r3, .L2
-  41 000e 1A70     		strb	r2, [r3]
-  30:.\main.c      ****    //g_num=UART_DEB_SpiUartGetRxBufferSize();
-  31:.\main.c      ****      UART_DEB_ClearRxInterruptSource(UART_DEB_GetRxInterruptSource());
-  42              		.loc 1 31 0
-  43 0010 054B     		ldr	r3, .L2+4
-  44 0012 054A     		ldr	r2, .L2+4
-  45 0014 1268     		ldr	r2, [r2]
-  46 0016 1A60     		str	r2, [r3]
-  32:.\main.c      ****     //  UART_DEB_SCB_IRQ_ClearPending();
-  33:.\main.c      ****     g_int_flag=1;
-  47              		.loc 1 33 0
-  48 0018 044B     		ldr	r3, .L2+8
-  49 001a 0122     		mov	r2, #1
-  50 001c 1A70     		strb	r2, [r3]
-  34:.\main.c      **** }
-  51              		.loc 1 34 0
-  52 001e BD46     		mov	sp, r7
-  53              		@ sp needed
-  54 0020 80BD     		pop	{r7, pc}
+  32              		.cfi_offset 14, -4
+  33 0002 00AF     		add	r7, sp, #0
+  34              		.cfi_def_cfa_register 7
+  27:.\main.c      ****     
+  28:.\main.c      ****     switch(g_config_cmd.sta)
+  35              		.loc 1 28 0
+  36 0004 224B     		ldr	r3, .L13
+  37 0006 1B78     		ldrb	r3, [r3]
+  38 0008 052B     		cmp	r3, #5
+  39 000a 39D8     		bhi	.L12
+  40 000c 9A00     		lsl	r2, r3, #2
+  41 000e 214B     		ldr	r3, .L13+4
+  42 0010 D318     		add	r3, r2, r3
+  43 0012 1B68     		ldr	r3, [r3]
+  44 0014 9F46     		mov	pc, r3
+  45              		.section	.rodata
+  46              		.align	2
+  47              	.L4:
+  48 0000 80000000 		.word	.L12
+  49 0004 16000000 		.word	.L3
+  50 0008 2A000000 		.word	.L5
+  51 000c 3E000000 		.word	.L6
+  52 0010 52000000 		.word	.L7
+  53 0014 66000000 		.word	.L8
+  54              		.section	.text.UartRX_Interrupt
   55              	.L3:
-  56 0022 C046     		.align	2
-  57              	.L2:
-  58 0024 00000000 		.word	g_rx
-  59 0028 C00F2440 		.word	1076105152
-  60 002c 00000000 		.word	g_int_flag
-  61              		.cfi_endproc
-  62              	.LFE35:
-  63              		.size	Uart_Rx_Interrput, .-Uart_Rx_Interrput
-  64              		.section	.rodata
-  65              		.align	2
-  66              	.LC2:
-  67 0000 424C4520 		.ascii	"BLE Battery Level Example Project \015\000"
-  67      42617474 
-  67      65727920 
-  67      4C657665 
-  67      6C204578 
-  68              		.section	.text.main,"ax",%progbits
-  69              		.align	2
-  70              		.global	main
-  71              		.code	16
-  72              		.thumb_func
-  73              		.type	main, %function
-  74              	main:
-  75              	.LFB36:
-  35:.\main.c      **** 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 3
+  29:.\main.c      ****     {
+  30:.\main.c      ****         case HEADER1_STA:
+  31:.\main.c      ****              if(UART_DEB_SpiUartReadRxData()==CMD_HEADER1) g_config_cmd.sta=HEADER2_STA;
+  56              		.loc 1 31 0
+  57 0016 FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
+  58 001a 031C     		mov	r3, r0
+  59 001c AA2B     		cmp	r3, #170
+  60 001e 03D1     		bne	.L9
+  61              		.loc 1 31 0 is_stmt 0 discriminator 1
+  62 0020 1B4B     		ldr	r3, .L13
+  63 0022 0222     		mov	r2, #2
+  64 0024 1A70     		strb	r2, [r3]
+  32:.\main.c      ****              break;
+  65              		.loc 1 32 0 is_stmt 1 discriminator 1
+  66 0026 2CE0     		b	.L10
+  67              	.L9:
+  68              		.loc 1 32 0 is_stmt 0
+  69 0028 2BE0     		b	.L10
+  70              	.L5:
+  33:.\main.c      ****         case HEADER2_STA:
+  34:.\main.c      ****              if(UART_DEB_SpiUartReadRxData()==CMD_HEADER2) g_config_cmd.sta=LEDTYPE_STA;
+  71              		.loc 1 34 0 is_stmt 1
+  72 002a FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
+  73 002e 031C     		mov	r3, r0
+  74 0030 EE2B     		cmp	r3, #238
+  75 0032 03D1     		bne	.L11
+  76              		.loc 1 34 0 is_stmt 0 discriminator 1
+  77 0034 164B     		ldr	r3, .L13
+  78 0036 0322     		mov	r2, #3
+  79 0038 1A70     		strb	r2, [r3]
+  35:.\main.c      ****              break;
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 3
 
 
-  36:.\main.c      **** 
-  37:.\main.c      **** 
-  38:.\main.c      **** int main()
-  39:.\main.c      **** {
-  76              		.loc 1 39 0
-  77              		.cfi_startproc
-  78 0000 80B5     		push	{r7, lr}
-  79              		.cfi_def_cfa_offset 8
-  80              		.cfi_offset 7, -8
-  81              		.cfi_offset 14, -4
-  82 0002 00AF     		add	r7, sp, #0
-  83              		.cfi_def_cfa_register 7
-  40:.\main.c      ****   
-  41:.\main.c      ****     CyGlobalIntEnable;  
-  84              		.loc 1 41 0
-  85              	@ 41 ".\main.c" 1
-  86 0004 62B6     		CPSIE   i
-  87              	@ 0 "" 2
-  42:.\main.c      ****     
-  43:.\main.c      ****     UART_DEB_Start(); 
-  88              		.loc 1 43 0
-  89              		.code	16
-  90 0006 FFF7FEFF 		bl	UART_DEB_Start
-  44:.\main.c      ****     printf("BLE Battery Level Example Project \r\n");
-  91              		.loc 1 44 0
-  92 000a 0D4B     		ldr	r3, .L7
-  93 000c 181C     		mov	r0, r3
-  94 000e FFF7FEFF 		bl	puts
-  45:.\main.c      ****     UART_DEB_SCB_IRQ_Start();
-  95              		.loc 1 45 0
-  96 0012 FFF7FEFF 		bl	UART_DEB_SCB_IRQ_Start
-  46:.\main.c      ****     UART_DEB_SCB_IRQ_StartEx(Uart_Rx_Interrput);
-  97              		.loc 1 46 0
-  98 0016 0B4B     		ldr	r3, .L7+4
-  99 0018 181C     		mov	r0, r3
- 100 001a FFF7FEFF 		bl	UART_DEB_SCB_IRQ_StartEx
-  47:.\main.c      ****     
-  48:.\main.c      ****     
-  49:.\main.c      ****     PWM_GREEN_Start();
- 101              		.loc 1 49 0
- 102 001e FFF7FEFF 		bl	PWM_GREEN_Start
-  50:.\main.c      ****     
-  51:.\main.c      ****      PWM_NIR1_Start();
- 103              		.loc 1 51 0
- 104 0022 FFF7FEFF 		bl	PWM_NIR1_Start
-  52:.\main.c      ****     PWM_IR_AND_RED_Start();
- 105              		.loc 1 52 0
- 106 0026 FFF7FEFF 		bl	PWM_IR_AND_RED_Start
-  53:.\main.c      ****     
-  54:.\main.c      ****     PWM_NIR1_WriteCompare1(22);
- 107              		.loc 1 54 0
- 108 002a 1620     		mov	r0, #22
- 109 002c FFF7FEFF 		bl	PWM_NIR1_WriteCompare1
- 110              	.L6:
-  55:.\main.c      ****     
-  56:.\main.c      **** 	//ADC_Start();
-  57:.\main.c      **** 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 4
+  80              		.loc 1 35 0 is_stmt 1 discriminator 1
+  81 003a 22E0     		b	.L10
+  82              	.L11:
+  83              		.loc 1 35 0 is_stmt 0
+  84 003c 21E0     		b	.L10
+  85              	.L6:
+  36:.\main.c      ****         case LEDTYPE_STA:
+  37:.\main.c      ****              g_config_cmd.ledtype=UART_DEB_SpiUartReadRxData();
+  86              		.loc 1 37 0 is_stmt 1
+  87 003e FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
+  88 0042 031C     		mov	r3, r0
+  89 0044 DAB2     		uxtb	r2, r3
+  90 0046 124B     		ldr	r3, .L13
+  91 0048 5A70     		strb	r2, [r3, #1]
+  38:.\main.c      ****              g_config_cmd.sta=PWMDUTY_STA;
+  92              		.loc 1 38 0
+  93 004a 114B     		ldr	r3, .L13
+  94 004c 0422     		mov	r2, #4
+  95 004e 1A70     		strb	r2, [r3]
+  39:.\main.c      ****             break;
+  96              		.loc 1 39 0
+  97 0050 17E0     		b	.L10
+  98              	.L7:
+  40:.\main.c      ****         case PWMDUTY_STA:
+  41:.\main.c      ****              g_config_cmd.pwm_duty=UART_DEB_SpiUartReadRxData();
+  99              		.loc 1 41 0
+ 100 0052 FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
+ 101 0056 031C     		mov	r3, r0
+ 102 0058 DAB2     		uxtb	r2, r3
+ 103 005a 0D4B     		ldr	r3, .L13
+ 104 005c 9A70     		strb	r2, [r3, #2]
+  42:.\main.c      ****              g_config_cmd.sta=CRC_STA;
+ 105              		.loc 1 42 0
+ 106 005e 0C4B     		ldr	r3, .L13
+ 107 0060 0522     		mov	r2, #5
+ 108 0062 1A70     		strb	r2, [r3]
+  43:.\main.c      ****             break;
+ 109              		.loc 1 43 0
+ 110 0064 0DE0     		b	.L10
+ 111              	.L8:
+  44:.\main.c      ****         case CRC_STA:
+  45:.\main.c      ****              g_config_cmd.crc=UART_DEB_SpiUartReadRxData();
+ 112              		.loc 1 45 0
+ 113 0066 FFF7FEFF 		bl	UART_DEB_SpiUartReadRxData
+ 114 006a 031C     		mov	r3, r0
+ 115 006c DAB2     		uxtb	r2, r3
+ 116 006e 084B     		ldr	r3, .L13
+ 117 0070 DA70     		strb	r2, [r3, #3]
+  46:.\main.c      ****              g_config_cmd.sta=HEADER1_STA;
+ 118              		.loc 1 46 0
+ 119 0072 074B     		ldr	r3, .L13
+ 120 0074 0122     		mov	r2, #1
+ 121 0076 1A70     		strb	r2, [r3]
+  47:.\main.c      ****              g_config_cmd.flag=1;
+ 122              		.loc 1 47 0
+ 123 0078 054B     		ldr	r3, .L13
+ 124 007a 0122     		mov	r2, #1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 4
 
 
-  58:.\main.c      **** 	while(1) 
-  59:.\main.c      ****     {   
-  60:.\main.c      ****          if( g_int_flag ) 
- 111              		.loc 1 60 0
- 112 0030 054B     		ldr	r3, .L7+8
- 113 0032 1B78     		ldrb	r3, [r3]
- 114 0034 002B     		cmp	r3, #0
- 115 0036 02D0     		beq	.L5
-  61:.\main.c      ****         {
-  62:.\main.c      ****           PWM_NIR1_Stop(); 
- 116              		.loc 1 62 0
- 117 0038 FFF7FEFF 		bl	PWM_NIR1_Stop
-  63:.\main.c      ****         }
-  64:.\main.c      ****     }
- 118              		.loc 1 64 0
- 119 003c F8E7     		b	.L6
- 120              	.L5:
- 121 003e F7E7     		b	.L6
- 122              	.L8:
- 123              		.align	2
- 124              	.L7:
- 125 0040 00000000 		.word	.LC2
- 126 0044 00000000 		.word	Uart_Rx_Interrput
- 127 0048 00000000 		.word	g_int_flag
- 128              		.cfi_endproc
- 129              	.LFE36:
- 130              		.size	main, .-main
- 131              		.text
- 132              	.Letext0:
- 133              		.file 2 ".\\Generated_Source\\PSoC4/cytypes.h"
- 134              		.section	.debug_info,"",%progbits
- 135              	.Ldebug_info0:
- 136 0000 F3000000 		.4byte	0xf3
- 137 0004 0400     		.2byte	0x4
- 138 0006 00000000 		.4byte	.Ldebug_abbrev0
- 139 000a 04       		.byte	0x4
- 140 000b 01       		.uleb128 0x1
- 141 000c 80000000 		.4byte	.LASF20
- 142 0010 01       		.byte	0x1
- 143 0011 AA010000 		.4byte	.LASF21
- 144 0015 3A010000 		.4byte	.LASF22
- 145 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 146 001d 00000000 		.4byte	0
- 147 0021 00000000 		.4byte	.Ldebug_line0
- 148 0025 02       		.uleb128 0x2
- 149 0026 01       		.byte	0x1
- 150 0027 06       		.byte	0x6
- 151 0028 98010000 		.4byte	.LASF0
- 152 002c 02       		.uleb128 0x2
- 153 002d 01       		.byte	0x1
- 154 002e 08       		.byte	0x8
- 155 002f 07010000 		.4byte	.LASF1
- 156 0033 02       		.uleb128 0x2
- 157 0034 02       		.byte	0x2
- 158 0035 05       		.byte	0x5
- 159 0036 23010000 		.4byte	.LASF2
- 160 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 5
+ 125 007c 1A71     		strb	r2, [r3, #4]
+  48:.\main.c      ****             break;
+ 126              		.loc 1 48 0
+ 127 007e 00E0     		b	.L10
+ 128              	.L12:
+  49:.\main.c      ****        default: break;
+ 129              		.loc 1 49 0
+ 130 0080 C046     		mov	r8, r8
+ 131              	.L10:
+  50:.\main.c      ****     }
+  51:.\main.c      ****     UART_DEB_ClearRxInterruptSource( UART_DEB_GetRxInterruptSource());
+ 132              		.loc 1 51 0
+ 133 0082 054B     		ldr	r3, .L13+8
+ 134 0084 044A     		ldr	r2, .L13+8
+ 135 0086 1268     		ldr	r2, [r2]
+ 136 0088 1A60     		str	r2, [r3]
+  52:.\main.c      **** }
+ 137              		.loc 1 52 0
+ 138 008a BD46     		mov	sp, r7
+ 139              		@ sp needed
+ 140 008c 80BD     		pop	{r7, pc}
+ 141              	.L14:
+ 142 008e C046     		.align	2
+ 143              	.L13:
+ 144 0090 00000000 		.word	g_config_cmd
+ 145 0094 00000000 		.word	.L4
+ 146 0098 C00F2440 		.word	1076105152
+ 147              		.cfi_endproc
+ 148              	.LFE35:
+ 149              		.size	UartRX_Interrupt, .-UartRX_Interrupt
+ 150              		.section	.rodata
+ 151              		.align	2
+ 152              	.LC4:
+ 153 0018 706C6561 		.ascii	"please input led type and pwm duty: \015\000"
+ 153      73652069 
+ 153      6E707574 
+ 153      206C6564 
+ 153      20747970 
+ 154              		.global	__aeabi_idiv
+ 155 003e 0000     		.align	2
+ 156              	.LC6:
+ 157 0040 47524545 		.ascii	"GREEN led pwm duty is: %d \015\012\000"
+ 157      4E206C65 
+ 157      64207077 
+ 157      6D206475 
+ 157      74792069 
+ 158 005d 000000   		.align	2
+ 159              	.LC8:
+ 160 0060 52454420 		.ascii	"RED led pwm duty is: %d \015\012\000"
+ 160      6C656420 
+ 160      70776D20 
+ 160      64757479 
+ 160      2069733A 
+ 161 007b 00       		.align	2
+ 162              	.LC10:
+ 163 007c 4952206C 		.ascii	"IR led pwm duty is: %d \015\012\000"
+ 163      65642070 
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 5
 
 
- 161 003b 02       		.byte	0x2
- 162 003c 07       		.byte	0x7
- 163 003d 6D000000 		.4byte	.LASF3
- 164 0041 02       		.uleb128 0x2
- 165 0042 04       		.byte	0x4
- 166 0043 05       		.byte	0x5
- 167 0044 1A010000 		.4byte	.LASF4
- 168 0048 02       		.uleb128 0x2
- 169 0049 04       		.byte	0x4
- 170 004a 07       		.byte	0x7
- 171 004b 32000000 		.4byte	.LASF5
- 172 004f 02       		.uleb128 0x2
- 173 0050 08       		.byte	0x8
- 174 0051 05       		.byte	0x5
- 175 0052 00000000 		.4byte	.LASF6
- 176 0056 02       		.uleb128 0x2
- 177 0057 08       		.byte	0x8
- 178 0058 07       		.byte	0x7
- 179 0059 44000000 		.4byte	.LASF7
- 180 005d 03       		.uleb128 0x3
- 181 005e 04       		.byte	0x4
- 182 005f 05       		.byte	0x5
- 183 0060 696E7400 		.ascii	"int\000"
- 184 0064 02       		.uleb128 0x2
- 185 0065 04       		.byte	0x4
- 186 0066 07       		.byte	0x7
- 187 0067 15000000 		.4byte	.LASF8
- 188 006b 04       		.uleb128 0x4
- 189 006c 2C000000 		.4byte	.LASF9
- 190 0070 02       		.byte	0x2
- 191 0071 A1       		.byte	0xa1
- 192 0072 2C000000 		.4byte	0x2c
- 193 0076 04       		.uleb128 0x4
- 194 0077 0E000000 		.4byte	.LASF10
- 195 007b 02       		.byte	0x2
- 196 007c A3       		.byte	0xa3
- 197 007d 48000000 		.4byte	0x48
- 198 0081 02       		.uleb128 0x2
- 199 0082 04       		.byte	0x4
- 200 0083 04       		.byte	0x4
- 201 0084 A4010000 		.4byte	.LASF11
- 202 0088 02       		.uleb128 0x2
- 203 0089 08       		.byte	0x8
- 204 008a 04       		.byte	0x4
- 205 008b 2D010000 		.4byte	.LASF12
- 206 008f 02       		.uleb128 0x2
- 207 0090 01       		.byte	0x1
- 208 0091 08       		.byte	0x8
- 209 0092 15010000 		.4byte	.LASF13
- 210 0096 05       		.uleb128 0x5
- 211 0097 34010000 		.4byte	.LASF14
- 212 009b 02       		.byte	0x2
- 213 009c 4D01     		.2byte	0x14d
- 214 009e A2000000 		.4byte	0xa2
- 215 00a2 06       		.uleb128 0x6
- 216 00a3 76000000 		.4byte	0x76
- 217 00a7 02       		.uleb128 0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 6
+ 163      776D2064 
+ 163      75747920 
+ 163      69733A20 
+ 164 0096 0000     		.align	2
+ 165              	.LC12:
+ 166 0098 4E495220 		.ascii	"NIR led pwm duty is: %d \015\012\000"
+ 166      6C656420 
+ 166      70776D20 
+ 166      64757479 
+ 166      2069733A 
+ 167 00b3 00       		.section	.text.main,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	main
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.type	main, %function
+ 173              	main:
+ 174              	.LFB36:
+  53:.\main.c      **** 
+  54:.\main.c      **** void main()
+  55:.\main.c      **** {
+ 175              		.loc 1 55 0
+ 176              		.cfi_startproc
+ 177 0000 80B5     		push	{r7, lr}
+ 178              		.cfi_def_cfa_offset 8
+ 179              		.cfi_offset 7, -8
+ 180              		.cfi_offset 14, -4
+ 181 0002 00AF     		add	r7, sp, #0
+ 182              		.cfi_def_cfa_register 7
+  56:.\main.c      ****   //  unsigned char i=0;
+  57:.\main.c      ****     CyGlobalIntEnable;  
+ 183              		.loc 1 57 0
+ 184              	@ 57 ".\main.c" 1
+ 185 0004 62B6     		CPSIE   i
+ 186              	@ 0 "" 2
+  58:.\main.c      ****     
+  59:.\main.c      ****     g_config_cmd.sta=HEADER1_STA;
+ 187              		.loc 1 59 0
+ 188              		.code	16
+ 189 0006 524B     		ldr	r3, .L21
+ 190 0008 0122     		mov	r2, #1
+ 191 000a 1A70     		strb	r2, [r3]
+  60:.\main.c      ****     
+  61:.\main.c      ****     UART_DEB_Start(); 
+ 192              		.loc 1 61 0
+ 193 000c FFF7FEFF 		bl	UART_DEB_Start
+  62:.\main.c      ****     UART_DEB_SCB_IRQ_Start();
+ 194              		.loc 1 62 0
+ 195 0010 FFF7FEFF 		bl	UART_DEB_SCB_IRQ_Start
+  63:.\main.c      ****     UART_DEB_SCB_IRQ_StartEx(UartRX_Interrupt);
+ 196              		.loc 1 63 0
+ 197 0014 4F4B     		ldr	r3, .L21+4
+ 198 0016 181C     		mov	r0, r3
+ 199 0018 FFF7FEFF 		bl	UART_DEB_SCB_IRQ_StartEx
+  64:.\main.c      ****     printf("please input led type and pwm duty: \r\n");
+ 200              		.loc 1 64 0
+ 201 001c 4E4B     		ldr	r3, .L21+8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 6
 
 
- 218 00a8 04       		.byte	0x4
- 219 00a9 07       		.byte	0x7
- 220 00aa B3010000 		.4byte	.LASF15
- 221 00ae 07       		.uleb128 0x7
- 222 00af 5B000000 		.4byte	.LASF16
- 223 00b3 01       		.byte	0x1
- 224 00b4 1B       		.byte	0x1b
- 225 00b5 00000000 		.4byte	.LFB35
- 226 00b9 30000000 		.4byte	.LFE35-.LFB35
- 227 00bd 01       		.uleb128 0x1
- 228 00be 9C       		.byte	0x9c
- 229 00bf 08       		.uleb128 0x8
- 230 00c0 27000000 		.4byte	.LASF17
- 231 00c4 01       		.byte	0x1
- 232 00c5 26       		.byte	0x26
- 233 00c6 5D000000 		.4byte	0x5d
- 234 00ca 00000000 		.4byte	.LFB36
- 235 00ce 4C000000 		.4byte	.LFE36-.LFB36
- 236 00d2 01       		.uleb128 0x1
- 237 00d3 9C       		.byte	0x9c
- 238 00d4 09       		.uleb128 0x9
- 239 00d5 22000000 		.4byte	.LASF18
- 240 00d9 01       		.byte	0x1
- 241 00da 19       		.byte	0x19
- 242 00db 6B000000 		.4byte	0x6b
- 243 00df 05       		.uleb128 0x5
- 244 00e0 03       		.byte	0x3
- 245 00e1 00000000 		.4byte	g_rx
- 246 00e5 09       		.uleb128 0x9
- 247 00e6 FC000000 		.4byte	.LASF19
- 248 00ea 01       		.byte	0x1
- 249 00eb 19       		.byte	0x19
- 250 00ec 6B000000 		.4byte	0x6b
- 251 00f0 05       		.uleb128 0x5
- 252 00f1 03       		.byte	0x3
- 253 00f2 00000000 		.4byte	g_int_flag
- 254 00f6 00       		.byte	0
- 255              		.section	.debug_abbrev,"",%progbits
- 256              	.Ldebug_abbrev0:
- 257 0000 01       		.uleb128 0x1
- 258 0001 11       		.uleb128 0x11
- 259 0002 01       		.byte	0x1
- 260 0003 25       		.uleb128 0x25
- 261 0004 0E       		.uleb128 0xe
- 262 0005 13       		.uleb128 0x13
- 263 0006 0B       		.uleb128 0xb
- 264 0007 03       		.uleb128 0x3
- 265 0008 0E       		.uleb128 0xe
- 266 0009 1B       		.uleb128 0x1b
- 267 000a 0E       		.uleb128 0xe
- 268 000b 55       		.uleb128 0x55
- 269 000c 17       		.uleb128 0x17
- 270 000d 11       		.uleb128 0x11
- 271 000e 01       		.uleb128 0x1
- 272 000f 10       		.uleb128 0x10
- 273 0010 17       		.uleb128 0x17
- 274 0011 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 7
+ 202 001e 181C     		mov	r0, r3
+ 203 0020 FFF7FEFF 		bl	puts
+  65:.\main.c      ****     
+  66:.\main.c      ****     PWM_IR_AND_RED_Start();
+ 204              		.loc 1 66 0
+ 205 0024 FFF7FEFF 		bl	PWM_IR_AND_RED_Start
+  67:.\main.c      ****     PWM_NIR1_Start();
+ 206              		.loc 1 67 0
+ 207 0028 FFF7FEFF 		bl	PWM_NIR1_Start
+  68:.\main.c      ****     PWM_GREEN_Start();
+ 208              		.loc 1 68 0
+ 209 002c FFF7FEFF 		bl	PWM_GREEN_Start
+ 210              	.L20:
+  69:.\main.c      ****     
+  70:.\main.c      ****     
+  71:.\main.c      ****     
+  72:.\main.c      ****     /* Start Opamp component */
+  73:.\main.c      ****   //  Opamp_Start();
+  74:.\main.c      **** 
+  75:.\main.c      ****     /* Sets Opamp power mode to High power */
+  76:.\main.c      ****    // Opamp_SetPower(Opamp_HIGH_POWER);
+  77:.\main.c      **** 
+  78:.\main.c      ****     for(;;)
+  79:.\main.c      ****     {
+  80:.\main.c      ****          //  UART_DEB_UartPutChar(0x55);
+  81:.\main.c      ****          if(g_config_cmd.flag==1)
+ 211              		.loc 1 81 0
+ 212 0030 474B     		ldr	r3, .L21
+ 213 0032 1B79     		ldrb	r3, [r3, #4]
+ 214 0034 012B     		cmp	r3, #1
+ 215 0036 00D0     		beq	.LCB146
+ 216 0038 89E0     		b	.L16	@long jump
+ 217              	.LCB146:
+  82:.\main.c      ****         {
+  83:.\main.c      ****              g_config_cmd.flag=0;
+ 218              		.loc 1 83 0
+ 219 003a 454B     		ldr	r3, .L21
+ 220 003c 0022     		mov	r2, #0
+ 221 003e 1A71     		strb	r2, [r3, #4]
+  84:.\main.c      ****             if(g_config_cmd.ledtype==LED_GREEN)  
+ 222              		.loc 1 84 0
+ 223 0040 434B     		ldr	r3, .L21
+ 224 0042 5B78     		ldrb	r3, [r3, #1]
+ 225 0044 012B     		cmp	r3, #1
+ 226 0046 18D1     		bne	.L17
+  85:.\main.c      ****             {
+  86:.\main.c      ****                 PWM_GREEN_WriteCompare((uint8)((g_config_cmd.pwm_duty<<8)/100));
+ 227              		.loc 1 86 0
+ 228 0048 414B     		ldr	r3, .L21
+ 229 004a 9B78     		ldrb	r3, [r3, #2]
+ 230 004c 1B02     		lsl	r3, r3, #8
+ 231 004e 181C     		mov	r0, r3
+ 232 0050 6421     		mov	r1, #100
+ 233 0052 FFF7FEFF 		bl	__aeabi_idiv
+ 234 0056 031C     		mov	r3, r0
+ 235 0058 DBB2     		uxtb	r3, r3
+ 236 005a 181C     		mov	r0, r3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 7
 
 
- 275 0012 00       		.byte	0
- 276 0013 02       		.uleb128 0x2
- 277 0014 24       		.uleb128 0x24
- 278 0015 00       		.byte	0
- 279 0016 0B       		.uleb128 0xb
- 280 0017 0B       		.uleb128 0xb
- 281 0018 3E       		.uleb128 0x3e
- 282 0019 0B       		.uleb128 0xb
- 283 001a 03       		.uleb128 0x3
- 284 001b 0E       		.uleb128 0xe
- 285 001c 00       		.byte	0
- 286 001d 00       		.byte	0
- 287 001e 03       		.uleb128 0x3
- 288 001f 24       		.uleb128 0x24
- 289 0020 00       		.byte	0
- 290 0021 0B       		.uleb128 0xb
- 291 0022 0B       		.uleb128 0xb
- 292 0023 3E       		.uleb128 0x3e
- 293 0024 0B       		.uleb128 0xb
- 294 0025 03       		.uleb128 0x3
- 295 0026 08       		.uleb128 0x8
- 296 0027 00       		.byte	0
- 297 0028 00       		.byte	0
- 298 0029 04       		.uleb128 0x4
- 299 002a 16       		.uleb128 0x16
- 300 002b 00       		.byte	0
- 301 002c 03       		.uleb128 0x3
- 302 002d 0E       		.uleb128 0xe
- 303 002e 3A       		.uleb128 0x3a
- 304 002f 0B       		.uleb128 0xb
- 305 0030 3B       		.uleb128 0x3b
- 306 0031 0B       		.uleb128 0xb
- 307 0032 49       		.uleb128 0x49
- 308 0033 13       		.uleb128 0x13
- 309 0034 00       		.byte	0
- 310 0035 00       		.byte	0
- 311 0036 05       		.uleb128 0x5
- 312 0037 16       		.uleb128 0x16
- 313 0038 00       		.byte	0
- 314 0039 03       		.uleb128 0x3
- 315 003a 0E       		.uleb128 0xe
- 316 003b 3A       		.uleb128 0x3a
- 317 003c 0B       		.uleb128 0xb
- 318 003d 3B       		.uleb128 0x3b
- 319 003e 05       		.uleb128 0x5
- 320 003f 49       		.uleb128 0x49
- 321 0040 13       		.uleb128 0x13
- 322 0041 00       		.byte	0
- 323 0042 00       		.byte	0
- 324 0043 06       		.uleb128 0x6
- 325 0044 35       		.uleb128 0x35
- 326 0045 00       		.byte	0
- 327 0046 49       		.uleb128 0x49
- 328 0047 13       		.uleb128 0x13
- 329 0048 00       		.byte	0
- 330 0049 00       		.byte	0
- 331 004a 07       		.uleb128 0x7
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 8
+ 237 005c FFF7FEFF 		bl	PWM_GREEN_WriteCompare
+  87:.\main.c      ****                 PWM_IR_AND_RED_Stop();//  _Enable();
+ 238              		.loc 1 87 0
+ 239 0060 FFF7FEFF 		bl	PWM_IR_AND_RED_Stop
+  88:.\main.c      ****                 PWM_NIR1_Stop();
+ 240              		.loc 1 88 0
+ 241 0064 FFF7FEFF 		bl	PWM_NIR1_Stop
+  89:.\main.c      ****                 PWM_GREEN_Enable();
+ 242              		.loc 1 89 0
+ 243 0068 FFF7FEFF 		bl	PWM_GREEN_Enable
+  90:.\main.c      ****                 printf("GREEN led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+ 244              		.loc 1 90 0
+ 245 006c 384B     		ldr	r3, .L21
+ 246 006e 9B78     		ldrb	r3, [r3, #2]
+ 247 0070 3A4A     		ldr	r2, .L21+12
+ 248 0072 101C     		mov	r0, r2
+ 249 0074 191C     		mov	r1, r3
+ 250 0076 FFF7FEFF 		bl	printf
+ 251              	.L17:
+  91:.\main.c      ****                 
+  92:.\main.c      ****             }
+  93:.\main.c      ****             
+  94:.\main.c      ****             if(g_config_cmd.ledtype==LED_RED)  
+ 252              		.loc 1 94 0
+ 253 007a 354B     		ldr	r3, .L21
+ 254 007c 5B78     		ldrb	r3, [r3, #1]
+ 255 007e 022B     		cmp	r3, #2
+ 256 0080 1BD1     		bne	.L18
+  95:.\main.c      ****             {
+  96:.\main.c      ****                 PWM_IR_AND_RED_WriteCompare1((uint8)((g_config_cmd.pwm_duty<<8)/100));
+ 257              		.loc 1 96 0
+ 258 0082 334B     		ldr	r3, .L21
+ 259 0084 9B78     		ldrb	r3, [r3, #2]
+ 260 0086 1B02     		lsl	r3, r3, #8
+ 261 0088 181C     		mov	r0, r3
+ 262 008a 6421     		mov	r1, #100
+ 263 008c FFF7FEFF 		bl	__aeabi_idiv
+ 264 0090 031C     		mov	r3, r0
+ 265 0092 DBB2     		uxtb	r3, r3
+ 266 0094 181C     		mov	r0, r3
+ 267 0096 FFF7FEFF 		bl	PWM_IR_AND_RED_WriteCompare1
+  97:.\main.c      ****                 PWM_GREEN_Stop();//  
+ 268              		.loc 1 97 0
+ 269 009a FFF7FEFF 		bl	PWM_GREEN_Stop
+  98:.\main.c      ****                 PWM_NIR1_Stop();
+ 270              		.loc 1 98 0
+ 271 009e FFF7FEFF 		bl	PWM_NIR1_Stop
+  99:.\main.c      ****                 PWM_IR_AND_RED_WriteCompare2(0);
+ 272              		.loc 1 99 0
+ 273 00a2 0020     		mov	r0, #0
+ 274 00a4 FFF7FEFF 		bl	PWM_IR_AND_RED_WriteCompare2
+ 100:.\main.c      ****                 PWM_IR_AND_RED_Enable();
+ 275              		.loc 1 100 0
+ 276 00a8 FFF7FEFF 		bl	PWM_IR_AND_RED_Enable
+ 101:.\main.c      ****                 printf("RED led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+ 277              		.loc 1 101 0
+ 278 00ac 284B     		ldr	r3, .L21
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 8
 
 
- 332 004b 2E       		.uleb128 0x2e
- 333 004c 00       		.byte	0
- 334 004d 3F       		.uleb128 0x3f
- 335 004e 19       		.uleb128 0x19
- 336 004f 03       		.uleb128 0x3
- 337 0050 0E       		.uleb128 0xe
- 338 0051 3A       		.uleb128 0x3a
- 339 0052 0B       		.uleb128 0xb
- 340 0053 3B       		.uleb128 0x3b
- 341 0054 0B       		.uleb128 0xb
- 342 0055 27       		.uleb128 0x27
- 343 0056 19       		.uleb128 0x19
- 344 0057 11       		.uleb128 0x11
- 345 0058 01       		.uleb128 0x1
- 346 0059 12       		.uleb128 0x12
- 347 005a 06       		.uleb128 0x6
- 348 005b 40       		.uleb128 0x40
- 349 005c 18       		.uleb128 0x18
- 350 005d 9642     		.uleb128 0x2116
- 351 005f 19       		.uleb128 0x19
- 352 0060 00       		.byte	0
- 353 0061 00       		.byte	0
- 354 0062 08       		.uleb128 0x8
- 355 0063 2E       		.uleb128 0x2e
- 356 0064 00       		.byte	0
- 357 0065 3F       		.uleb128 0x3f
- 358 0066 19       		.uleb128 0x19
- 359 0067 03       		.uleb128 0x3
- 360 0068 0E       		.uleb128 0xe
- 361 0069 3A       		.uleb128 0x3a
- 362 006a 0B       		.uleb128 0xb
- 363 006b 3B       		.uleb128 0x3b
- 364 006c 0B       		.uleb128 0xb
- 365 006d 49       		.uleb128 0x49
- 366 006e 13       		.uleb128 0x13
- 367 006f 11       		.uleb128 0x11
- 368 0070 01       		.uleb128 0x1
- 369 0071 12       		.uleb128 0x12
- 370 0072 06       		.uleb128 0x6
- 371 0073 40       		.uleb128 0x40
- 372 0074 18       		.uleb128 0x18
- 373 0075 9642     		.uleb128 0x2116
- 374 0077 19       		.uleb128 0x19
- 375 0078 00       		.byte	0
- 376 0079 00       		.byte	0
- 377 007a 09       		.uleb128 0x9
- 378 007b 34       		.uleb128 0x34
- 379 007c 00       		.byte	0
- 380 007d 03       		.uleb128 0x3
- 381 007e 0E       		.uleb128 0xe
- 382 007f 3A       		.uleb128 0x3a
- 383 0080 0B       		.uleb128 0xb
- 384 0081 3B       		.uleb128 0x3b
- 385 0082 0B       		.uleb128 0xb
- 386 0083 49       		.uleb128 0x49
- 387 0084 13       		.uleb128 0x13
- 388 0085 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 9
+ 279 00ae 9B78     		ldrb	r3, [r3, #2]
+ 280 00b0 2B4A     		ldr	r2, .L21+16
+ 281 00b2 101C     		mov	r0, r2
+ 282 00b4 191C     		mov	r1, r3
+ 283 00b6 FFF7FEFF 		bl	printf
+ 284              	.L18:
+ 102:.\main.c      ****             }
+ 103:.\main.c      ****             if(g_config_cmd.ledtype==LED_IR)  
+ 285              		.loc 1 103 0
+ 286 00ba 254B     		ldr	r3, .L21
+ 287 00bc 5B78     		ldrb	r3, [r3, #1]
+ 288 00be 032B     		cmp	r3, #3
+ 289 00c0 1BD1     		bne	.L19
+ 104:.\main.c      ****             {
+ 105:.\main.c      ****                 PWM_IR_AND_RED_WriteCompare2((uint8)((g_config_cmd.pwm_duty<<8)/100));
+ 290              		.loc 1 105 0
+ 291 00c2 234B     		ldr	r3, .L21
+ 292 00c4 9B78     		ldrb	r3, [r3, #2]
+ 293 00c6 1B02     		lsl	r3, r3, #8
+ 294 00c8 181C     		mov	r0, r3
+ 295 00ca 6421     		mov	r1, #100
+ 296 00cc FFF7FEFF 		bl	__aeabi_idiv
+ 297 00d0 031C     		mov	r3, r0
+ 298 00d2 DBB2     		uxtb	r3, r3
+ 299 00d4 181C     		mov	r0, r3
+ 300 00d6 FFF7FEFF 		bl	PWM_IR_AND_RED_WriteCompare2
+ 106:.\main.c      ****                 PWM_GREEN_Stop();//  
+ 301              		.loc 1 106 0
+ 302 00da FFF7FEFF 		bl	PWM_GREEN_Stop
+ 107:.\main.c      ****                 PWM_NIR1_Stop();
+ 303              		.loc 1 107 0
+ 304 00de FFF7FEFF 		bl	PWM_NIR1_Stop
+ 108:.\main.c      ****                 PWM_IR_AND_RED_WriteCompare1(0);
+ 305              		.loc 1 108 0
+ 306 00e2 0020     		mov	r0, #0
+ 307 00e4 FFF7FEFF 		bl	PWM_IR_AND_RED_WriteCompare1
+ 109:.\main.c      ****                 PWM_IR_AND_RED_Enable();
+ 308              		.loc 1 109 0
+ 309 00e8 FFF7FEFF 		bl	PWM_IR_AND_RED_Enable
+ 110:.\main.c      ****                 printf("IR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+ 310              		.loc 1 110 0
+ 311 00ec 184B     		ldr	r3, .L21
+ 312 00ee 9B78     		ldrb	r3, [r3, #2]
+ 313 00f0 1C4A     		ldr	r2, .L21+20
+ 314 00f2 101C     		mov	r0, r2
+ 315 00f4 191C     		mov	r1, r3
+ 316 00f6 FFF7FEFF 		bl	printf
+ 317              	.L19:
+ 111:.\main.c      ****             }
+ 112:.\main.c      ****             if(g_config_cmd.ledtype==LED_NIR)
+ 318              		.loc 1 112 0
+ 319 00fa 154B     		ldr	r3, .L21
+ 320 00fc 5B78     		ldrb	r3, [r3, #1]
+ 321 00fe 042B     		cmp	r3, #4
+ 322 0100 25D1     		bne	.L16
+ 113:.\main.c      ****             {
+ 114:.\main.c      ****                 PWM_NIR1_WriteCompare2((uint8)((g_config_cmd.pwm_duty<<8)/100));  //two NIR LED dri
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 9
 
 
- 389 0086 19       		.uleb128 0x19
- 390 0087 02       		.uleb128 0x2
- 391 0088 18       		.uleb128 0x18
- 392 0089 00       		.byte	0
- 393 008a 00       		.byte	0
- 394 008b 00       		.byte	0
- 395              		.section	.debug_aranges,"",%progbits
- 396 0000 24000000 		.4byte	0x24
- 397 0004 0200     		.2byte	0x2
- 398 0006 00000000 		.4byte	.Ldebug_info0
- 399 000a 04       		.byte	0x4
- 400 000b 00       		.byte	0
- 401 000c 0000     		.2byte	0
- 402 000e 0000     		.2byte	0
- 403 0010 00000000 		.4byte	.LFB35
- 404 0014 30000000 		.4byte	.LFE35-.LFB35
- 405 0018 00000000 		.4byte	.LFB36
- 406 001c 4C000000 		.4byte	.LFE36-.LFB36
- 407 0020 00000000 		.4byte	0
- 408 0024 00000000 		.4byte	0
- 409              		.section	.debug_ranges,"",%progbits
- 410              	.Ldebug_ranges0:
- 411 0000 00000000 		.4byte	.LFB35
- 412 0004 30000000 		.4byte	.LFE35
- 413 0008 00000000 		.4byte	.LFB36
- 414 000c 4C000000 		.4byte	.LFE36
- 415 0010 00000000 		.4byte	0
- 416 0014 00000000 		.4byte	0
- 417              		.section	.debug_line,"",%progbits
- 418              	.Ldebug_line0:
- 419 0000 79000000 		.section	.debug_str,"MS",%progbits,1
- 419      02004500 
- 419      00000201 
- 419      FB0E0D00 
- 419      01010101 
- 420              	.LASF6:
- 421 0000 6C6F6E67 		.ascii	"long long int\000"
- 421      206C6F6E 
- 421      6720696E 
- 421      7400
- 422              	.LASF10:
- 423 000e 75696E74 		.ascii	"uint32\000"
- 423      333200
- 424              	.LASF8:
- 425 0015 756E7369 		.ascii	"unsigned int\000"
- 425      676E6564 
- 425      20696E74 
- 425      00
- 426              	.LASF18:
- 427 0022 675F7278 		.ascii	"g_rx\000"
- 427      00
- 428              	.LASF17:
- 429 0027 6D61696E 		.ascii	"main\000"
- 429      00
- 430              	.LASF9:
- 431 002c 75696E74 		.ascii	"uint8\000"
- 431      3800
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 10
+ 323              		.loc 1 114 0
+ 324 0102 134B     		ldr	r3, .L21
+ 325 0104 9B78     		ldrb	r3, [r3, #2]
+ 326 0106 1B02     		lsl	r3, r3, #8
+ 327 0108 181C     		mov	r0, r3
+ 328 010a 6421     		mov	r1, #100
+ 329 010c FFF7FEFF 		bl	__aeabi_idiv
+ 330 0110 031C     		mov	r3, r0
+ 331 0112 DBB2     		uxtb	r3, r3
+ 332 0114 181C     		mov	r0, r3
+ 333 0116 FFF7FEFF 		bl	PWM_NIR1_WriteCompare2
+ 115:.\main.c      ****                 PWM_NIR1_WriteCompare1((uint8)((g_config_cmd.pwm_duty<<8)/100));
+ 334              		.loc 1 115 0
+ 335 011a 0D4B     		ldr	r3, .L21
+ 336 011c 9B78     		ldrb	r3, [r3, #2]
+ 337 011e 1B02     		lsl	r3, r3, #8
+ 338 0120 181C     		mov	r0, r3
+ 339 0122 6421     		mov	r1, #100
+ 340 0124 FFF7FEFF 		bl	__aeabi_idiv
+ 341 0128 031C     		mov	r3, r0
+ 342 012a DBB2     		uxtb	r3, r3
+ 343 012c 181C     		mov	r0, r3
+ 344 012e FFF7FEFF 		bl	PWM_NIR1_WriteCompare1
+ 116:.\main.c      ****                 PWM_GREEN_Stop();//  
+ 345              		.loc 1 116 0
+ 346 0132 FFF7FEFF 		bl	PWM_GREEN_Stop
+ 117:.\main.c      ****                 PWM_IR_AND_RED_Stop();
+ 347              		.loc 1 117 0
+ 348 0136 FFF7FEFF 		bl	PWM_IR_AND_RED_Stop
+ 118:.\main.c      ****                 PWM_NIR1_Enable();
+ 349              		.loc 1 118 0
+ 350 013a FFF7FEFF 		bl	PWM_NIR1_Enable
+ 119:.\main.c      ****                 printf("NIR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+ 351              		.loc 1 119 0
+ 352 013e 044B     		ldr	r3, .L21
+ 353 0140 9B78     		ldrb	r3, [r3, #2]
+ 354 0142 094A     		ldr	r2, .L21+24
+ 355 0144 101C     		mov	r0, r2
+ 356 0146 191C     		mov	r1, r3
+ 357 0148 FFF7FEFF 		bl	printf
+ 120:.\main.c      ****             }
+ 121:.\main.c      ****             
+ 122:.\main.c      ****             
+ 123:.\main.c      ****            
+ 124:.\main.c      ****         }
+ 125:.\main.c      ****            //printf("please input led type and pwm duty: \r\n");
+ 126:.\main.c      ****     }
+ 358              		.loc 1 126 0
+ 359 014c 70E7     		b	.L20
+ 360              	.L16:
+ 361 014e 6FE7     		b	.L20
+ 362              	.L22:
+ 363              		.align	2
+ 364              	.L21:
+ 365 0150 00000000 		.word	g_config_cmd
+ 366 0154 00000000 		.word	UartRX_Interrupt
+ 367 0158 18000000 		.word	.LC4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 10
 
 
- 432              	.LASF5:
- 433 0032 6C6F6E67 		.ascii	"long unsigned int\000"
- 433      20756E73 
- 433      69676E65 
- 433      6420696E 
- 433      7400
- 434              	.LASF7:
- 435 0044 6C6F6E67 		.ascii	"long long unsigned int\000"
- 435      206C6F6E 
- 435      6720756E 
- 435      7369676E 
- 435      65642069 
- 436              	.LASF16:
- 437 005b 55617274 		.ascii	"Uart_Rx_Interrput\000"
- 437      5F52785F 
- 437      496E7465 
- 437      72727075 
- 437      7400
- 438              	.LASF3:
- 439 006d 73686F72 		.ascii	"short unsigned int\000"
- 439      7420756E 
- 439      7369676E 
- 439      65642069 
- 439      6E7400
- 440              	.LASF20:
- 441 0080 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
- 441      4320342E 
- 441      382E3420 
- 441      32303134 
- 441      30353236 
- 442 00b3 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
- 442      20726576 
- 442      6973696F 
- 442      6E203231 
- 442      31333538 
- 443 00e6 30202D66 		.ascii	"0 -ffunction-sections\000"
- 443      66756E63 
- 443      74696F6E 
- 443      2D736563 
- 443      74696F6E 
- 444              	.LASF19:
- 445 00fc 675F696E 		.ascii	"g_int_flag\000"
- 445      745F666C 
- 445      616700
- 446              	.LASF1:
- 447 0107 756E7369 		.ascii	"unsigned char\000"
- 447      676E6564 
- 447      20636861 
- 447      7200
- 448              	.LASF13:
- 449 0115 63686172 		.ascii	"char\000"
- 449      00
- 450              	.LASF4:
- 451 011a 6C6F6E67 		.ascii	"long int\000"
- 451      20696E74 
- 451      00
- 452              	.LASF2:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccVtecdE.s 			page 11
+ 368 015c 40000000 		.word	.LC6
+ 369 0160 60000000 		.word	.LC8
+ 370 0164 7C000000 		.word	.LC10
+ 371 0168 98000000 		.word	.LC12
+ 372              		.cfi_endproc
+ 373              	.LFE36:
+ 374              		.size	main, .-main
+ 375              		.text
+ 376              	.Letext0:
+ 377              		.file 2 ".\\Generated_Source\\PSoC4/cytypes.h"
+ 378              		.file 3 ".\\config_cmd.h"
+ 379              		.section	.debug_info,"",%progbits
+ 380              	.Ldebug_info0:
+ 381 0000 2E010000 		.4byte	0x12e
+ 382 0004 0400     		.2byte	0x4
+ 383 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 384 000a 04       		.byte	0x4
+ 385 000b 01       		.uleb128 0x1
+ 386 000c C1000000 		.4byte	.LASF20
+ 387 0010 01       		.byte	0x1
+ 388 0011 B1010000 		.4byte	.LASF21
+ 389 0015 74000000 		.4byte	.LASF22
+ 390 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 391 001d 00000000 		.4byte	0
+ 392 0021 00000000 		.4byte	.Ldebug_line0
+ 393 0025 02       		.uleb128 0x2
+ 394 0026 01       		.byte	0x1
+ 395 0027 06       		.byte	0x6
+ 396 0028 9F010000 		.4byte	.LASF0
+ 397 002c 02       		.uleb128 0x2
+ 398 002d 01       		.byte	0x1
+ 399 002e 08       		.byte	0x8
+ 400 002f 3D010000 		.4byte	.LASF1
+ 401 0033 02       		.uleb128 0x2
+ 402 0034 02       		.byte	0x2
+ 403 0035 05       		.byte	0x5
+ 404 0036 53000000 		.4byte	.LASF2
+ 405 003a 02       		.uleb128 0x2
+ 406 003b 02       		.byte	0x2
+ 407 003c 07       		.byte	0x7
+ 408 003d 8C010000 		.4byte	.LASF3
+ 409 0041 02       		.uleb128 0x2
+ 410 0042 04       		.byte	0x4
+ 411 0043 05       		.byte	0x5
+ 412 0044 5D010000 		.4byte	.LASF4
+ 413 0048 02       		.uleb128 0x2
+ 414 0049 04       		.byte	0x4
+ 415 004a 07       		.byte	0x7
+ 416 004b 41000000 		.4byte	.LASF5
+ 417 004f 02       		.uleb128 0x2
+ 418 0050 08       		.byte	0x8
+ 419 0051 05       		.byte	0x5
+ 420 0052 00000000 		.4byte	.LASF6
+ 421 0056 02       		.uleb128 0x2
+ 422 0057 08       		.byte	0x8
+ 423 0058 07       		.byte	0x7
+ 424 0059 5D000000 		.4byte	.LASF7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 11
 
 
- 453 0123 73686F72 		.ascii	"short int\000"
- 453      7420696E 
- 453      7400
- 454              	.LASF12:
- 455 012d 646F7562 		.ascii	"double\000"
- 455      6C6500
- 456              	.LASF14:
- 457 0134 72656733 		.ascii	"reg32\000"
- 457      3200
- 458              	.LASF22:
- 459 013a 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 459      73657273 
- 459      5C777A68 
- 459      5C446573 
- 459      6B746F70 
- 460 0168 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 460      455F4261 
- 460      74746572 
- 460      795F4C65 
- 460      76656C30 
- 461              	.LASF0:
- 462 0198 7369676E 		.ascii	"signed char\000"
- 462      65642063 
- 462      68617200 
- 463              	.LASF11:
- 464 01a4 666C6F61 		.ascii	"float\000"
- 464      7400
- 465              	.LASF21:
- 466 01aa 2E5C6D61 		.ascii	".\\main.c\000"
- 466      696E2E63 
- 466      00
- 467              	.LASF15:
- 468 01b3 73697A65 		.ascii	"sizetype\000"
- 468      74797065 
- 468      00
- 469              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
+ 425 005d 03       		.uleb128 0x3
+ 426 005e 04       		.byte	0x4
+ 427 005f 05       		.byte	0x5
+ 428 0060 696E7400 		.ascii	"int\000"
+ 429 0064 02       		.uleb128 0x2
+ 430 0065 04       		.byte	0x4
+ 431 0066 07       		.byte	0x7
+ 432 0067 1E000000 		.4byte	.LASF8
+ 433 006b 04       		.uleb128 0x4
+ 434 006c 3B000000 		.4byte	.LASF9
+ 435 0070 02       		.byte	0x2
+ 436 0071 A1       		.byte	0xa1
+ 437 0072 2C000000 		.4byte	0x2c
+ 438 0076 04       		.uleb128 0x4
+ 439 0077 0E000000 		.4byte	.LASF10
+ 440 007b 02       		.byte	0x2
+ 441 007c A3       		.byte	0xa3
+ 442 007d 48000000 		.4byte	0x48
+ 443 0081 02       		.uleb128 0x2
+ 444 0082 04       		.byte	0x4
+ 445 0083 04       		.byte	0x4
+ 446 0084 AB010000 		.4byte	.LASF11
+ 447 0088 02       		.uleb128 0x2
+ 448 0089 08       		.byte	0x8
+ 449 008a 04       		.byte	0x4
+ 450 008b 7D010000 		.4byte	.LASF12
+ 451 008f 02       		.uleb128 0x2
+ 452 0090 01       		.byte	0x1
+ 453 0091 08       		.byte	0x8
+ 454 0092 58010000 		.4byte	.LASF13
+ 455 0096 05       		.uleb128 0x5
+ 456 0097 66010000 		.4byte	.LASF14
+ 457 009b 02       		.byte	0x2
+ 458 009c 4D01     		.2byte	0x14d
+ 459 009e A2000000 		.4byte	0xa2
+ 460 00a2 06       		.uleb128 0x6
+ 461 00a3 76000000 		.4byte	0x76
+ 462 00a7 02       		.uleb128 0x2
+ 463 00a8 04       		.byte	0x4
+ 464 00a9 07       		.byte	0x7
+ 465 00aa BF010000 		.4byte	.LASF15
+ 466 00ae 07       		.uleb128 0x7
+ 467 00af 05       		.byte	0x5
+ 468 00b0 03       		.byte	0x3
+ 469 00b1 23       		.byte	0x23
+ 470 00b2 F3000000 		.4byte	0xf3
+ 471 00b6 08       		.uleb128 0x8
+ 472 00b7 73746100 		.ascii	"sta\000"
+ 473 00bb 03       		.byte	0x3
+ 474 00bc 25       		.byte	0x25
+ 475 00bd 6B000000 		.4byte	0x6b
+ 476 00c1 00       		.byte	0
+ 477 00c2 09       		.uleb128 0x9
+ 478 00c3 84010000 		.4byte	.LASF16
+ 479 00c7 03       		.byte	0x3
+ 480 00c8 26       		.byte	0x26
+ 481 00c9 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 12
+
+
+ 482 00cd 01       		.byte	0x1
+ 483 00ce 09       		.uleb128 0x9
+ 484 00cf 15000000 		.4byte	.LASF17
+ 485 00d3 03       		.byte	0x3
+ 486 00d4 27       		.byte	0x27
+ 487 00d5 6B000000 		.4byte	0x6b
+ 488 00d9 02       		.byte	0x2
+ 489 00da 08       		.uleb128 0x8
+ 490 00db 63726300 		.ascii	"crc\000"
+ 491 00df 03       		.byte	0x3
+ 492 00e0 29       		.byte	0x29
+ 493 00e1 6B000000 		.4byte	0x6b
+ 494 00e5 03       		.byte	0x3
+ 495 00e6 09       		.uleb128 0x9
+ 496 00e7 BA010000 		.4byte	.LASF18
+ 497 00eb 03       		.byte	0x3
+ 498 00ec 2A       		.byte	0x2a
+ 499 00ed 6B000000 		.4byte	0x6b
+ 500 00f1 04       		.byte	0x4
+ 501 00f2 00       		.byte	0
+ 502 00f3 04       		.uleb128 0x4
+ 503 00f4 2B000000 		.4byte	.LASF19
+ 504 00f8 03       		.byte	0x3
+ 505 00f9 2B       		.byte	0x2b
+ 506 00fa AE000000 		.4byte	0xae
+ 507 00fe 0A       		.uleb128 0xa
+ 508 00ff 6C010000 		.4byte	.LASF23
+ 509 0103 01       		.byte	0x1
+ 510 0104 19       		.byte	0x19
+ 511 0105 00000000 		.4byte	.LFB35
+ 512 0109 9C000000 		.4byte	.LFE35-.LFB35
+ 513 010d 01       		.uleb128 0x1
+ 514 010e 9C       		.byte	0x9c
+ 515 010f 0B       		.uleb128 0xb
+ 516 0110 36000000 		.4byte	.LASF24
+ 517 0114 01       		.byte	0x1
+ 518 0115 36       		.byte	0x36
+ 519 0116 00000000 		.4byte	.LFB36
+ 520 011a 6C010000 		.4byte	.LFE36-.LFB36
+ 521 011e 01       		.uleb128 0x1
+ 522 011f 9C       		.byte	0x9c
+ 523 0120 0C       		.uleb128 0xc
+ 524 0121 4B010000 		.4byte	.LASF25
+ 525 0125 03       		.byte	0x3
+ 526 0126 2D       		.byte	0x2d
+ 527 0127 F3000000 		.4byte	0xf3
+ 528 012b 05       		.uleb128 0x5
+ 529 012c 03       		.byte	0x3
+ 530 012d 00000000 		.4byte	g_config_cmd
+ 531 0131 00       		.byte	0
+ 532              		.section	.debug_abbrev,"",%progbits
+ 533              	.Ldebug_abbrev0:
+ 534 0000 01       		.uleb128 0x1
+ 535 0001 11       		.uleb128 0x11
+ 536 0002 01       		.byte	0x1
+ 537 0003 25       		.uleb128 0x25
+ 538 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 13
+
+
+ 539 0005 13       		.uleb128 0x13
+ 540 0006 0B       		.uleb128 0xb
+ 541 0007 03       		.uleb128 0x3
+ 542 0008 0E       		.uleb128 0xe
+ 543 0009 1B       		.uleb128 0x1b
+ 544 000a 0E       		.uleb128 0xe
+ 545 000b 55       		.uleb128 0x55
+ 546 000c 17       		.uleb128 0x17
+ 547 000d 11       		.uleb128 0x11
+ 548 000e 01       		.uleb128 0x1
+ 549 000f 10       		.uleb128 0x10
+ 550 0010 17       		.uleb128 0x17
+ 551 0011 00       		.byte	0
+ 552 0012 00       		.byte	0
+ 553 0013 02       		.uleb128 0x2
+ 554 0014 24       		.uleb128 0x24
+ 555 0015 00       		.byte	0
+ 556 0016 0B       		.uleb128 0xb
+ 557 0017 0B       		.uleb128 0xb
+ 558 0018 3E       		.uleb128 0x3e
+ 559 0019 0B       		.uleb128 0xb
+ 560 001a 03       		.uleb128 0x3
+ 561 001b 0E       		.uleb128 0xe
+ 562 001c 00       		.byte	0
+ 563 001d 00       		.byte	0
+ 564 001e 03       		.uleb128 0x3
+ 565 001f 24       		.uleb128 0x24
+ 566 0020 00       		.byte	0
+ 567 0021 0B       		.uleb128 0xb
+ 568 0022 0B       		.uleb128 0xb
+ 569 0023 3E       		.uleb128 0x3e
+ 570 0024 0B       		.uleb128 0xb
+ 571 0025 03       		.uleb128 0x3
+ 572 0026 08       		.uleb128 0x8
+ 573 0027 00       		.byte	0
+ 574 0028 00       		.byte	0
+ 575 0029 04       		.uleb128 0x4
+ 576 002a 16       		.uleb128 0x16
+ 577 002b 00       		.byte	0
+ 578 002c 03       		.uleb128 0x3
+ 579 002d 0E       		.uleb128 0xe
+ 580 002e 3A       		.uleb128 0x3a
+ 581 002f 0B       		.uleb128 0xb
+ 582 0030 3B       		.uleb128 0x3b
+ 583 0031 0B       		.uleb128 0xb
+ 584 0032 49       		.uleb128 0x49
+ 585 0033 13       		.uleb128 0x13
+ 586 0034 00       		.byte	0
+ 587 0035 00       		.byte	0
+ 588 0036 05       		.uleb128 0x5
+ 589 0037 16       		.uleb128 0x16
+ 590 0038 00       		.byte	0
+ 591 0039 03       		.uleb128 0x3
+ 592 003a 0E       		.uleb128 0xe
+ 593 003b 3A       		.uleb128 0x3a
+ 594 003c 0B       		.uleb128 0xb
+ 595 003d 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 14
+
+
+ 596 003e 05       		.uleb128 0x5
+ 597 003f 49       		.uleb128 0x49
+ 598 0040 13       		.uleb128 0x13
+ 599 0041 00       		.byte	0
+ 600 0042 00       		.byte	0
+ 601 0043 06       		.uleb128 0x6
+ 602 0044 35       		.uleb128 0x35
+ 603 0045 00       		.byte	0
+ 604 0046 49       		.uleb128 0x49
+ 605 0047 13       		.uleb128 0x13
+ 606 0048 00       		.byte	0
+ 607 0049 00       		.byte	0
+ 608 004a 07       		.uleb128 0x7
+ 609 004b 13       		.uleb128 0x13
+ 610 004c 01       		.byte	0x1
+ 611 004d 0B       		.uleb128 0xb
+ 612 004e 0B       		.uleb128 0xb
+ 613 004f 3A       		.uleb128 0x3a
+ 614 0050 0B       		.uleb128 0xb
+ 615 0051 3B       		.uleb128 0x3b
+ 616 0052 0B       		.uleb128 0xb
+ 617 0053 01       		.uleb128 0x1
+ 618 0054 13       		.uleb128 0x13
+ 619 0055 00       		.byte	0
+ 620 0056 00       		.byte	0
+ 621 0057 08       		.uleb128 0x8
+ 622 0058 0D       		.uleb128 0xd
+ 623 0059 00       		.byte	0
+ 624 005a 03       		.uleb128 0x3
+ 625 005b 08       		.uleb128 0x8
+ 626 005c 3A       		.uleb128 0x3a
+ 627 005d 0B       		.uleb128 0xb
+ 628 005e 3B       		.uleb128 0x3b
+ 629 005f 0B       		.uleb128 0xb
+ 630 0060 49       		.uleb128 0x49
+ 631 0061 13       		.uleb128 0x13
+ 632 0062 38       		.uleb128 0x38
+ 633 0063 0B       		.uleb128 0xb
+ 634 0064 00       		.byte	0
+ 635 0065 00       		.byte	0
+ 636 0066 09       		.uleb128 0x9
+ 637 0067 0D       		.uleb128 0xd
+ 638 0068 00       		.byte	0
+ 639 0069 03       		.uleb128 0x3
+ 640 006a 0E       		.uleb128 0xe
+ 641 006b 3A       		.uleb128 0x3a
+ 642 006c 0B       		.uleb128 0xb
+ 643 006d 3B       		.uleb128 0x3b
+ 644 006e 0B       		.uleb128 0xb
+ 645 006f 49       		.uleb128 0x49
+ 646 0070 13       		.uleb128 0x13
+ 647 0071 38       		.uleb128 0x38
+ 648 0072 0B       		.uleb128 0xb
+ 649 0073 00       		.byte	0
+ 650 0074 00       		.byte	0
+ 651 0075 0A       		.uleb128 0xa
+ 652 0076 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 15
+
+
+ 653 0077 00       		.byte	0
+ 654 0078 3F       		.uleb128 0x3f
+ 655 0079 19       		.uleb128 0x19
+ 656 007a 03       		.uleb128 0x3
+ 657 007b 0E       		.uleb128 0xe
+ 658 007c 3A       		.uleb128 0x3a
+ 659 007d 0B       		.uleb128 0xb
+ 660 007e 3B       		.uleb128 0x3b
+ 661 007f 0B       		.uleb128 0xb
+ 662 0080 27       		.uleb128 0x27
+ 663 0081 19       		.uleb128 0x19
+ 664 0082 11       		.uleb128 0x11
+ 665 0083 01       		.uleb128 0x1
+ 666 0084 12       		.uleb128 0x12
+ 667 0085 06       		.uleb128 0x6
+ 668 0086 40       		.uleb128 0x40
+ 669 0087 18       		.uleb128 0x18
+ 670 0088 9642     		.uleb128 0x2116
+ 671 008a 19       		.uleb128 0x19
+ 672 008b 00       		.byte	0
+ 673 008c 00       		.byte	0
+ 674 008d 0B       		.uleb128 0xb
+ 675 008e 2E       		.uleb128 0x2e
+ 676 008f 00       		.byte	0
+ 677 0090 3F       		.uleb128 0x3f
+ 678 0091 19       		.uleb128 0x19
+ 679 0092 03       		.uleb128 0x3
+ 680 0093 0E       		.uleb128 0xe
+ 681 0094 3A       		.uleb128 0x3a
+ 682 0095 0B       		.uleb128 0xb
+ 683 0096 3B       		.uleb128 0x3b
+ 684 0097 0B       		.uleb128 0xb
+ 685 0098 11       		.uleb128 0x11
+ 686 0099 01       		.uleb128 0x1
+ 687 009a 12       		.uleb128 0x12
+ 688 009b 06       		.uleb128 0x6
+ 689 009c 40       		.uleb128 0x40
+ 690 009d 18       		.uleb128 0x18
+ 691 009e 9642     		.uleb128 0x2116
+ 692 00a0 19       		.uleb128 0x19
+ 693 00a1 00       		.byte	0
+ 694 00a2 00       		.byte	0
+ 695 00a3 0C       		.uleb128 0xc
+ 696 00a4 34       		.uleb128 0x34
+ 697 00a5 00       		.byte	0
+ 698 00a6 03       		.uleb128 0x3
+ 699 00a7 0E       		.uleb128 0xe
+ 700 00a8 3A       		.uleb128 0x3a
+ 701 00a9 0B       		.uleb128 0xb
+ 702 00aa 3B       		.uleb128 0x3b
+ 703 00ab 0B       		.uleb128 0xb
+ 704 00ac 49       		.uleb128 0x49
+ 705 00ad 13       		.uleb128 0x13
+ 706 00ae 3F       		.uleb128 0x3f
+ 707 00af 19       		.uleb128 0x19
+ 708 00b0 02       		.uleb128 0x2
+ 709 00b1 18       		.uleb128 0x18
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 16
+
+
+ 710 00b2 00       		.byte	0
+ 711 00b3 00       		.byte	0
+ 712 00b4 00       		.byte	0
+ 713              		.section	.debug_aranges,"",%progbits
+ 714 0000 24000000 		.4byte	0x24
+ 715 0004 0200     		.2byte	0x2
+ 716 0006 00000000 		.4byte	.Ldebug_info0
+ 717 000a 04       		.byte	0x4
+ 718 000b 00       		.byte	0
+ 719 000c 0000     		.2byte	0
+ 720 000e 0000     		.2byte	0
+ 721 0010 00000000 		.4byte	.LFB35
+ 722 0014 9C000000 		.4byte	.LFE35-.LFB35
+ 723 0018 00000000 		.4byte	.LFB36
+ 724 001c 6C010000 		.4byte	.LFE36-.LFB36
+ 725 0020 00000000 		.4byte	0
+ 726 0024 00000000 		.4byte	0
+ 727              		.section	.debug_ranges,"",%progbits
+ 728              	.Ldebug_ranges0:
+ 729 0000 00000000 		.4byte	.LFB35
+ 730 0004 9C000000 		.4byte	.LFE35
+ 731 0008 00000000 		.4byte	.LFB36
+ 732 000c 6C010000 		.4byte	.LFE36
+ 733 0010 00000000 		.4byte	0
+ 734 0014 00000000 		.4byte	0
+ 735              		.section	.debug_line,"",%progbits
+ 736              	.Ldebug_line0:
+ 737 0000 D2000000 		.section	.debug_str,"MS",%progbits,1
+ 737      02005700 
+ 737      00000201 
+ 737      FB0E0D00 
+ 737      01010101 
+ 738              	.LASF6:
+ 739 0000 6C6F6E67 		.ascii	"long long int\000"
+ 739      206C6F6E 
+ 739      6720696E 
+ 739      7400
+ 740              	.LASF10:
+ 741 000e 75696E74 		.ascii	"uint32\000"
+ 741      333200
+ 742              	.LASF17:
+ 743 0015 70776D5F 		.ascii	"pwm_duty\000"
+ 743      64757479 
+ 743      00
+ 744              	.LASF8:
+ 745 001e 756E7369 		.ascii	"unsigned int\000"
+ 745      676E6564 
+ 745      20696E74 
+ 745      00
+ 746              	.LASF19:
+ 747 002b 636F6E66 		.ascii	"config_cmd\000"
+ 747      69675F63 
+ 747      6D6400
+ 748              	.LASF24:
+ 749 0036 6D61696E 		.ascii	"main\000"
+ 749      00
+ 750              	.LASF9:
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 17
+
+
+ 751 003b 75696E74 		.ascii	"uint8\000"
+ 751      3800
+ 752              	.LASF5:
+ 753 0041 6C6F6E67 		.ascii	"long unsigned int\000"
+ 753      20756E73 
+ 753      69676E65 
+ 753      6420696E 
+ 753      7400
+ 754              	.LASF2:
+ 755 0053 73686F72 		.ascii	"short int\000"
+ 755      7420696E 
+ 755      7400
+ 756              	.LASF7:
+ 757 005d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 757      206C6F6E 
+ 757      6720756E 
+ 757      7369676E 
+ 757      65642069 
+ 758              	.LASF22:
+ 759 0074 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 759      73657273 
+ 759      5C777A68 
+ 759      5C446573 
+ 759      6B746F70 
+ 760 00a2 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 760      5C424C45 
+ 760      5F426174 
+ 760      74657279 
+ 760      5F4C6576 
+ 761              	.LASF20:
+ 762 00c1 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 762      4320342E 
+ 762      382E3420 
+ 762      32303134 
+ 762      30353236 
+ 763 00f4 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 763      20726576 
+ 763      6973696F 
+ 763      6E203231 
+ 763      31333538 
+ 764 0127 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 764      66756E63 
+ 764      74696F6E 
+ 764      2D736563 
+ 764      74696F6E 
+ 765              	.LASF1:
+ 766 013d 756E7369 		.ascii	"unsigned char\000"
+ 766      676E6564 
+ 766      20636861 
+ 766      7200
+ 767              	.LASF25:
+ 768 014b 675F636F 		.ascii	"g_config_cmd\000"
+ 768      6E666967 
+ 768      5F636D64 
+ 768      00
+ 769              	.LASF13:
+ 770 0158 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccaUENep.s 			page 18
+
+
+ 770      00
+ 771              	.LASF4:
+ 772 015d 6C6F6E67 		.ascii	"long int\000"
+ 772      20696E74 
+ 772      00
+ 773              	.LASF14:
+ 774 0166 72656733 		.ascii	"reg32\000"
+ 774      3200
+ 775              	.LASF23:
+ 776 016c 55617274 		.ascii	"UartRX_Interrupt\000"
+ 776      52585F49 
+ 776      6E746572 
+ 776      72757074 
+ 776      00
+ 777              	.LASF12:
+ 778 017d 646F7562 		.ascii	"double\000"
+ 778      6C6500
+ 779              	.LASF16:
+ 780 0184 6C656474 		.ascii	"ledtype\000"
+ 780      79706500 
+ 781              	.LASF3:
+ 782 018c 73686F72 		.ascii	"short unsigned int\000"
+ 782      7420756E 
+ 782      7369676E 
+ 782      65642069 
+ 782      6E7400
+ 783              	.LASF0:
+ 784 019f 7369676E 		.ascii	"signed char\000"
+ 784      65642063 
+ 784      68617200 
+ 785              	.LASF11:
+ 786 01ab 666C6F61 		.ascii	"float\000"
+ 786      7400
+ 787              	.LASF21:
+ 788 01b1 2E5C6D61 		.ascii	".\\main.c\000"
+ 788      696E2E63 
+ 788      00
+ 789              	.LASF18:
+ 790 01ba 666C6167 		.ascii	"flag\000"
+ 790      00
+ 791              	.LASF15:
+ 792 01bf 73697A65 		.ascii	"sizetype\000"
+ 792      74797065 
+ 792      00
+ 793              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

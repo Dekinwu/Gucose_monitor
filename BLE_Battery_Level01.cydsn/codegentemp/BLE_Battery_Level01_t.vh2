@@ -1,5 +1,5 @@
--- Project:   C:\Users\wzh\Desktop\glucose-monitoring\example\BLE_Battery_Level01\BLE_Battery_Level01.cydsn\BLE_Battery_Level01.cyprj
--- Generated: 01/28/2015 20:31:23
+-- Project:   C:\Users\wzh\Desktop\Gucose_monitor\Gucose_monitor\BLE_Battery_Level01.cydsn\BLE_Battery_Level01.cyprj
+-- Generated: 01/29/2015 11:22:25
 -- PSoC Creator  3.1
 
 ENTITY BLE_Battery_Level01 IS

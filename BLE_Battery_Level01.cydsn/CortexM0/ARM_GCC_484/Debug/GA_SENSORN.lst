@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
   30:.\Generated_Source\PSoC4/GA_SENSORN.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/GA_SENSORN.c **** *
   32:.\Generated_Source\PSoC4/GA_SENSORN.c **** * Summary:
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 2
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
   66 003c 0F32     		add	r2, r2, #15
   67 003e 1278     		ldrb	r2, [r2]
   68 0040 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 3
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 3
 
 
   47:.\Generated_Source\PSoC4/GA_SENSORN.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
   95 0002 82B0     		sub	sp, sp, #8
   96              		.cfi_def_cfa_offset 16
   97 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 4
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 4
 
 
   98              		.cfi_def_cfa_register 7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
   92:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  
   93:.\Generated_Source\PSoC4/GA_SENSORN.c **** * Note:
   94:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  Macro GA_SENSORN_ReadPS calls this function. 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 5
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 5
 
 
   95:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  114:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  Returns the current value assigned to the Digital Port's data output register
  115:.\Generated_Source\PSoC4/GA_SENSORN.c **** *  
  116:.\Generated_Source\PSoC4/GA_SENSORN.c **** *******************************************************************************/
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 6
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 6
 
 
  117:.\Generated_Source\PSoC4/GA_SENSORN.c **** uint8 GA_SENSORN_ReadDataReg(void) 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  136:.\Generated_Source\PSoC4/GA_SENSORN.c ****     *
  137:.\Generated_Source\PSoC4/GA_SENSORN.c ****     * Return: 
  138:.\Generated_Source\PSoC4/GA_SENSORN.c ****     *  Returns the value of the interrupt status register
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 7
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 7
 
 
  139:.\Generated_Source\PSoC4/GA_SENSORN.c ****     *  
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  251 0000 48010000 		.4byte	0x148
  252 0004 0400     		.2byte	0x4
  253 0006 00000000 		.4byte	.Ldebug_abbrev0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 8
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 8
 
 
  254 000a 04       		.byte	0x4
@@ -426,14 +426,14 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  256 000c F5000000 		.4byte	.LASF24
  257 0010 01       		.byte	0x1
  258 0011 00000000 		.4byte	.LASF25
- 259 0015 D3010000 		.4byte	.LASF26
+ 259 0015 AE010000 		.4byte	.LASF26
  260 0019 00000000 		.4byte	.Ldebug_ranges0+0
  261 001d 00000000 		.4byte	0
  262 0021 00000000 		.4byte	.Ldebug_line0
  263 0025 02       		.uleb128 0x2
  264 0026 01       		.byte	0x1
  265 0027 06       		.byte	0x6
- 266 0028 C7010000 		.4byte	.LASF0
+ 266 0028 14020000 		.4byte	.LASF0
  267 002c 02       		.uleb128 0x2
  268 002d 01       		.byte	0x1
  269 002e 08       		.byte	0x8
@@ -441,7 +441,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  271 0033 02       		.uleb128 0x2
  272 0034 02       		.byte	0x2
  273 0035 05       		.byte	0x5
- 274 0036 AE010000 		.4byte	.LASF2
+ 274 0036 FB010000 		.4byte	.LASF2
  275 003a 02       		.uleb128 0x2
  276 003b 02       		.byte	0x2
  277 003c 07       		.byte	0x7
@@ -449,7 +449,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  279 0041 02       		.uleb128 0x2
  280 0042 04       		.byte	0x4
  281 0043 05       		.byte	0x5
- 282 0044 BE010000 		.4byte	.LASF4
+ 282 0044 0B020000 		.4byte	.LASF4
  283 0048 02       		.uleb128 0x2
  284 0049 04       		.byte	0x4
  285 004a 07       		.byte	0x7
@@ -457,7 +457,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  287 004f 02       		.uleb128 0x2
  288 0050 08       		.byte	0x8
  289 0051 05       		.byte	0x5
- 290 0052 76010000 		.4byte	.LASF6
+ 290 0052 8E010000 		.4byte	.LASF6
  291 0056 02       		.uleb128 0x2
  292 0057 08       		.byte	0x8
  293 0058 07       		.byte	0x7
@@ -471,14 +471,14 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  301 0066 07       		.byte	0x7
  302 0067 E8000000 		.4byte	.LASF8
  303 006b 04       		.uleb128 0x4
- 304 006c B8010000 		.4byte	.LASF9
+ 304 006c 05020000 		.4byte	.LASF9
  305 0070 02       		.byte	0x2
  306 0071 A1       		.byte	0xa1
  307 0072 2C000000 		.4byte	0x2c
  308 0076 04       		.uleb128 0x4
  309 0077 E1000000 		.4byte	.LASF10
  310 007b 02       		.byte	0x2
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 9
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 9
 
 
  311 007c A3       		.byte	0xa3
@@ -494,7 +494,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  321 008f 02       		.uleb128 0x2
  322 0090 01       		.byte	0x1
  323 0091 08       		.byte	0x8
- 324 0092 91010000 		.4byte	.LASF13
+ 324 0092 A9010000 		.4byte	.LASF13
  325 0096 05       		.uleb128 0x5
  326 0097 26000000 		.4byte	.LASF14
  327 009b 02       		.byte	0x2
@@ -529,7 +529,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  356 00d7 77       		.sleb128 -9
  357 00d8 00       		.byte	0
  358 00d9 07       		.uleb128 0x7
- 359 00da 96010000 		.4byte	.LASF16
+ 359 00da 76010000 		.4byte	.LASF16
  360 00de 01       		.byte	0x1
  361 00df 49       		.byte	0x49
  362 00e0 00000000 		.4byte	.LFB1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  365 00e9 9C       		.byte	0x9c
  366 00ea FD000000 		.4byte	0xfd
  367 00ee 08       		.uleb128 0x8
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 10
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 10
 
 
  368 00ef 71010000 		.4byte	.LASF18
@@ -577,7 +577,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  401 013a 01       		.uleb128 0x1
  402 013b 9C       		.byte	0x9c
  403 013c 09       		.uleb128 0x9
- 404 013d 84010000 		.4byte	.LASF23
+ 404 013d 9C010000 		.4byte	.LASF23
  405 0141 01       		.byte	0x1
  406 0142 8F       		.byte	0x8f
  407 0143 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  422 0007 03       		.uleb128 0x3
  423 0008 0E       		.uleb128 0xe
  424 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 11
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 11
 
 
  425 000a 0E       		.uleb128 0xe
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  479 0040 13       		.uleb128 0x13
  480 0041 00       		.byte	0
  481 0042 00       		.byte	0
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 12
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 12
 
 
  482 0043 06       		.uleb128 0x6
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  536 007a 3B       		.uleb128 0x3b
  537 007b 0B       		.uleb128 0xb
  538 007c 49       		.uleb128 0x49
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 13
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 13
 
 
  539 007d 13       		.uleb128 0x13
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  593 00b5 00       		.byte	0
  594 00b6 00       		.byte	0
  595              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 14
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 14
 
 
  596 0000 3C000000 		.4byte	0x3c
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  639      454E534F 
  639      524E5F57 
  639      72697465 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 15
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 15
 
 
  639      00
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  663 00e8 756E7369 		.ascii	"unsigned int\000"
  663      676E6564 
  663      20696E74 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 16
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 16
 
 
  663      00
@@ -921,52 +921,52 @@ ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 1
  668              	.LASF18:
  669 0171 6D6F6465 		.ascii	"mode\000"
  669      00
- 670              	.LASF6:
- 671 0176 6C6F6E67 		.ascii	"long long int\000"
- 671      206C6F6E 
- 671      6720696E 
- 671      7400
- 672              	.LASF23:
- 673 0184 6D61736B 		.ascii	"maskedStatus\000"
- 673      65645374 
- 673      61747573 
- 673      00
- 674              	.LASF13:
- 675 0191 63686172 		.ascii	"char\000"
+ 670              	.LASF16:
+ 671 0176 47415F53 		.ascii	"GA_SENSORN_SetDriveMode\000"
+ 671      454E534F 
+ 671      524E5F53 
+ 671      65744472 
+ 671      6976654D 
+ 672              	.LASF6:
+ 673 018e 6C6F6E67 		.ascii	"long long int\000"
+ 673      206C6F6E 
+ 673      6720696E 
+ 673      7400
+ 674              	.LASF23:
+ 675 019c 6D61736B 		.ascii	"maskedStatus\000"
+ 675      65645374 
+ 675      61747573 
  675      00
- 676              	.LASF16:
- 677 0196 47415F53 		.ascii	"GA_SENSORN_SetDriveMode\000"
- 677      454E534F 
- 677      524E5F53 
- 677      65744472 
- 677      6976654D 
- 678              	.LASF2:
- 679 01ae 73686F72 		.ascii	"short int\000"
- 679      7420696E 
- 679      7400
- 680              	.LASF9:
- 681 01b8 75696E74 		.ascii	"uint8\000"
- 681      3800
- 682              	.LASF4:
- 683 01be 6C6F6E67 		.ascii	"long int\000"
- 683      20696E74 
- 683      00
- 684              	.LASF0:
- 685 01c7 7369676E 		.ascii	"signed char\000"
- 685      65642063 
- 685      68617200 
- 686              	.LASF26:
- 687 01d3 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\glucose-monitoring\\exampl"
- 687      73657273 
-ARM GAS  C:\Users\wzh\AppData\Local\Temp\cccYE6KC.s 			page 17
+ 676              	.LASF13:
+ 677 01a9 63686172 		.ascii	"char\000"
+ 677      00
+ 678              	.LASF26:
+ 679 01ae 433A5C55 		.ascii	"C:\\Users\\wzh\\Desktop\\Gucose_monitor\\Gucose_mon"
+ 679      73657273 
+ 679      5C777A68 
+ 679      5C446573 
+ 679      6B746F70 
+ 680 01dc 69746F72 		.ascii	"itor\\BLE_Battery_Level01.cydsn\000"
+ 680      5C424C45 
+ 680      5F426174 
+ 680      74657279 
+ 680      5F4C6576 
+ 681              	.LASF2:
+ 682 01fb 73686F72 		.ascii	"short int\000"
+ 682      7420696E 
+ 682      7400
+ 683              	.LASF9:
+ 684 0205 75696E74 		.ascii	"uint8\000"
+ 684      3800
+ARM GAS  C:\Users\wzh\AppData\Local\Temp\ccpk4jcw.s 			page 17
 
 
- 687      5C777A68 
- 687      5C446573 
- 687      6B746F70 
- 688 0201 655C424C 		.ascii	"e\\BLE_Battery_Level01\\BLE_Battery_Level01.cydsn\000"
- 688      455F4261 
- 688      74746572 
- 688      795F4C65 
- 688      76656C30 
+ 685              	.LASF4:
+ 686 020b 6C6F6E67 		.ascii	"long int\000"
+ 686      20696E74 
+ 686      00
+ 687              	.LASF0:
+ 688 0214 7369676E 		.ascii	"signed char\000"
+ 688      65642063 
+ 688      68617200 
  689              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
