@@ -21,6 +21,21 @@
 #include <stdio.h>
 #include "config_cmd.h"
 
+#define ADC_IN_CHANNEL         (0x00u)
+uint16  g_adcResult;
+
+
+void Data_Acquire_and_Print(void)
+{
+    do
+    {
+       ADC_SAR_StartConvert();
+       ADC_SAR_IsEndConversion(ADC_SAR_WAIT_FOR_RESULT);
+       g_adcResult = ADC_SAR_GetResult16(ADC_IN_CHANNEL);
+       printf("%d",g_adcResult);
+     }while(g_config_cmd.flag==0);
+}
+
 
 void UartRX_Interrupt(void)
 {
@@ -76,7 +91,11 @@ void main()
     Opamp_SetPower(Opamp_HIGH_POWER);
     
     /*ADC init*/
+    ADC_SAR_Start();
     
+     //ADC_StartConvert();
+    //ADC_SAR_IsEndConversion(ADC_SAR_WAIT_FOR_RESULT);
+    //g_adcResult = ADC_SAR_GetResult16(ADC_IN_CHANNEL );
 
     for(;;)
     {
@@ -91,7 +110,7 @@ void main()
                 PWM_NIR1_Stop();
                 PWM_GREEN_Enable();
                 printf("GREEN led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
-                
+               
             }
             
             if(g_config_cmd.ledtype==LED_RED)  
@@ -102,6 +121,7 @@ void main()
                 PWM_IR_AND_RED_WriteCompare2(0);
                 PWM_IR_AND_RED_Enable();
                 printf("RED led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+ 
             }
             if(g_config_cmd.ledtype==LED_IR)  
             {
@@ -111,6 +131,7 @@ void main()
                 PWM_IR_AND_RED_WriteCompare1(0);
                 PWM_IR_AND_RED_Enable();
                 printf("IR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
+
             }
             if(g_config_cmd.ledtype==LED_NIR)
             {
@@ -120,12 +141,13 @@ void main()
                 PWM_IR_AND_RED_Stop();
                 PWM_NIR1_Enable();
                 printf("NIR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
-            }
-            
-            
-           
+  
+            }  
+            /*配置完成后，开始不断采集，直至g_config_cmd.flag==1*/
+            Data_Acquire_and_Print();
         }
-           //printf("please input led type and pwm duty: \r\n");
+        
+           
     }
 }
 

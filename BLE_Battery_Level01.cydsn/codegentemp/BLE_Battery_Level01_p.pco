@@ -28,7 +28,7 @@ set_location "\UART_DEB:SCB\" m0s8scbcell -1 -1 0
 set_location "\UART_DEB:SCB_IRQ\" interrupt -1 -1 9
 set_location "ClockBlock" m0s8clockblockcell -1 -1 0
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
-set_io "ADC_IN(0)" iocell 3 6
+set_io "ADC_IN(0)" iocell 3 0
 set_io "GA_SENSORN(0)" iocell 1 1
 set_io "GA_SENSORP(0)" iocell 1 0
 set_io "GA_SENSOR_OUT(0)" iocell 1 2
