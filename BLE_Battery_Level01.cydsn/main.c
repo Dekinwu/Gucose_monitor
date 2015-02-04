@@ -40,26 +40,22 @@ void Data_Acquire_and_Print(void)
 void UartRX_Interrupt(void)
 {
     
-    switch(g_config_cmd.sta)
+    switch(g_pconf_cmd->sta)
     {
         case HEADER1_STA:
-             if(UART_DEB_SpiUartReadRxData()==CMD_HEADER1) g_config_cmd.sta=HEADER2_STA;
+             if(UART_DEB_SpiUartReadRxData()==CMD_HEADER1) g_pconf_cmd->sta=HEADER2_STA;
              break;
         case HEADER2_STA:
-             if(UART_DEB_SpiUartReadRxData()==CMD_HEADER2) g_config_cmd.sta=LEDTYPE_STA;
+             if(UART_DEB_SpiUartReadRxData()==CMD_HEADER2) g_pconf_cmd->sta=DATAREV_STA;
              break;
-        case LEDTYPE_STA:
-             g_config_cmd.ledtype=UART_DEB_SpiUartReadRxData();
-             g_config_cmd.sta=PWMDUTY_STA;
-            break;
-        case PWMDUTY_STA:
-             g_config_cmd.pwm_duty=UART_DEB_SpiUartReadRxData();
-             g_config_cmd.sta=CRC_STA;
+        case DATAREV_STA:
+             *((char *)(g_pconf_cmd+g_pconf_cmd->datanum) )=UART_DEB_SpiUartReadRxData();
+             if(g_pconf_cmd->datanum++ == CMD_DATA_NUM) g_pconf_cmd->sta=CRC_STA; 
             break;
         case CRC_STA:
-             g_config_cmd.crc=UART_DEB_SpiUartReadRxData();
-             g_config_cmd.sta=HEADER1_STA;
-             g_config_cmd.flag=1;
+             g_pconf_cmd->crc=UART_DEB_SpiUartReadRxData();
+             g_pconf_cmd->sta=HEADER1_STA;
+             g_pconf_cmd->flag=1;
             break;
        default: break;
     }
@@ -68,10 +64,11 @@ void UartRX_Interrupt(void)
 
 void main()
 {
-  //  unsigned char i=0;
+    unsigned char i=0;
+    uint16 j;
     CyGlobalIntEnable;  
     
-    g_config_cmd.sta=HEADER1_STA;
+    g_pconf_cmd->sta=HEADER1_STA;
     
     /*config uart*/
     UART_DEB_Start(); 
@@ -100,55 +97,67 @@ void main()
     for(;;)
     {
          //  UART_DEB_UartPutChar(0x55);
-         if(g_config_cmd.flag==1)
+         if(g_pconf_cmd->flag==1)
         {
-             g_config_cmd.flag=0;
-            if(g_config_cmd.ledtype==LED_GREEN)  
+            g_config_cmd.flag=0;
+            i=0;
+            if(g_pconf_cmd->cmd==CMD_GREEN)  
             {
-                PWM_GREEN_WriteCompare((uint8)((g_config_cmd.pwm_duty<<8)/100));
-                PWM_IR_AND_RED_Stop();//  _Enable();
-                PWM_NIR1_Stop();
-                PWM_GREEN_Enable();
-                printf("GREEN led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
-               
+                 PWM_IR_AND_RED_Stop();// 
+                 PWM_NIR1_Stop();
+                 while((g_pconf_cmd->pwm[i]!=0) && (i<8))
+                  {
+                    PWM_GREEN_WriteCompare((uint8)((g_pconf_cmd->pwm[i]<<8)/100));
+                    PWM_GREEN_Enable();
+                    printf("GREEN led pwm duty is: %d \r\n",(uint8)((g_pconf_cmd->pwm[i]<<8)/100));
+                    j=(g_pconf_cmd->acqnum_h<<8) + g_pconf_cmd->acqnum_l;
+                    while(j--)  Data_Acquire_and_Print();
+                    i++;
+                  }
             }
             
-            if(g_config_cmd.ledtype==LED_RED)  
+            if(g_pconf_cmd->cmd==CMD_REDANDIR)  
             {
-                PWM_IR_AND_RED_WriteCompare1((uint8)((g_config_cmd.pwm_duty<<8)/100));
                 PWM_GREEN_Stop();//  
                 PWM_NIR1_Stop();
-                PWM_IR_AND_RED_WriteCompare2(0);
-                PWM_IR_AND_RED_Enable();
-                printf("RED led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
- 
+                while((g_pconf_cmd->pwm[i]!=0) && (i<8))
+                {
+                    PWM_IR_AND_RED_WriteCompare1((uint8)((g_pconf_cmd->pwm[i]<<8)/100));  //RED LED PWM set
+                    PWM_IR_AND_RED_WriteCompare2(0);
+                    PWM_IR_AND_RED_Enable();
+                    printf("RED led pwm duty is: %d \r\n",(uint8)g_pconf_cmd->pwm[i]);
+                    j=(g_pconf_cmd->acqnum_h<<8) + g_pconf_cmd->acqnum_l;
+                    while(j--)  Data_Acquire_and_Print();
+                    PWM_IR_AND_RED_WriteCompare2((uint8)((g_pconf_cmd->pwm[i]<<8)/100)); //IR LED
+                    PWM_IR_AND_RED_WriteCompare1(0);
+                    PWM_IR_AND_RED_Enable();
+                    printf("IR led pwm duty is: %d \r\n",(uint8)g_pconf_cmd->pwm[i]);
+                    j=(g_pconf_cmd->acqnum_h<<8) + g_pconf_cmd->acqnum_l;
+                    while(j--)  Data_Acquire_and_Print();
+                    i++;
+               }
             }
-            if(g_config_cmd.ledtype==LED_IR)  
+            if(g_pconf_cmd->cmd==CMD_NIR)
             {
-                PWM_IR_AND_RED_WriteCompare2((uint8)((g_config_cmd.pwm_duty<<8)/100));
-                PWM_GREEN_Stop();//  
-                PWM_NIR1_Stop();
-                PWM_IR_AND_RED_WriteCompare1(0);
-                PWM_IR_AND_RED_Enable();
-                printf("IR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
-
-            }
-            if(g_config_cmd.ledtype==LED_NIR)
-            {
-                PWM_NIR1_WriteCompare2((uint8)((g_config_cmd.pwm_duty<<8)/100));  //two NIR LED driving with same pwm duty
-                PWM_NIR1_WriteCompare1((uint8)((g_config_cmd.pwm_duty<<8)/100));
                 PWM_GREEN_Stop();//  
                 PWM_IR_AND_RED_Stop();
-                PWM_NIR1_Enable();
-                printf("NIR led pwm duty is: %d \r\n",(uint8)g_config_cmd.pwm_duty);
-  
-            }  
-            /*配置完成后，开始不断采集，直至g_config_cmd.flag==1*/
-            Data_Acquire_and_Print();
-        }
+                while((g_pconf_cmd->pwm[i]!=0) && (i<8))
+                {
+                    PWM_NIR1_WriteCompare2((uint8)((g_pconf_cmd->pwm[i]<<8)/100));  //two NIR LED driving with same pwm duty
+                    PWM_NIR1_WriteCompare1((uint8)((g_pconf_cmd->pwm[i]<<8)/100));
+                 
+                    PWM_NIR1_Enable();
+                    printf("NIR led pwm duty is: %d \r\n",(uint8)g_pconf_cmd->pwm[i]);
+                    j=(g_pconf_cmd->acqnum_h<<8) + g_pconf_cmd->acqnum_l;
+                    while(j--)  Data_Acquire_and_Print();
+                    i++;
+                }  
+            /*LED kaiguan配置完成后，开始不断采集，直至g_config_cmd.flag==1*/
+            //Data_Acquire_and_Print();
+          }
         
-           
-    }
+        }    
+     }
 }
 
 
