@@ -170,29 +170,6 @@
 <v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\ADC_SAR_IRQ\ADC_SAR_IRQ.h</v>
 <v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\Clock_1</v>
 <v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\cy_boot</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSOR_OUT</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSORN</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSORP</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSORP\GA_SENSORP.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSORP\GA_SENSORP.h</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GA_SENSORP\GA_SENSORP_aliases.h</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\GREEN_DRIVE</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\IR_DRIVE</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\NIR_DRIVE1</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\NIR_DRIVE2</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\Opamp</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\Opamp\Opamp.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\Opamp\Opamp.h</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\Opamp\Opamp_PM.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_GREEN</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_IR_AND_RED</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_IR_AND_RED\PWM_IR_AND_RED.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_IR_AND_RED\PWM_IR_AND_RED.h</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_IR_AND_RED\PWM_IR_AND_RED_PM.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\PWM_NIR1</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\RED_DRIVE</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\RED_DRIVE\RED_DRIVE.c</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\Generated_Source\PSoC4\RED_DRIVE\RED_DRIVE.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -293,29 +270,6 @@
 <v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\GA_SENSOR_OUT.lst</v>
 <v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\GA_SENSORN.lst</v>
 <v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\GA_SENSORP.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\GREEN_DRIVE.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\IR_DRIVE.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\main.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\NIR_DRIVE1.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\NIR_DRIVE2.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\Opamp.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\Opamp_PM.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_GREEN.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_GREEN_PM.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_IR_AND_RED.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_IR_AND_RED_PM.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_NIR1.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\PWM_NIR1_PM.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\RED_DRIVE.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_BOOT.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_PM.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_rx.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_SCB_IRQ.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_SCBCLK.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_SPI_UART.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_SPI_UART_INT.lst</v>
-<v>BLE_Battery_Level01\BLE_Battery_Level01\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_DEB_tx.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
