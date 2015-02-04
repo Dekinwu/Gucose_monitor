@@ -1,5 +1,5 @@
 -- Project:   BLE_Battery_Level01
--- Generated: 01/29/2015 12:59:19
+-- Generated: 02/04/2015 14:27:31
 -- PSoC Creator  3.1
 
 ENTITY BLE_Battery_Level01 IS

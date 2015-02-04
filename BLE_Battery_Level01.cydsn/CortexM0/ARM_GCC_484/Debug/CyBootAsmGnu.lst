@@ -3491,13 +3491,13 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   26              	.set ADC_IN__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
   27              	.set ADC_IN__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
   28              	.set ADC_IN__0__HSIOM, CYREG_HSIOM_PORT_SEL3
-  29              	.set ADC_IN__0__HSIOM_MASK, 0x0F000000
-  30              	.set ADC_IN__0__HSIOM_SHIFT, 24
+  29              	.set ADC_IN__0__HSIOM_MASK, 0x0000000F
+  30              	.set ADC_IN__0__HSIOM_SHIFT, 0
   31              	.set ADC_IN__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
   32              	.set ADC_IN__0__INTR, CYREG_GPIO_PRT3_INTR
   33              	.set ADC_IN__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
   34              	.set ADC_IN__0__INTSTAT, CYREG_GPIO_PRT3_INTR
-  35              	.set ADC_IN__0__MASK, 0x40
+  35              	.set ADC_IN__0__MASK, 0x01
   36              	.set ADC_IN__0__PA__CFG0, CYREG_UDB_PA3_CFG0
   37              	.set ADC_IN__0__PA__CFG1, CYREG_UDB_PA3_CFG1
   38              	.set ADC_IN__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -3517,7 +3517,7 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   52              	.set ADC_IN__0__PC2, CYREG_GPIO_PRT3_PC2
   53              	.set ADC_IN__0__PORT, 3
   54              	.set ADC_IN__0__PS, CYREG_GPIO_PRT3_PS
-  55              	.set ADC_IN__0__SHIFT, 6
+  55              	.set ADC_IN__0__SHIFT, 0
   56              	.set ADC_IN__DR, CYREG_GPIO_PRT3_DR
   57              	.set ADC_IN__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
   58              	.set ADC_IN__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -3526,7 +3526,7 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   61              	.set ADC_IN__INTR, CYREG_GPIO_PRT3_INTR
   62              	.set ADC_IN__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
   63              	.set ADC_IN__INTSTAT, CYREG_GPIO_PRT3_INTR
-  64              	.set ADC_IN__MASK, 0x40
+  64              	.set ADC_IN__MASK, 0x01
   65              	.set ADC_IN__PA__CFG0, CYREG_UDB_PA3_CFG0
   66              	.set ADC_IN__PA__CFG1, CYREG_UDB_PA3_CFG1
   67              	.set ADC_IN__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -3549,7 +3549,7 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   81              	.set ADC_IN__PC2, CYREG_GPIO_PRT3_PC2
   82              	.set ADC_IN__PORT, 3
   83              	.set ADC_IN__PS, CYREG_GPIO_PRT3_PS
-  84              	.set ADC_IN__SHIFT, 6
+  84              	.set ADC_IN__SHIFT, 0
   85              	
   86              	/* ADC_SAR_cy_psoc4_sar */
   87              	.set ADC_SAR_cy_psoc4_sar__SAR_CTRL, CYREG_SAR_CTRL

@@ -21,7 +21,7 @@
 #define CMD_GREEN  0X01
 #define CMD_REDANDIR 0X02
 #define CMD_NIR 0X03 
-#define CMD_ALL 0X11
+#define CMD_ALL 0X04
     
 #define CMD_LEN  14
 #define CMD_DATA_NUM 14-2-1
@@ -57,6 +57,7 @@ typedef struct
        uint8 flag;
     }config_cmd,*pconfig_cmd;
     
+const uint8* Ledtype[]={"0","green led","red and ir led","nir led","all"};    
 config_cmd g_config_cmd;
 pconfig_cmd g_pconf_cmd=&g_config_cmd;    
 
